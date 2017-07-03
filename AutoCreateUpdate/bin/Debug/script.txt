@@ -1,0 +1,23 @@
+;The comment below contains SFX script commands
+Path=C:\Program Files\Taxoffice
+Overwrite=1
+SU8.7
+Text
+{
+2016SU8.7
+02-May-2017 16:02:01
+<b>SU8.7</b>
+<br />
+1) Fixed Form B,BE PDF  <br />
+2) Fixed CA bug SQL<br />
+3) Fixed Array out of bound Form P Priodic Processing <br />
+4) Add Form M <br />
+<br />
+<br />
+<br />
+<b>V27.5</b>
+<br />
+1) Fixed Form B,BE IEToolbar F00445 BC_Type </br>
+2) Fixed Form B IEToolbar F00445 Socso </br>
+3) Add Form M </br>
+}

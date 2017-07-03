@@ -1,0 +1,193 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <metadata name="ContextMenuStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <data name="txtEmailTemplate.Text" xml:space="preserve">
+    <value>&lt;html&gt;
+&lt;title&gt;YGL Multimedia Resources Sdn. Bhd.&lt;/title&gt;
+&lt;body&gt;
+&lt;div style="width:100%;height:50px;background-color:#212121;"&gt;
+	&lt;h1 style="color:#ffffff;margin:10px;"&gt;Update Taxcom Enterprise SU8.4&lt;/h1&gt;	
+&lt;/div&gt;
+&lt;div style="width:100%;background-color:#ffffff;"&gt;
+&lt;br /&gt;
+&lt;b style="background-color:red;color:#ffffff;"&gt;Please do not reply to this email. This email is auto generate system.&lt;/b&gt;
+&lt;br /&gt;
+&lt;br /&gt;
+&lt;b&gt;Dear Valued Customer,&lt;/b&gt;
+	&lt;br /&gt;
+	&lt;p&gt;Please click the following link to download Taxcom Office 2016 SU8&lt;/p&gt;
+	&lt;p&gt;
+		&lt;b&gt;Windows XP / Window Server 2003 / Windows Vista / Windows 7 (32-bit)&lt;/b&gt;
+		&lt;br /&gt;
+		&lt;a href="http://taxcom.yglmmr.com/Taxcom2016/TaxcomOffice2016/ES/Taxcom2016SU8.1.exe" style="padding:5px"&gt;Taxcom Office 2016 SU8.4 – Full Package (Enterprise Edition) (32-bit)&lt;/a&gt;
+		&lt;br /&gt;
+		&lt;br /&gt;
+		&lt;b&gt;Windows XP / Window Server 2003 / Windows Vista / Windows 7 (64-bit)&lt;/b&gt;
+		&lt;br /&gt;
+		&lt;a href="http://taxcom.yglmmr.com/Taxcom2016/TaxcomOffice2016/ES/Taxcom2016SU8.1_x64.exe" style="padding:5px"&gt;Taxcom Office 2016 SU8.4 – Full Package (Enterprise Edition) (64-bit)&lt;/a&gt;
+	&lt;/p&gt;	
+	&lt;p&gt;&lt;b&gt;How to Determine the system type (32-bit/64-bit)&lt;/b&gt; &lt;br /&gt;Please refer the following website to determine the operating system bit count: Microsoft Support: &lt;a href="http://support.microsoft.com/kb/827218"&gt;http://support.microsoft.com/kb/827218&lt;/a&gt;&lt;/p&gt;
+	&lt;p&gt;
+	&lt;b&gt;IMPORTANT REMINDER:&lt;/b&gt;
+	&lt;br /&gt;
+	&lt;ul&gt;
+	&lt;li&gt;Please make sure you have installed Taxcom Office 2012 before update to Taxcom Office 2016 SU8.1&lt;/li&gt;
+	&lt;li&gt;Please backup the databases (mdb files in Taxoffice Data) before performing the install/update/remove process.&lt;/li&gt;
+	&lt;li&gt;Please make sure all computers installed with Taxcom Office are not in use/open during the update.&lt;/li&gt;
+	&lt;/ul&gt;
+	&lt;/p&gt;
+	&lt;p&gt;
+	&lt;b&gt;Installation guide for Taxcom Office 2016 SU8.4:&lt;/b&gt;
+	&lt;br /&gt;
+	&lt;ul&gt;
+	&lt;li&gt;1. Double click the file (Taxcom2016SU8.1.exe).&lt;/li&gt;
+	&lt;li&gt;2. Press the "Install / Extract" button to run the update.&lt;/li&gt;
+	&lt;/ul&gt;
+	&lt;/p&gt;
+&lt;/div&gt;
+&lt;div style="background-color:#212121;padding:15px;color:white;"&gt;
+    &lt;b&gt;Best Regards,&lt;/b&gt;
+	&lt;br /&gt;
+	&lt;b&gt;YGL Multimedia Resources Sdn. Bhd.&lt;/b&gt;
+	&lt;br /&gt;
+	&lt;img src="http://support.yglmmr.com/logo.php" style="width:200px" /&gt;
+	&lt;br /&gt;
+	&lt;p&gt;
+		&lt;i&gt;Tel : 04-6303377 / 04-6303379&lt;/i&gt;
+		&lt;br /&gt;
+		&lt;i&gt;Website : www.yglworld.com&lt;/i&gt;
+		&lt;br /&gt;
+		&lt;h3 style="color:green"&gt;Please consider your environmental responsibility. Before printing this e-mail message, ask yourself whether you really need a hard copy.&lt;/h3&gt;
+&lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;</value>
+  </data>
+  <metadata name="FolderBrowserDialog1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>206, 17</value>
+  </metadata>
+  <metadata name="ContextMenuStrip2.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>412, 17</value>
+  </metadata>
+  <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>75</value>
+  </metadata>
+</root>

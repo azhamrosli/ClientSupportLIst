@@ -1,0 +1,123 @@
+D:\Share Folder\Visual Studio .NET\AutoCreateUpdate\AutoCreateUpdate\bin\Debug\AutoCreateUpdate.exe
+D:\Share Folder\Visual Studio .NET\AutoCreateUpdate\AutoCreateUpdate\bin\Debug\System.Data.SQLite.dll
+Z:\Visual Studio .NET\AutoCreateUpdate\AutoCreateUpdate\bin\Debug\AutoCreateUpdate.exe.config
+Z:\Visual Studio .NET\AutoCreateUpdate\AutoCreateUpdate\obj\Debug\AutoCreateUpdate.exe
+Z:\Visual Studio .NET\AutoCreateUpdate\AutoCreateUpdate\obj\Debug\AutoCreateUpdate.xml
+Z:\Visual Studio .NET\AutoCreateUpdate\AutoCreateUpdate\obj\Debug\AutoCreateUpdate.pdb
+D:\Share Folder\Visual Studio .NET\AutoCreateUpdate\AutoCreateUpdate\bin\Debug\WinSCP.exe
+D:\Share Folder\Visual Studio .NET\AutoCreateUpdate\AutoCreateUpdate\bin\Debug\AutoCreateUpdate.exe.config
+D:\Share Folder\Visual Studio .NET\AutoCreateUpdate\AutoCreateUpdate\bin\Debug\AutoCreateUpdate.pdb
+D:\Share Folder\Visual Studio .NET\AutoCreateUpdate\AutoCreateUpdate\bin\Debug\AutoCreateUpdate.xml
+D:\Share Folder\Visual Studio .NET\AutoCreateUpdate\AutoCreateUpdate\bin\Debug\EntityFramework.dll
+D:\Share Folder\Visual Studio .NET\AutoCreateUpdate\AutoCreateUpdate\bin\Debug\EntityFramework.SqlServer.dll
+D:\Share Folder\Visual Studio .NET\AutoCreateUpdate\AutoCreateUpdate\bin\Debug\System.Data.SQLite.EF6.dll
+D:\Share Folder\Visual Studio .NET\AutoCreateUpdate\AutoCreateUpdate\bin\Debug\System.Data.SQLite.Linq.dll
+D:\Share Folder\Visual Studio .NET\AutoCreateUpdate\AutoCreateUpdate\bin\Debug\WinSCPnet.dll
+D:\Share Folder\Visual Studio .NET\AutoCreateUpdate\AutoCreateUpdate\bin\Debug\EntityFramework.xml
+D:\Share Folder\Visual Studio .NET\AutoCreateUpdate\AutoCreateUpdate\bin\Debug\EntityFramework.SqlServer.xml
+D:\Share Folder\Visual Studio .NET\AutoCreateUpdate\AutoCreateUpdate\bin\Debug\System.Data.SQLite.xml
+D:\Share Folder\Visual Studio .NET\AutoCreateUpdate\AutoCreateUpdate\obj\Debug\AutoCreateUpdate.frmClient.resources
+D:\Share Folder\Visual Studio .NET\AutoCreateUpdate\AutoCreateUpdate\obj\Debug\AutoCreateUpdate.frmClient_Add.resources
+D:\Share Folder\Visual Studio .NET\AutoCreateUpdate\AutoCreateUpdate\obj\Debug\AutoCreateUpdate.frmClient_Import.resources
+D:\Share Folder\Visual Studio .NET\AutoCreateUpdate\AutoCreateUpdate\obj\Debug\AutoCreateUpdate.frmClient_User.resources
+D:\Share Folder\Visual Studio .NET\AutoCreateUpdate\AutoCreateUpdate\obj\Debug\AutoCreateUpdate.frmCreatePackage.resources
+D:\Share Folder\Visual Studio .NET\AutoCreateUpdate\AutoCreateUpdate\obj\Debug\AutoCreateUpdate.frmEmail.resources
+D:\Share Folder\Visual Studio .NET\AutoCreateUpdate\AutoCreateUpdate\obj\Debug\AutoCreateUpdate.frmListOfEmail.resources
+D:\Share Folder\Visual Studio .NET\AutoCreateUpdate\AutoCreateUpdate\obj\Debug\AutoCreateUpdate.frmSupport_Add.resources
+D:\Share Folder\Visual Studio .NET\AutoCreateUpdate\AutoCreateUpdate\obj\Debug\AutoCreateUpdate.Resources.resources
+D:\Share Folder\Visual Studio .NET\AutoCreateUpdate\AutoCreateUpdate\obj\Debug\AutoCreateUpdate.vbproj.GenerateResource.Cache
+D:\Share Folder\Visual Studio .NET\AutoCreateUpdate\AutoCreateUpdate\obj\Debug\AutoCreateUpdate.exe
+D:\Share Folder\Visual Studio .NET\AutoCreateUpdate\AutoCreateUpdate\obj\Debug\AutoCreateUpdate.xml
+D:\Share Folder\Visual Studio .NET\AutoCreateUpdate\AutoCreateUpdate\obj\Debug\AutoCreateUpdate.pdb
+D:\Share Folder\Visual Studio .NET\AutoCreateUpdate\AutoCreateUpdate\obj\Debug\AutoCreateUpdate.frmCalender.resources
+D:\Share Folder\Visual Studio .NET\AutoCreateUpdate\AutoCreateUpdate\bin\Debug\Interop.WMPLib.dll
+D:\Share Folder\Visual Studio .NET\AutoCreateUpdate\AutoCreateUpdate\bin\Debug\AxInterop.WMPLib.dll
+D:\Share Folder\Visual Studio .NET\AutoCreateUpdate\AutoCreateUpdate\obj\Debug\Interop.WMPLib.dll
+D:\Share Folder\Visual Studio .NET\AutoCreateUpdate\AutoCreateUpdate\obj\Debug\AxInterop.WMPLib.dll
+D:\Share Folder\Visual Studio .NET\AutoCreateUpdate\AutoCreateUpdate\obj\Debug\AutoCreateUpdate.vbproj.ResolveComReference.cache
+D:\Share Folder\Visual Studio .NET\AutoCreateUpdate\AutoCreateUpdate\obj\Debug\AutoCreateUpdate.frmPictureView.resources
+D:\Share Folder\Visual Studio .NET\AutoCreateUpdate\AutoCreateUpdate\obj\Debug\AutoCreateUpdate.vbprojResolveAssemblyReference.cache
+D:\Share Folder\Visual Studio .NET\AutoCreateUpdate - Copy\AutoCreateUpdate\bin\Debug\AutoCreateUpdate.exe.config
+D:\Share Folder\Visual Studio .NET\AutoCreateUpdate - Copy\AutoCreateUpdate\obj\Debug\Interop.WMPLib.dll
+D:\Share Folder\Visual Studio .NET\AutoCreateUpdate - Copy\AutoCreateUpdate\obj\Debug\AxInterop.WMPLib.dll
+D:\Share Folder\Visual Studio .NET\AutoCreateUpdate - Copy\AutoCreateUpdate\obj\Debug\AutoCreateUpdate.vbproj.ResolveComReference.cache
+D:\Share Folder\Visual Studio .NET\AutoCreateUpdate - Copy\AutoCreateUpdate\obj\Debug\AutoCreateUpdate.exe
+D:\Share Folder\Visual Studio .NET\AutoCreateUpdate - Copy\AutoCreateUpdate\obj\Debug\AutoCreateUpdate.xml
+D:\Share Folder\Visual Studio .NET\AutoCreateUpdate - Copy\AutoCreateUpdate\obj\Debug\AutoCreateUpdate.pdb
+D:\Share Folder\Visual Studio .NET\AutoCreateUpdate - Copy\AutoCreateUpdate\bin\Debug\WinSCP.exe
+D:\Share Folder\Visual Studio .NET\AutoCreateUpdate - Copy\AutoCreateUpdate\bin\Debug\AutoCreateUpdate.exe
+D:\Share Folder\Visual Studio .NET\AutoCreateUpdate - Copy\AutoCreateUpdate\bin\Debug\AutoCreateUpdate.pdb
+D:\Share Folder\Visual Studio .NET\AutoCreateUpdate - Copy\AutoCreateUpdate\bin\Debug\AutoCreateUpdate.xml
+D:\Share Folder\Visual Studio .NET\AutoCreateUpdate - Copy\AutoCreateUpdate\bin\Debug\EntityFramework.dll
+D:\Share Folder\Visual Studio .NET\AutoCreateUpdate - Copy\AutoCreateUpdate\bin\Debug\EntityFramework.SqlServer.dll
+D:\Share Folder\Visual Studio .NET\AutoCreateUpdate - Copy\AutoCreateUpdate\bin\Debug\Microsoft.AspNet.SignalR.Client.dll
+D:\Share Folder\Visual Studio .NET\AutoCreateUpdate - Copy\AutoCreateUpdate\bin\Debug\Newtonsoft.Json.dll
+D:\Share Folder\Visual Studio .NET\AutoCreateUpdate - Copy\AutoCreateUpdate\bin\Debug\System.Data.SQLite.dll
+D:\Share Folder\Visual Studio .NET\AutoCreateUpdate - Copy\AutoCreateUpdate\bin\Debug\System.Data.SQLite.EF6.dll
+D:\Share Folder\Visual Studio .NET\AutoCreateUpdate - Copy\AutoCreateUpdate\bin\Debug\System.Data.SQLite.Linq.dll
+D:\Share Folder\Visual Studio .NET\AutoCreateUpdate - Copy\AutoCreateUpdate\bin\Debug\WinSCPnet.dll
+D:\Share Folder\Visual Studio .NET\AutoCreateUpdate - Copy\AutoCreateUpdate\bin\Debug\EntityFramework.xml
+D:\Share Folder\Visual Studio .NET\AutoCreateUpdate - Copy\AutoCreateUpdate\bin\Debug\EntityFramework.SqlServer.xml
+D:\Share Folder\Visual Studio .NET\AutoCreateUpdate - Copy\AutoCreateUpdate\bin\Debug\Microsoft.AspNet.SignalR.Client.xml
+D:\Share Folder\Visual Studio .NET\AutoCreateUpdate - Copy\AutoCreateUpdate\bin\Debug\Newtonsoft.Json.xml
+D:\Share Folder\Visual Studio .NET\AutoCreateUpdate - Copy\AutoCreateUpdate\bin\Debug\System.Data.SQLite.xml
+D:\Share Folder\Visual Studio .NET\AutoCreateUpdate - Copy\AutoCreateUpdate\bin\Debug\Interop.WMPLib.dll
+D:\Share Folder\Visual Studio .NET\AutoCreateUpdate - Copy\AutoCreateUpdate\bin\Debug\AxInterop.WMPLib.dll
+D:\Share Folder\Visual Studio .NET\AutoCreateUpdate - Copy\AutoCreateUpdate\obj\Debug\AutoCreateUpdate.vbprojResolveAssemblyReference.cache
+D:\Share Folder\Visual Studio .NET\AutoCreateUpdate - Copy\AutoCreateUpdate\obj\Debug\AutoCreateUpdate.frmCalender.resources
+D:\Share Folder\Visual Studio .NET\AutoCreateUpdate - Copy\AutoCreateUpdate\obj\Debug\AutoCreateUpdate.frmClient.resources
+D:\Share Folder\Visual Studio .NET\AutoCreateUpdate - Copy\AutoCreateUpdate\obj\Debug\AutoCreateUpdate.frmClient_Add.resources
+D:\Share Folder\Visual Studio .NET\AutoCreateUpdate - Copy\AutoCreateUpdate\obj\Debug\AutoCreateUpdate.frmClient_Import.resources
+D:\Share Folder\Visual Studio .NET\AutoCreateUpdate - Copy\AutoCreateUpdate\obj\Debug\AutoCreateUpdate.frmClient_User.resources
+D:\Share Folder\Visual Studio .NET\AutoCreateUpdate - Copy\AutoCreateUpdate\obj\Debug\AutoCreateUpdate.frmCreatePackage.resources
+D:\Share Folder\Visual Studio .NET\AutoCreateUpdate - Copy\AutoCreateUpdate\obj\Debug\AutoCreateUpdate.frmEmail.resources
+D:\Share Folder\Visual Studio .NET\AutoCreateUpdate - Copy\AutoCreateUpdate\obj\Debug\AutoCreateUpdate.frmListOfEmail.resources
+D:\Share Folder\Visual Studio .NET\AutoCreateUpdate - Copy\AutoCreateUpdate\obj\Debug\AutoCreateUpdate.frmPictureView.resources
+D:\Share Folder\Visual Studio .NET\AutoCreateUpdate - Copy\AutoCreateUpdate\obj\Debug\AutoCreateUpdate.frmSupport_Add.resources
+D:\Share Folder\Visual Studio .NET\AutoCreateUpdate - Copy\AutoCreateUpdate\obj\Debug\AutoCreateUpdate.Resources.resources
+D:\Share Folder\Visual Studio .NET\AutoCreateUpdate - Copy\AutoCreateUpdate\obj\Debug\AutoCreateUpdate.vbproj.GenerateResource.Cache
+D:\Share Folder\Visual Studio .NET\AutoCreateUpdate - Copy\AutoCreateUpdate\obj\Debug\AutoCreateUpdate.frmSignalR.resources
+D:\Share Folder\Visual Studio .NET\AutoCreateUpdate - Copy\AutoCreateUpdate\obj\Debug\AutoCreateUpdate.frmNotification.resources
+D:\Share Folder\Visual Studio .NET\AutoCreateUpdate - SignalR\AutoCreateUpdate\bin\Debug\WinSCP.exe
+D:\Share Folder\Visual Studio .NET\AutoCreateUpdate - SignalR\AutoCreateUpdate\bin\Debug\AutoCreateUpdate.exe.config
+D:\Share Folder\Visual Studio .NET\AutoCreateUpdate - SignalR\AutoCreateUpdate\bin\Debug\AutoCreateUpdate.exe
+D:\Share Folder\Visual Studio .NET\AutoCreateUpdate - SignalR\AutoCreateUpdate\bin\Debug\AutoCreateUpdate.pdb
+D:\Share Folder\Visual Studio .NET\AutoCreateUpdate - SignalR\AutoCreateUpdate\bin\Debug\AutoCreateUpdate.xml
+D:\Share Folder\Visual Studio .NET\AutoCreateUpdate - SignalR\AutoCreateUpdate\bin\Debug\EntityFramework.dll
+D:\Share Folder\Visual Studio .NET\AutoCreateUpdate - SignalR\AutoCreateUpdate\bin\Debug\EntityFramework.SqlServer.dll
+D:\Share Folder\Visual Studio .NET\AutoCreateUpdate - SignalR\AutoCreateUpdate\bin\Debug\Microsoft.AspNet.SignalR.Client.dll
+D:\Share Folder\Visual Studio .NET\AutoCreateUpdate - SignalR\AutoCreateUpdate\bin\Debug\Newtonsoft.Json.dll
+D:\Share Folder\Visual Studio .NET\AutoCreateUpdate - SignalR\AutoCreateUpdate\bin\Debug\System.Data.SQLite.dll
+D:\Share Folder\Visual Studio .NET\AutoCreateUpdate - SignalR\AutoCreateUpdate\bin\Debug\System.Data.SQLite.EF6.dll
+D:\Share Folder\Visual Studio .NET\AutoCreateUpdate - SignalR\AutoCreateUpdate\bin\Debug\System.Data.SQLite.Linq.dll
+D:\Share Folder\Visual Studio .NET\AutoCreateUpdate - SignalR\AutoCreateUpdate\bin\Debug\WinSCPnet.dll
+D:\Share Folder\Visual Studio .NET\AutoCreateUpdate - SignalR\AutoCreateUpdate\bin\Debug\EntityFramework.xml
+D:\Share Folder\Visual Studio .NET\AutoCreateUpdate - SignalR\AutoCreateUpdate\bin\Debug\EntityFramework.SqlServer.xml
+D:\Share Folder\Visual Studio .NET\AutoCreateUpdate - SignalR\AutoCreateUpdate\bin\Debug\Microsoft.AspNet.SignalR.Client.xml
+D:\Share Folder\Visual Studio .NET\AutoCreateUpdate - SignalR\AutoCreateUpdate\bin\Debug\Newtonsoft.Json.xml
+D:\Share Folder\Visual Studio .NET\AutoCreateUpdate - SignalR\AutoCreateUpdate\bin\Debug\System.Data.SQLite.xml
+D:\Share Folder\Visual Studio .NET\AutoCreateUpdate - SignalR\AutoCreateUpdate\bin\Debug\Interop.WMPLib.dll
+D:\Share Folder\Visual Studio .NET\AutoCreateUpdate - SignalR\AutoCreateUpdate\bin\Debug\AxInterop.WMPLib.dll
+D:\Share Folder\Visual Studio .NET\AutoCreateUpdate - SignalR\AutoCreateUpdate\obj\Debug\Interop.WMPLib.dll
+D:\Share Folder\Visual Studio .NET\AutoCreateUpdate - SignalR\AutoCreateUpdate\obj\Debug\AxInterop.WMPLib.dll
+D:\Share Folder\Visual Studio .NET\AutoCreateUpdate - SignalR\AutoCreateUpdate\obj\Debug\AutoCreateUpdate.vbproj.ResolveComReference.cache
+D:\Share Folder\Visual Studio .NET\AutoCreateUpdate - SignalR\AutoCreateUpdate\obj\Debug\AutoCreateUpdate.frmCalender.resources
+D:\Share Folder\Visual Studio .NET\AutoCreateUpdate - SignalR\AutoCreateUpdate\obj\Debug\AutoCreateUpdate.frmClient.resources
+D:\Share Folder\Visual Studio .NET\AutoCreateUpdate - SignalR\AutoCreateUpdate\obj\Debug\AutoCreateUpdate.frmClient_Add.resources
+D:\Share Folder\Visual Studio .NET\AutoCreateUpdate - SignalR\AutoCreateUpdate\obj\Debug\AutoCreateUpdate.frmClient_Import.resources
+D:\Share Folder\Visual Studio .NET\AutoCreateUpdate - SignalR\AutoCreateUpdate\obj\Debug\AutoCreateUpdate.frmClient_User.resources
+D:\Share Folder\Visual Studio .NET\AutoCreateUpdate - SignalR\AutoCreateUpdate\obj\Debug\AutoCreateUpdate.frmCreatePackage.resources
+D:\Share Folder\Visual Studio .NET\AutoCreateUpdate - SignalR\AutoCreateUpdate\obj\Debug\AutoCreateUpdate.frmEmail.resources
+D:\Share Folder\Visual Studio .NET\AutoCreateUpdate - SignalR\AutoCreateUpdate\obj\Debug\AutoCreateUpdate.frmListOfEmail.resources
+D:\Share Folder\Visual Studio .NET\AutoCreateUpdate - SignalR\AutoCreateUpdate\obj\Debug\AutoCreateUpdate.frmNotification.resources
+D:\Share Folder\Visual Studio .NET\AutoCreateUpdate - SignalR\AutoCreateUpdate\obj\Debug\AutoCreateUpdate.frmPictureView.resources
+D:\Share Folder\Visual Studio .NET\AutoCreateUpdate - SignalR\AutoCreateUpdate\obj\Debug\AutoCreateUpdate.frmReport.resources
+D:\Share Folder\Visual Studio .NET\AutoCreateUpdate - SignalR\AutoCreateUpdate\obj\Debug\AutoCreateUpdate.frmSignalR.resources
+D:\Share Folder\Visual Studio .NET\AutoCreateUpdate - SignalR\AutoCreateUpdate\obj\Debug\AutoCreateUpdate.frmSupport_Add.resources
+D:\Share Folder\Visual Studio .NET\AutoCreateUpdate - SignalR\AutoCreateUpdate\obj\Debug\AutoCreateUpdate.Resources.resources
+D:\Share Folder\Visual Studio .NET\AutoCreateUpdate - SignalR\AutoCreateUpdate\obj\Debug\AutoCreateUpdate.vbproj.GenerateResource.Cache
+D:\Share Folder\Visual Studio .NET\AutoCreateUpdate - SignalR\AutoCreateUpdate\obj\Debug\RdlCompile.cache
+D:\Share Folder\Visual Studio .NET\AutoCreateUpdate - SignalR\AutoCreateUpdate\obj\Debug\RdlCompile.compiled
+D:\Share Folder\Visual Studio .NET\AutoCreateUpdate - SignalR\AutoCreateUpdate\obj\Debug\AutoCreateUpdate.exe
+D:\Share Folder\Visual Studio .NET\AutoCreateUpdate - SignalR\AutoCreateUpdate\obj\Debug\AutoCreateUpdate.xml
+D:\Share Folder\Visual Studio .NET\AutoCreateUpdate - SignalR\AutoCreateUpdate\obj\Debug\AutoCreateUpdate.pdb

@@ -1,0 +1,8 @@
+D:\Share Folder\SU8\File\SQL\SystemSecurity.exe
+D:\Share Folder\SU8\File\SQL\TaxO.ini
+D:\Share Folder\SU8\File\SQL\TaxOff.ini
+D:\Share Folder\SU8\File\SQL\TaxOffice.exe
+D:\Share Folder\SU8\File\SQL\UserId.ini
+D:\Share Folder\SU8\File\SQL\TAXcom DLL
+D:\Share Folder\SU8\File\SQL\Taxoffice Revenue+
+D:\Share Folder\SU8\File\SQL\Taxoffice Taxcom B+
