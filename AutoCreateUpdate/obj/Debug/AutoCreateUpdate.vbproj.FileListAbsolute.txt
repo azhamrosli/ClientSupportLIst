@@ -121,3 +121,10 @@ D:\Share Folder\Visual Studio .NET\AutoCreateUpdate - SignalR\AutoCreateUpdate\o
 D:\Share Folder\Visual Studio .NET\AutoCreateUpdate - SignalR\AutoCreateUpdate\obj\Debug\AutoCreateUpdate.exe
 D:\Share Folder\Visual Studio .NET\AutoCreateUpdate - SignalR\AutoCreateUpdate\obj\Debug\AutoCreateUpdate.xml
 D:\Share Folder\Visual Studio .NET\AutoCreateUpdate - SignalR\AutoCreateUpdate\obj\Debug\AutoCreateUpdate.pdb
+C:\Users\Azham\Documents\GitHub\ClientSupportLIst\AutoCreateUpdate\bin\Debug\AutoCreateUpdate.exe.config
+C:\Users\Azham\Documents\GitHub\ClientSupportLIst\AutoCreateUpdate\obj\Debug\Interop.WMPLib.dll
+C:\Users\Azham\Documents\GitHub\ClientSupportLIst\AutoCreateUpdate\obj\Debug\AxInterop.WMPLib.dll
+C:\Users\Azham\Documents\GitHub\ClientSupportLIst\AutoCreateUpdate\obj\Debug\AutoCreateUpdate.vbproj.ResolveComReference.cache
+C:\Users\Azham\Documents\GitHub\ClientSupportLIst\AutoCreateUpdate\obj\Debug\AutoCreateUpdate.exe
+C:\Users\Azham\Documents\GitHub\ClientSupportLIst\AutoCreateUpdate\obj\Debug\AutoCreateUpdate.xml
+C:\Users\Azham\Documents\GitHub\ClientSupportLIst\AutoCreateUpdate\obj\Debug\AutoCreateUpdate.pdb

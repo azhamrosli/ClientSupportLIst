@@ -43,12 +43,14 @@ Public Class frmClient
                 TabControl1.SelectedIndex = 0
             ElseIf e.KeyCode = Keys.F2 Then
                 TabControl1.SelectedIndex = 1
+            ElseIf e.KeyCode = Keys.F3 Then
+                TabControl1.SelectedIndex = 1
             ElseIf e.KeyCode = Keys.Insert Then
                 btnAdds.PerformClick()
             ElseIf e.KeyCode = Keys.F5 Then
                 LoadDataSupport()
             ElseIf e.KeyCode = Keys.F6 Then
-                LoadData()
+                LoadData()          
             End If
         Catch ex As Exception
 
