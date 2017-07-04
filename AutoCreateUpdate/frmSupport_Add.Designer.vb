@@ -25,9 +25,9 @@ Partial Class frmSupport_Add
         Me.components = New System.ComponentModel.Container()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
-        Me.lblTypeCompany = New System.Windows.Forms.Label()
         Me.pnlLoading = New System.Windows.Forms.Panel()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.lblTypeCompany = New System.Windows.Forms.Label()
         Me.Label13 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.txtComName = New System.Windows.Forms.TextBox()
@@ -70,17 +70,15 @@ Partial Class frmSupport_Add
         Me.Label6 = New System.Windows.Forms.Label()
         Me.txtPerson = New System.Windows.Forms.TextBox()
         Me.Label7 = New System.Windows.Forms.Label()
+        Me.txtYA = New System.Windows.Forms.TextBox()
+        Me.txtRefNoPayer = New System.Windows.Forms.TextBox()
+        Me.Label16 = New System.Windows.Forms.Label()
+        Me.Label15 = New System.Windows.Forms.Label()
         Me.TabPage2 = New System.Windows.Forms.TabPage()
         Me.flpMain = New System.Windows.Forms.FlowLayoutPanel()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.btnSentMessage = New System.Windows.Forms.Button()
         Me.txtMessage = New System.Windows.Forms.TextBox()
-        Me.DataSet11 = New AutoCreateUpdate.DataSet1()
-        Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
-        Me.RemoveImageToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
-        Me.OFDGallery_UploadImg = New System.Windows.Forms.OpenFileDialog()
-        Me.FileSystemWatcher1 = New System.IO.FileSystemWatcher()
         Me.TabPage3 = New System.Windows.Forms.TabPage()
         Me.lvLog = New System.Windows.Forms.ListView()
         Me.ColumnHeader2 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
@@ -89,16 +87,22 @@ Partial Class frmSupport_Add
         Me.ColumnHeader5 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader12 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader13 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.DataSet11 = New AutoCreateUpdate.DataSet1()
+        Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
+        Me.RemoveImageToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.OFDGallery_UploadImg = New System.Windows.Forms.OpenFileDialog()
+        Me.FileSystemWatcher1 = New System.IO.FileSystemWatcher()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         Me.pnlLoading.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabPage2.SuspendLayout()
         Me.Panel2.SuspendLayout()
+        Me.TabPage3.SuspendLayout()
         CType(Me.DataSet11, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ContextMenuStrip1.SuspendLayout()
         CType(Me.FileSystemWatcher1, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.TabPage3.SuspendLayout()
         Me.SuspendLayout()
         '
         'TabControl1
@@ -116,8 +120,8 @@ Partial Class frmSupport_Add
         '
         'TabPage1
         '
-        Me.TabPage1.Controls.Add(Me.lblTypeCompany)
         Me.TabPage1.Controls.Add(Me.pnlLoading)
+        Me.TabPage1.Controls.Add(Me.lblTypeCompany)
         Me.TabPage1.Controls.Add(Me.Label13)
         Me.TabPage1.Controls.Add(Me.Label3)
         Me.TabPage1.Controls.Add(Me.txtComName)
@@ -153,6 +157,10 @@ Partial Class frmSupport_Add
         Me.TabPage1.Controls.Add(Me.Label6)
         Me.TabPage1.Controls.Add(Me.txtPerson)
         Me.TabPage1.Controls.Add(Me.Label7)
+        Me.TabPage1.Controls.Add(Me.txtYA)
+        Me.TabPage1.Controls.Add(Me.txtRefNoPayer)
+        Me.TabPage1.Controls.Add(Me.Label16)
+        Me.TabPage1.Controls.Add(Me.Label15)
         Me.TabPage1.Location = New System.Drawing.Point(4, 25)
         Me.TabPage1.Margin = New System.Windows.Forms.Padding(4)
         Me.TabPage1.Name = "TabPage1"
@@ -161,16 +169,6 @@ Partial Class frmSupport_Add
         Me.TabPage1.TabIndex = 0
         Me.TabPage1.Text = "Support Details                          "
         Me.TabPage1.UseVisualStyleBackColor = True
-        '
-        'lblTypeCompany
-        '
-        Me.lblTypeCompany.AutoSize = True
-        Me.lblTypeCompany.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblTypeCompany.Location = New System.Drawing.Point(893, 46)
-        Me.lblTypeCompany.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.lblTypeCompany.Name = "lblTypeCompany"
-        Me.lblTypeCompany.Size = New System.Drawing.Size(0, 16)
-        Me.lblTypeCompany.TabIndex = 232
         '
         'pnlLoading
         '
@@ -193,6 +191,16 @@ Partial Class frmSupport_Add
         Me.PictureBox1.Size = New System.Drawing.Size(275, 31)
         Me.PictureBox1.TabIndex = 0
         Me.PictureBox1.TabStop = False
+        '
+        'lblTypeCompany
+        '
+        Me.lblTypeCompany.AutoSize = True
+        Me.lblTypeCompany.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblTypeCompany.Location = New System.Drawing.Point(893, 46)
+        Me.lblTypeCompany.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.lblTypeCompany.Name = "lblTypeCompany"
+        Me.lblTypeCompany.Size = New System.Drawing.Size(0, 16)
+        Me.lblTypeCompany.TabIndex = 232
         '
         'Label13
         '
@@ -224,7 +232,7 @@ Partial Class frmSupport_Add
         Me.txtComName.MaxLength = 150
         Me.txtComName.Name = "txtComName"
         Me.txtComName.ReadOnly = True
-        Me.txtComName.Size = New System.Drawing.Size(411, 22)
+        Me.txtComName.Size = New System.Drawing.Size(590, 22)
         Me.txtComName.TabIndex = 215
         Me.txtComName.TabStop = False
         '
@@ -247,7 +255,7 @@ Partial Class frmSupport_Add
         Me.cboFormType.Location = New System.Drawing.Point(896, 240)
         Me.cboFormType.Margin = New System.Windows.Forms.Padding(4)
         Me.cboFormType.Name = "cboFormType"
-        Me.cboFormType.Size = New System.Drawing.Size(411, 24)
+        Me.cboFormType.Size = New System.Drawing.Size(184, 24)
         Me.cboFormType.TabIndex = 202
         '
         'lblModifiedBy
@@ -324,10 +332,10 @@ Partial Class frmSupport_Add
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.flpPanel.AutoScroll = True
-        Me.flpPanel.Location = New System.Drawing.Point(1316, 102)
+        Me.flpPanel.Location = New System.Drawing.Point(1503, 102)
         Me.flpPanel.Margin = New System.Windows.Forms.Padding(4)
         Me.flpPanel.Name = "flpPanel"
-        Me.flpPanel.Size = New System.Drawing.Size(415, 560)
+        Me.flpPanel.Size = New System.Drawing.Size(228, 560)
         Me.flpPanel.TabIndex = 204
         '
         'Label2
@@ -345,7 +353,7 @@ Partial Class frmSupport_Add
         '
         Me.btnFindAttachment.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnFindAttachment.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnFindAttachment.Location = New System.Drawing.Point(1316, 64)
+        Me.btnFindAttachment.Location = New System.Drawing.Point(1503, 62)
         Me.btnFindAttachment.Margin = New System.Windows.Forms.Padding(4)
         Me.btnFindAttachment.Name = "btnFindAttachment"
         Me.btnFindAttachment.Size = New System.Drawing.Size(204, 34)
@@ -367,7 +375,7 @@ Partial Class frmSupport_Add
         '
         Me.Label12.AutoSize = True
         Me.Label12.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label12.Location = New System.Drawing.Point(1311, 15)
+        Me.Label12.Location = New System.Drawing.Point(1499, 16)
         Me.Label12.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label12.Name = "Label12"
         Me.Label12.Size = New System.Drawing.Size(114, 24)
@@ -467,7 +475,7 @@ Partial Class frmSupport_Add
         Me.cboStatus.Location = New System.Drawing.Point(896, 670)
         Me.cboStatus.Margin = New System.Windows.Forms.Padding(4)
         Me.cboStatus.Name = "cboStatus"
-        Me.cboStatus.Size = New System.Drawing.Size(411, 24)
+        Me.cboStatus.Size = New System.Drawing.Size(590, 24)
         Me.cboStatus.TabIndex = 206
         '
         'Label1
@@ -500,7 +508,7 @@ Partial Class frmSupport_Add
         Me.txtRefID.MaxLength = 150
         Me.txtRefID.Name = "txtRefID"
         Me.txtRefID.ReadOnly = True
-        Me.txtRefID.Size = New System.Drawing.Size(411, 22)
+        Me.txtRefID.Size = New System.Drawing.Size(590, 22)
         Me.txtRefID.TabIndex = 217
         Me.txtRefID.TabStop = False
         '
@@ -522,7 +530,7 @@ Partial Class frmSupport_Add
         Me.txtTVPass.Margin = New System.Windows.Forms.Padding(4)
         Me.txtTVPass.MaxLength = 150
         Me.txtTVPass.Name = "txtTVPass"
-        Me.txtTVPass.Size = New System.Drawing.Size(411, 22)
+        Me.txtTVPass.Size = New System.Drawing.Size(184, 22)
         Me.txtTVPass.TabIndex = 200
         '
         'txtNote
@@ -533,7 +541,7 @@ Partial Class frmSupport_Add
         Me.txtNote.MaxLength = 500
         Me.txtNote.Multiline = True
         Me.txtNote.Name = "txtNote"
-        Me.txtNote.Size = New System.Drawing.Size(411, 152)
+        Me.txtNote.Size = New System.Drawing.Size(590, 152)
         Me.txtNote.TabIndex = 205
         '
         'Panel1
@@ -577,7 +585,7 @@ Partial Class frmSupport_Add
         Me.txtProblem.MaxLength = 500
         Me.txtProblem.Multiline = True
         Me.txtProblem.Name = "txtProblem"
-        Me.txtProblem.Size = New System.Drawing.Size(411, 228)
+        Me.txtProblem.Size = New System.Drawing.Size(590, 228)
         Me.txtProblem.TabIndex = 203
         '
         'txtTVID
@@ -589,7 +597,7 @@ Partial Class frmSupport_Add
         Me.txtTVID.Margin = New System.Windows.Forms.Padding(4)
         Me.txtTVID.MaxLength = 150
         Me.txtTVID.Name = "txtTVID"
-        Me.txtTVID.Size = New System.Drawing.Size(411, 22)
+        Me.txtTVID.Size = New System.Drawing.Size(184, 22)
         Me.txtTVID.TabIndex = 199
         '
         'Label8
@@ -623,7 +631,7 @@ Partial Class frmSupport_Add
         Me.txtPerson.Margin = New System.Windows.Forms.Padding(4)
         Me.txtPerson.MaxLength = 150
         Me.txtPerson.Name = "txtPerson"
-        Me.txtPerson.Size = New System.Drawing.Size(411, 22)
+        Me.txtPerson.Size = New System.Drawing.Size(184, 22)
         Me.txtPerson.TabIndex = 201
         '
         'Label7
@@ -636,6 +644,51 @@ Partial Class frmSupport_Add
         Me.Label7.Size = New System.Drawing.Size(123, 16)
         Me.Label7.TabIndex = 221
         Me.Label7.Text = "Teamviewer Pass :"
+        '
+        'txtYA
+        '
+        Me.txtYA.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtYA.Location = New System.Drawing.Point(1222, 171)
+        Me.txtYA.Margin = New System.Windows.Forms.Padding(4)
+        Me.txtYA.MaxLength = 150
+        Me.txtYA.Name = "txtYA"
+        Me.txtYA.Size = New System.Drawing.Size(184, 22)
+        Me.txtYA.TabIndex = 236
+        Me.txtYA.Text = "0"
+        '
+        'txtRefNoPayer
+        '
+        Me.txtRefNoPayer.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
+        Me.txtRefNoPayer.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
+        Me.txtRefNoPayer.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtRefNoPayer.Location = New System.Drawing.Point(1222, 137)
+        Me.txtRefNoPayer.Margin = New System.Windows.Forms.Padding(4)
+        Me.txtRefNoPayer.MaxLength = 150
+        Me.txtRefNoPayer.Name = "txtRefNoPayer"
+        Me.txtRefNoPayer.Size = New System.Drawing.Size(184, 22)
+        Me.txtRefNoPayer.TabIndex = 235
+        '
+        'Label16
+        '
+        Me.Label16.AutoSize = True
+        Me.Label16.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label16.Location = New System.Drawing.Point(1088, 174)
+        Me.Label16.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label16.Name = "Label16"
+        Me.Label16.Size = New System.Drawing.Size(32, 16)
+        Me.Label16.TabIndex = 234
+        Me.Label16.Text = "YA :"
+        '
+        'Label15
+        '
+        Me.Label15.AutoSize = True
+        Me.Label15.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label15.Location = New System.Drawing.Point(1088, 140)
+        Me.Label15.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label15.Name = "Label15"
+        Me.Label15.Size = New System.Drawing.Size(98, 16)
+        Me.Label15.TabIndex = 233
+        Me.Label15.Text = "Reference No :"
         '
         'TabPage2
         '
@@ -695,38 +748,6 @@ Partial Class frmSupport_Add
         Me.txtMessage.Size = New System.Drawing.Size(1618, 52)
         Me.txtMessage.TabIndex = 0
         '
-        'DataSet11
-        '
-        Me.DataSet11.DataSetName = "DataSet1"
-        Me.DataSet11.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'Timer1
-        '
-        Me.Timer1.Interval = 1200
-        '
-        'RemoveImageToolStripMenuItem
-        '
-        Me.RemoveImageToolStripMenuItem.Name = "RemoveImageToolStripMenuItem"
-        Me.RemoveImageToolStripMenuItem.Size = New System.Drawing.Size(153, 22)
-        Me.RemoveImageToolStripMenuItem.Text = "Remove Image"
-        '
-        'ContextMenuStrip1
-        '
-        Me.ContextMenuStrip1.ImageScalingSize = New System.Drawing.Size(20, 20)
-        Me.ContextMenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.RemoveImageToolStripMenuItem})
-        Me.ContextMenuStrip1.Name = "ContextMenuStrip1"
-        Me.ContextMenuStrip1.Size = New System.Drawing.Size(154, 26)
-        '
-        'OFDGallery_UploadImg
-        '
-        Me.OFDGallery_UploadImg.FileName = "OpenFileDialog1"
-        Me.OFDGallery_UploadImg.Multiselect = True
-        '
-        'FileSystemWatcher1
-        '
-        Me.FileSystemWatcher1.EnableRaisingEvents = True
-        Me.FileSystemWatcher1.SynchronizingObject = Me
-        '
         'TabPage3
         '
         Me.TabPage3.Controls.Add(Me.lvLog)
@@ -785,6 +806,38 @@ Partial Class frmSupport_Add
         Me.ColumnHeader13.Text = "Log"
         Me.ColumnHeader13.Width = 450
         '
+        'DataSet11
+        '
+        Me.DataSet11.DataSetName = "DataSet1"
+        Me.DataSet11.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'Timer1
+        '
+        Me.Timer1.Interval = 1200
+        '
+        'RemoveImageToolStripMenuItem
+        '
+        Me.RemoveImageToolStripMenuItem.Name = "RemoveImageToolStripMenuItem"
+        Me.RemoveImageToolStripMenuItem.Size = New System.Drawing.Size(153, 22)
+        Me.RemoveImageToolStripMenuItem.Text = "Remove Image"
+        '
+        'ContextMenuStrip1
+        '
+        Me.ContextMenuStrip1.ImageScalingSize = New System.Drawing.Size(20, 20)
+        Me.ContextMenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.RemoveImageToolStripMenuItem})
+        Me.ContextMenuStrip1.Name = "ContextMenuStrip1"
+        Me.ContextMenuStrip1.Size = New System.Drawing.Size(154, 26)
+        '
+        'OFDGallery_UploadImg
+        '
+        Me.OFDGallery_UploadImg.FileName = "OpenFileDialog1"
+        Me.OFDGallery_UploadImg.Multiselect = True
+        '
+        'FileSystemWatcher1
+        '
+        Me.FileSystemWatcher1.EnableRaisingEvents = True
+        Me.FileSystemWatcher1.SynchronizingObject = Me
+        '
         'frmSupport_Add
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -797,6 +850,7 @@ Partial Class frmSupport_Add
         Me.Name = "frmSupport_Add"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "New Support"
+        Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.TabControl1.ResumeLayout(False)
         Me.TabPage1.ResumeLayout(False)
         Me.TabPage1.PerformLayout()
@@ -805,10 +859,10 @@ Partial Class frmSupport_Add
         Me.TabPage2.ResumeLayout(False)
         Me.Panel2.ResumeLayout(False)
         Me.Panel2.PerformLayout()
+        Me.TabPage3.ResumeLayout(False)
         CType(Me.DataSet11, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ContextMenuStrip1.ResumeLayout(False)
         CType(Me.FileSystemWatcher1, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.TabPage3.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
@@ -878,4 +932,8 @@ Partial Class frmSupport_Add
     Friend WithEvents ColumnHeader5 As System.Windows.Forms.ColumnHeader
     Friend WithEvents ColumnHeader12 As System.Windows.Forms.ColumnHeader
     Friend WithEvents ColumnHeader13 As System.Windows.Forms.ColumnHeader
+    Friend WithEvents txtYA As System.Windows.Forms.TextBox
+    Friend WithEvents txtRefNoPayer As System.Windows.Forms.TextBox
+    Friend WithEvents Label16 As System.Windows.Forms.Label
+    Friend WithEvents Label15 As System.Windows.Forms.Label
 End Class

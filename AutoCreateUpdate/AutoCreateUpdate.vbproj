@@ -399,6 +399,8 @@
     <None Include="Resources\SortAscending.png" />
     <None Include="Resources\SortDescending.png" />
     <None Include="Resources\up.png" />
+    <None Include="Resources\notification.png" />
+    <None Include="Resources\notification1.png" />
     <Content Include="support.ico" />
     <Content Include="WinSCP.exe">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

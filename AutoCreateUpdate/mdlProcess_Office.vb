@@ -13,7 +13,7 @@ Module mdlProcess_Office
     Public LicenseType As Integer = 0
     Public V1 As Integer = 2
     Public V2 As Integer = 3
-    Public V3 As Integer = 6
+    Public V3 As Integer = 7
     Public V4 As Integer = 0
     'Public connection As HubConnection = New HubConnection("http://localhost:63739/signalr")
     Public connection As HubConnection = New HubConnection("http://www.arsoftwaremalaysia.com/signalr")
@@ -1677,7 +1677,7 @@ Module mdlProcess_Office
         End Try
     End Function
     Public Function UpdateSupport(ByVal ID As Integer, ByVal RefID As String, ByVal TeamviwerID As String, ByVal TeamviewerPass As String, ByVal PersorName As String, _
-                               ByVal Problem As String, ByVal Note As String, ByVal Status As Integer, ByVal TypeForm As Integer, _
+                               ByVal Problem As String, ByVal Note As String, ByVal Status As Integer, ByVal TypeForm As Integer, ByVal RefPayerNo As String, ByVal YA As Integer, _
                                ByVal flpPanel As FlowLayoutPanel, Optional ByRef Errorlog As clsError = Nothing) As Boolean
         Try
             If Errorlog Is Nothing Then
@@ -1688,7 +1688,7 @@ Module mdlProcess_Office
             Dim ReturnValue As Integer = 0
             Dim tmpDatax As Byte() = Nothing
 
-            StrSQL = "UPDATE dbSupport SET CompanyID=@CompanyID,DateTime=@DateTime,TeamviewerID=@TeamviewerID,TeamviewerPass=@TeamviewerPass,PersonName=@PersorName,Problem=@Problem,Note=@Note,Status=@Status,ModifiedBy=@ModifiedBy,TypeForm=@TypeForm WHERE ID=@ID"
+            StrSQL = "UPDATE dbSupport SET CompanyID=@CompanyID,DateTime=@DateTime,TeamviewerID=@TeamviewerID,TeamviewerPass=@TeamviewerPass,PersonName=@PersorName,Problem=@Problem,Note=@Note,Status=@Status,ModifiedBy=@ModifiedBy,TypeForm=@TypeForm,RefPayerNo=@RefPayerNo,YA=@YA WHERE ID=@ID"
 
 
             ADO = New SQLDataObject()
@@ -1713,6 +1713,8 @@ Module mdlProcess_Office
             cmd.Parameters.Add("@Status", SqlDbType.Int).Value = Status
             cmd.Parameters.Add("@ModifiedBy", SqlDbType.NVarChar, 250).Value = My.Computer.Name
             cmd.Parameters.Add("@TypeForm", SqlDbType.Int).Value = TypeForm
+            cmd.Parameters.Add("@RefPayerNo", SqlDbType.Int).Value = RefPayerNo
+            cmd.Parameters.Add("@YA", SqlDbType.Int).Value = YA
 
             ' Return ADO.ExecuteSQLCmd_NOIDReturn(cmd, SqlCon, System.Reflection.MethodBase.GetCurrentMethod().Name, Errorlog)
             Dim tmpBol As Boolean = True
@@ -1992,13 +1994,13 @@ Module mdlProcess_Office
         End Try
     End Function
     Public Function SaveSupport(ByVal RefID As String, ByVal TeamviwerID As String, ByVal TeamviewerPass As String, ByVal PersorName As String, _
-                                ByVal Problem As String, ByVal Note As String, ByVal Status As Integer, ByVal TypeForm As Integer, _
+                                ByVal Problem As String, ByVal Note As String, ByVal Status As Integer, ByVal TypeForm As Integer, ByVal RefPayerNo As String, ByVal YA As Integer, _
                                 ByVal flpPanel As FlowLayoutPanel, Optional ByRef Errorlog As clsError = Nothing) As Boolean
         Try
             Dim StrSQL As String = Nothing
             Dim ReturnValue As Integer = 0
             Dim tmpBol As Boolean = True
-            StrSQL = "INSERT INTO dbSupport (CompanyID,DateTime,TeamviewerID,TeamviewerPass,PersonName,Problem,Note,Status,DateCreated,ModifiedBy,TypeForm) VALUES (@CompanyID,@DateTime,@TeamviewerID,@TeamviewerPass,@PersorName,@Problem,@Note,@Status,@DateCreated,@ModifiedBy,@TypeForm)"
+            StrSQL = "INSERT INTO dbSupport (CompanyID,DateTime,TeamviewerID,TeamviewerPass,PersonName,Problem,Note,Status,DateCreated,ModifiedBy,TypeForm,RefPayerNo,YA) VALUES (@CompanyID,@DateTime,@TeamviewerID,@TeamviewerPass,@PersorName,@Problem,@Note,@Status,@DateCreated,@ModifiedBy,@TypeForm,@RefPayerNo,@YA)"
 
 
             ADO = New SQLDataObject()
@@ -2022,6 +2024,8 @@ Module mdlProcess_Office
             cmd.Parameters.Add("@DateCreated", SqlDbType.DateTime).Value = Now
             cmd.Parameters.Add("@ModifiedBy", SqlDbType.NVarChar, 250).Value = My.Computer.Name
             cmd.Parameters.Add("@TypeForm", SqlDbType.Int).Value = TypeForm
+            cmd.Parameters.Add("@RefPayerNo", SqlDbType.Int).Value = RefPayerNo
+            cmd.Parameters.Add("@YA", SqlDbType.Int).Value = YA
 
             Dim ReturnID As Integer = 0
             tmpBol = ADO.ExecuteSQLCmd(cmd, SqlCon, System.Reflection.MethodBase.GetCurrentMethod().Name, Errorlog, ReturnID)

@@ -25,6 +25,10 @@ Partial Class frmClient
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmClient))
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.lblCountNotification = New System.Windows.Forms.Label()
+        Me.Panel3 = New System.Windows.Forms.Panel()
+        Me.PicNotification = New System.Windows.Forms.PictureBox()
+        Me.lblVersion = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.btnSave = New System.Windows.Forms.Button()
@@ -141,9 +145,12 @@ Partial Class frmClient
         Me.lvUserOnline = New System.Windows.Forms.ListView()
         Me.ColumnHeader40 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader41 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.TabPage3 = New System.Windows.Forms.TabPage()
+        Me.FlowLayoutPanel1 = New System.Windows.Forms.FlowLayoutPanel()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
-        Me.lblVersion = New System.Windows.Forms.Label()
         Me.Panel1.SuspendLayout()
+        Me.Panel3.SuspendLayout()
+        CType(Me.PicNotification, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         Me.TabControl1.SuspendLayout()
@@ -153,11 +160,14 @@ Partial Class frmClient
         Me.TabPage2.SuspendLayout()
         Me.Message.SuspendLayout()
         Me.Panel2.SuspendLayout()
+        Me.TabPage3.SuspendLayout()
         Me.SuspendLayout()
         '
         'Panel1
         '
         Me.Panel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(33, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(31, Byte), Integer))
+        Me.Panel1.Controls.Add(Me.lblCountNotification)
+        Me.Panel1.Controls.Add(Me.Panel3)
         Me.Panel1.Controls.Add(Me.lblVersion)
         Me.Panel1.Controls.Add(Me.Label1)
         Me.Panel1.Controls.Add(Me.PictureBox2)
@@ -167,6 +177,50 @@ Partial Class frmClient
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(1211, 49)
         Me.Panel1.TabIndex = 10
+        '
+        'lblCountNotification
+        '
+        Me.lblCountNotification.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.lblCountNotification.AutoSize = True
+        Me.lblCountNotification.BackColor = System.Drawing.Color.Transparent
+        Me.lblCountNotification.ForeColor = System.Drawing.Color.Red
+        Me.lblCountNotification.Location = New System.Drawing.Point(1133, 7)
+        Me.lblCountNotification.Name = "lblCountNotification"
+        Me.lblCountNotification.Size = New System.Drawing.Size(45, 25)
+        Me.lblCountNotification.TabIndex = 13
+        Me.lblCountNotification.Text = "10+"
+        '
+        'Panel3
+        '
+        Me.Panel3.Controls.Add(Me.PicNotification)
+        Me.Panel3.Dock = System.Windows.Forms.DockStyle.Right
+        Me.Panel3.Location = New System.Drawing.Point(1162, 0)
+        Me.Panel3.Name = "Panel3"
+        Me.Panel3.Size = New System.Drawing.Size(49, 49)
+        Me.Panel3.TabIndex = 12
+        '
+        'PicNotification
+        '
+        Me.PicNotification.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.PicNotification.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.PicNotification.Image = Global.AutoCreateUpdate.My.Resources.Resources.notification1
+        Me.PicNotification.Location = New System.Drawing.Point(0, 0)
+        Me.PicNotification.Name = "PicNotification"
+        Me.PicNotification.Size = New System.Drawing.Size(49, 49)
+        Me.PicNotification.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage
+        Me.PicNotification.TabIndex = 0
+        Me.PicNotification.TabStop = False
+        '
+        'lblVersion
+        '
+        Me.lblVersion.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblVersion.ForeColor = System.Drawing.Color.White
+        Me.lblVersion.Location = New System.Drawing.Point(139, 26)
+        Me.lblVersion.Name = "lblVersion"
+        Me.lblVersion.Size = New System.Drawing.Size(264, 20)
+        Me.lblVersion.TabIndex = 11
+        Me.lblVersion.Text = "V1.1.10"
+        Me.lblVersion.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'Label1
         '
@@ -462,6 +516,7 @@ Partial Class frmClient
         Me.TabControl1.Controls.Add(Me.TabPage1)
         Me.TabControl1.Controls.Add(Me.TabPage2)
         Me.TabControl1.Controls.Add(Me.Message)
+        Me.TabControl1.Controls.Add(Me.TabPage3)
         Me.TabControl1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TabControl1.Location = New System.Drawing.Point(0, 49)
         Me.TabControl1.Name = "TabControl1"
@@ -528,7 +583,7 @@ Partial Class frmClient
         Me.Label5.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.Label5.AutoSize = True
         Me.Label5.Font = New System.Drawing.Font("Segoe UI Semibold", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(8, 437)
+        Me.Label5.Location = New System.Drawing.Point(18, 394)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(203, 25)
         Me.Label5.TabIndex = 223
@@ -538,28 +593,31 @@ Partial Class frmClient
         '
         Me.lblTopSupport2.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.lblTopSupport2.AutoSize = True
-        Me.lblTopSupport2.Location = New System.Drawing.Point(8, 476)
+        Me.lblTopSupport2.Location = New System.Drawing.Point(18, 456)
         Me.lblTopSupport2.Name = "lblTopSupport2"
-        Me.lblTopSupport2.Size = New System.Drawing.Size(0, 25)
+        Me.lblTopSupport2.Size = New System.Drawing.Size(22, 25)
         Me.lblTopSupport2.TabIndex = 222
+        Me.lblTopSupport2.Text = "2"
         '
         'lblTopSupport3
         '
         Me.lblTopSupport3.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.lblTopSupport3.AutoSize = True
-        Me.lblTopSupport3.Location = New System.Drawing.Point(8, 497)
+        Me.lblTopSupport3.Location = New System.Drawing.Point(18, 481)
         Me.lblTopSupport3.Name = "lblTopSupport3"
-        Me.lblTopSupport3.Size = New System.Drawing.Size(0, 25)
+        Me.lblTopSupport3.Size = New System.Drawing.Size(22, 25)
         Me.lblTopSupport3.TabIndex = 221
+        Me.lblTopSupport3.Text = "3"
         '
         'lblTopSupport1
         '
         Me.lblTopSupport1.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.lblTopSupport1.AutoSize = True
-        Me.lblTopSupport1.Location = New System.Drawing.Point(8, 457)
+        Me.lblTopSupport1.Location = New System.Drawing.Point(18, 428)
         Me.lblTopSupport1.Name = "lblTopSupport1"
-        Me.lblTopSupport1.Size = New System.Drawing.Size(0, 25)
+        Me.lblTopSupport1.Size = New System.Drawing.Size(22, 25)
         Me.lblTopSupport1.TabIndex = 220
+        Me.lblTopSupport1.Text = "1"
         '
         'lblNotification
         '
@@ -752,7 +810,7 @@ Partial Class frmClient
         '
         Me.lblcounts.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.lblcounts.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblcounts.Location = New System.Drawing.Point(935, 427)
+        Me.lblcounts.Location = New System.Drawing.Point(935, 382)
         Me.lblcounts.Name = "lblcounts"
         Me.lblcounts.Size = New System.Drawing.Size(261, 16)
         Me.lblcounts.TabIndex = 207
@@ -773,7 +831,7 @@ Partial Class frmClient
         Me.LvLists.GridLines = True
         Me.LvLists.Location = New System.Drawing.Point(11, 188)
         Me.LvLists.Name = "LvLists"
-        Me.LvLists.Size = New System.Drawing.Size(1187, 236)
+        Me.LvLists.Size = New System.Drawing.Size(1187, 191)
         Me.LvLists.TabIndex = 190
         Me.LvLists.UseCompatibleStateImageBehavior = False
         Me.LvLists.View = System.Windows.Forms.View.Details
@@ -879,91 +937,91 @@ Partial Class frmClient
         Me.ContextMenuStrip1.ImageScalingSize = New System.Drawing.Size(20, 20)
         Me.ContextMenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.OpenTeamviewerToolStripMenuItem, Me.CopyTeamviewerIDToolStripMenuItem, Me.CopyTeamviewerPassToolStripMenuItem, Me.CopyCompanyNameToolStripMenuItem, Me.CopyPersonNameToolStripMenuItem, Me.CopyTelNoToolStripMenuItem, Me.AddNewToolStripMenuItem, Me.EditToolStripMenuItem, Me.StatusSolveToolStripMenuItem, Me.StatusHoldToolStripMenuItem, Me.StatusUrgentToolStripMenuItem, Me.StatusBugOnProgramToolStripMenuItem, Me.StatusPendingToTestingToolStripMenuItem, Me.StatusOtherToolStripMenuItem, Me.DuplicateThisSupportToolStripMenuItem})
         Me.ContextMenuStrip1.Name = "ContextMenuStrip1"
-        Me.ContextMenuStrip1.Size = New System.Drawing.Size(260, 394)
+        Me.ContextMenuStrip1.Size = New System.Drawing.Size(254, 364)
         '
         'OpenTeamviewerToolStripMenuItem
         '
         Me.OpenTeamviewerToolStripMenuItem.Name = "OpenTeamviewerToolStripMenuItem"
-        Me.OpenTeamviewerToolStripMenuItem.Size = New System.Drawing.Size(259, 26)
+        Me.OpenTeamviewerToolStripMenuItem.Size = New System.Drawing.Size(253, 24)
         Me.OpenTeamviewerToolStripMenuItem.Text = "Open Teamviewer"
         '
         'CopyTeamviewerIDToolStripMenuItem
         '
         Me.CopyTeamviewerIDToolStripMenuItem.Name = "CopyTeamviewerIDToolStripMenuItem"
-        Me.CopyTeamviewerIDToolStripMenuItem.Size = New System.Drawing.Size(259, 26)
+        Me.CopyTeamviewerIDToolStripMenuItem.Size = New System.Drawing.Size(253, 24)
         Me.CopyTeamviewerIDToolStripMenuItem.Text = "Copy Teamviewer ID"
         '
         'CopyTeamviewerPassToolStripMenuItem
         '
         Me.CopyTeamviewerPassToolStripMenuItem.Name = "CopyTeamviewerPassToolStripMenuItem"
-        Me.CopyTeamviewerPassToolStripMenuItem.Size = New System.Drawing.Size(259, 26)
+        Me.CopyTeamviewerPassToolStripMenuItem.Size = New System.Drawing.Size(253, 24)
         Me.CopyTeamviewerPassToolStripMenuItem.Text = "Copy Teamviewer Pass"
         '
         'CopyCompanyNameToolStripMenuItem
         '
         Me.CopyCompanyNameToolStripMenuItem.Name = "CopyCompanyNameToolStripMenuItem"
-        Me.CopyCompanyNameToolStripMenuItem.Size = New System.Drawing.Size(259, 26)
+        Me.CopyCompanyNameToolStripMenuItem.Size = New System.Drawing.Size(253, 24)
         Me.CopyCompanyNameToolStripMenuItem.Text = "Copy Company Name"
         '
         'CopyPersonNameToolStripMenuItem
         '
         Me.CopyPersonNameToolStripMenuItem.Name = "CopyPersonNameToolStripMenuItem"
-        Me.CopyPersonNameToolStripMenuItem.Size = New System.Drawing.Size(259, 26)
+        Me.CopyPersonNameToolStripMenuItem.Size = New System.Drawing.Size(253, 24)
         Me.CopyPersonNameToolStripMenuItem.Text = "Copy Person Name"
         '
         'CopyTelNoToolStripMenuItem
         '
         Me.CopyTelNoToolStripMenuItem.Name = "CopyTelNoToolStripMenuItem"
-        Me.CopyTelNoToolStripMenuItem.Size = New System.Drawing.Size(259, 26)
+        Me.CopyTelNoToolStripMenuItem.Size = New System.Drawing.Size(253, 24)
         Me.CopyTelNoToolStripMenuItem.Text = "Copy Tel No"
         '
         'AddNewToolStripMenuItem
         '
         Me.AddNewToolStripMenuItem.Name = "AddNewToolStripMenuItem"
-        Me.AddNewToolStripMenuItem.Size = New System.Drawing.Size(259, 26)
+        Me.AddNewToolStripMenuItem.Size = New System.Drawing.Size(253, 24)
         Me.AddNewToolStripMenuItem.Text = "Add New"
         '
         'EditToolStripMenuItem
         '
         Me.EditToolStripMenuItem.Name = "EditToolStripMenuItem"
-        Me.EditToolStripMenuItem.Size = New System.Drawing.Size(259, 26)
+        Me.EditToolStripMenuItem.Size = New System.Drawing.Size(253, 24)
         Me.EditToolStripMenuItem.Text = "Edit"
         '
         'StatusSolveToolStripMenuItem
         '
         Me.StatusSolveToolStripMenuItem.Name = "StatusSolveToolStripMenuItem"
-        Me.StatusSolveToolStripMenuItem.Size = New System.Drawing.Size(259, 26)
+        Me.StatusSolveToolStripMenuItem.Size = New System.Drawing.Size(253, 24)
         Me.StatusSolveToolStripMenuItem.Text = "Status : Solve"
         '
         'StatusHoldToolStripMenuItem
         '
         Me.StatusHoldToolStripMenuItem.Name = "StatusHoldToolStripMenuItem"
-        Me.StatusHoldToolStripMenuItem.Size = New System.Drawing.Size(259, 26)
+        Me.StatusHoldToolStripMenuItem.Size = New System.Drawing.Size(253, 24)
         Me.StatusHoldToolStripMenuItem.Text = "Status : Hold"
         '
         'StatusUrgentToolStripMenuItem
         '
         Me.StatusUrgentToolStripMenuItem.Name = "StatusUrgentToolStripMenuItem"
-        Me.StatusUrgentToolStripMenuItem.Size = New System.Drawing.Size(259, 26)
+        Me.StatusUrgentToolStripMenuItem.Size = New System.Drawing.Size(253, 24)
         Me.StatusUrgentToolStripMenuItem.Text = "Status : Urgent"
         '
         'StatusBugOnProgramToolStripMenuItem
         '
         Me.StatusBugOnProgramToolStripMenuItem.Name = "StatusBugOnProgramToolStripMenuItem"
-        Me.StatusBugOnProgramToolStripMenuItem.Size = New System.Drawing.Size(259, 26)
+        Me.StatusBugOnProgramToolStripMenuItem.Size = New System.Drawing.Size(253, 24)
         Me.StatusBugOnProgramToolStripMenuItem.Text = "Status : Bug on Program"
         '
         'StatusPendingToTestingToolStripMenuItem
         '
         Me.StatusPendingToTestingToolStripMenuItem.Name = "StatusPendingToTestingToolStripMenuItem"
-        Me.StatusPendingToTestingToolStripMenuItem.Size = New System.Drawing.Size(259, 26)
+        Me.StatusPendingToTestingToolStripMenuItem.Size = New System.Drawing.Size(253, 24)
         Me.StatusPendingToTestingToolStripMenuItem.Text = "Status : Pending To Testing"
         '
         'StatusOtherToolStripMenuItem
         '
         Me.StatusOtherToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NewToolStripMenuItem, Me.CancelToolStripMenuItem, Me.PCProblemToolStripMenuItem})
         Me.StatusOtherToolStripMenuItem.Name = "StatusOtherToolStripMenuItem"
-        Me.StatusOtherToolStripMenuItem.Size = New System.Drawing.Size(259, 26)
+        Me.StatusOtherToolStripMenuItem.Size = New System.Drawing.Size(253, 24)
         Me.StatusOtherToolStripMenuItem.Text = "Status Other"
         '
         'NewToolStripMenuItem
@@ -987,7 +1045,7 @@ Partial Class frmClient
         'DuplicateThisSupportToolStripMenuItem
         '
         Me.DuplicateThisSupportToolStripMenuItem.Name = "DuplicateThisSupportToolStripMenuItem"
-        Me.DuplicateThisSupportToolStripMenuItem.Size = New System.Drawing.Size(259, 26)
+        Me.DuplicateThisSupportToolStripMenuItem.Size = New System.Drawing.Size(253, 24)
         Me.DuplicateThisSupportToolStripMenuItem.Text = "Duplicate This Support"
         '
         'Label6
@@ -1013,7 +1071,7 @@ Partial Class frmClient
         '
         Me.btnAdds.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btnAdds.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnAdds.Location = New System.Drawing.Point(997, 463)
+        Me.btnAdds.Location = New System.Drawing.Point(997, 418)
         Me.btnAdds.Name = "btnAdds"
         Me.btnAdds.Size = New System.Drawing.Size(202, 44)
         Me.btnAdds.TabIndex = 192
@@ -1238,20 +1296,27 @@ Partial Class frmClient
         Me.ColumnHeader41.Text = "ConID"
         Me.ColumnHeader41.Width = 0
         '
+        'TabPage3
+        '
+        Me.TabPage3.Controls.Add(Me.FlowLayoutPanel1)
+        Me.TabPage3.Location = New System.Drawing.Point(4, 34)
+        Me.TabPage3.Name = "TabPage3"
+        Me.TabPage3.Size = New System.Drawing.Size(1203, 528)
+        Me.TabPage3.TabIndex = 3
+        Me.TabPage3.Text = "Notification                        "
+        Me.TabPage3.UseVisualStyleBackColor = True
+        '
+        'FlowLayoutPanel1
+        '
+        Me.FlowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.FlowLayoutPanel1.Location = New System.Drawing.Point(0, 0)
+        Me.FlowLayoutPanel1.Name = "FlowLayoutPanel1"
+        Me.FlowLayoutPanel1.Size = New System.Drawing.Size(1203, 528)
+        Me.FlowLayoutPanel1.TabIndex = 0
+        '
         'Timer1
         '
         Me.Timer1.Interval = 3600000
-        '
-        'lblVersion
-        '
-        Me.lblVersion.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblVersion.ForeColor = System.Drawing.Color.White
-        Me.lblVersion.Location = New System.Drawing.Point(139, 26)
-        Me.lblVersion.Name = "lblVersion"
-        Me.lblVersion.Size = New System.Drawing.Size(264, 20)
-        Me.lblVersion.TabIndex = 11
-        Me.lblVersion.Text = "V1.1.10"
-        Me.lblVersion.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'frmClient
         '
@@ -1274,6 +1339,8 @@ Partial Class frmClient
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
+        Me.Panel3.ResumeLayout(False)
+        CType(Me.PicNotification, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
@@ -1288,6 +1355,7 @@ Partial Class frmClient
         Me.Message.ResumeLayout(False)
         Me.Panel2.ResumeLayout(False)
         Me.Panel2.PerformLayout()
+        Me.TabPage3.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
@@ -1410,5 +1478,10 @@ Partial Class frmClient
     Friend WithEvents flpMain As System.Windows.Forms.FlowLayoutPanel
     Friend WithEvents ColumnHeader24 As System.Windows.Forms.ColumnHeader
     Friend WithEvents lblVersion As System.Windows.Forms.Label
+    Friend WithEvents Panel3 As System.Windows.Forms.Panel
+    Friend WithEvents lblCountNotification As System.Windows.Forms.Label
+    Friend WithEvents PicNotification As System.Windows.Forms.PictureBox
+    Friend WithEvents TabPage3 As System.Windows.Forms.TabPage
+    Friend WithEvents FlowLayoutPanel1 As System.Windows.Forms.FlowLayoutPanel
 
 End Class

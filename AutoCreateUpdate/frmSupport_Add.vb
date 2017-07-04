@@ -3,6 +3,7 @@
 Public Class frmSupport_Add
     Public ID As Integer = 0
     Public isEdit As Boolean = False
+    Dim isRemote As Boolean = False
     Dim ListofString As List(Of String)
     Dim ErrorLog As clsError = Nothing
     Private Sub LoadData(Optional ByVal Type As Integer = 0)
@@ -24,6 +25,8 @@ Public Class frmSupport_Add
                     txtNote.Text = IIf(IsDBNull(dt.Rows(0)("Note")), "", dt.Rows(0)("Note"))
                     cboStatus.SelectedIndex = IIf(IsDBNull(dt.Rows(0)("Status")), 0, dt.Rows(0)("Status"))
                     cboFormType.SelectedIndex = IIf(IsDBNull(dt.Rows(0)("TypeForm")), 0, dt.Rows(0)("TypeForm"))
+                    txtRefNoPayer.Text = IIf(IsDBNull(dt.Rows(0)("RefPayerNo")), "", dt.Rows(0)("RefPayerNo"))
+                    txtYA.Text = IIf(IsDBNull(dt.Rows(0)("YA")), "0", dt.Rows(0)("YA"))
 
                     If Type = 0 Then
                         txtID.Text = IIf(IsDBNull(dt.Rows(0)("RefID")), "", dt.Rows(0)("RefID"))
@@ -328,6 +331,11 @@ Public Class frmSupport_Add
                     PnlCont.Controls.Add(lblDateTime)
                     PnlCont.Controls.Add(txtMsg)
 
+
+                    PnlCont.AutoSize = True
+                    PnlCont.AutoSizeMode = Windows.Forms.AutoSizeMode.GrowAndShrink
+                    PnlWrp.AutoSize = True
+                    PnlWrp.AutoSizeMode = Windows.Forms.AutoSizeMode.GrowAndShrink
                     PnlWrp.Controls.Add(PnlCont)
 
                 Else
@@ -375,6 +383,11 @@ Public Class frmSupport_Add
                     PnlCont.Controls.Add(lblDateTime)
                     PnlCont.Controls.Add(txtMsg)
 
+
+                    PnlCont.AutoSize = True
+                    PnlCont.AutoSizeMode = Windows.Forms.AutoSizeMode.GrowAndShrink
+                    PnlWrp.AutoSize = True
+                    PnlWrp.AutoSizeMode = Windows.Forms.AutoSizeMode.GrowAndShrink
                     PnlWrp.Controls.Add(PnlCont)
 
                 End If
@@ -467,6 +480,8 @@ Public Class frmSupport_Add
 
     Private Sub btnSaveRemote_Click(sender As Object, e As EventArgs) Handles btnSaveRemote.Click
         Try
+            isRemote = True
+            Application.DoEvents()
             btnSave.PerformClick()
             Dim p As New ProcessStartInfo
 
@@ -566,17 +581,26 @@ Public Class frmSupport_Add
                 If isEdit Then
 
                     If mdlProcess_Office.UpdateSupport(ID, txtRefID.Text, txtTVID.Text, txtTVPass.Text, txtPerson.Text, txtProblem.Text, _
-                                                     txtNote.Text, cboStatus.SelectedIndex, cboFormType.SelectedIndex, flpPanel, ErrorLog) Then
+                                                     txtNote.Text, cboStatus.SelectedIndex, cboFormType.SelectedIndex, txtRefNoPayer.Text, IIf(IsNumeric(txtYA) = False, 0, CInt(txtYA.Text)), flpPanel, ErrorLog) Then
                         MsgBox("Successfully updated your data.", MsgBoxStyle.Information)
-                        Me.Close()
+                        If isRemote = True Then
+                            Me.Close()
+                        Else
+                            isRemote = False
+                        End If
                     Else
                         MsgBox("Unsuccessfully update data." & vbCrLf & ErrorLog.ErrorMessage, MsgBoxStyle.Critical)
                     End If
                 Else
                     If mdlProcess_Office.SaveSupport(txtRefID.Text, txtTVID.Text, txtTVPass.Text, txtPerson.Text, txtProblem.Text, _
-                                                     txtNote.Text, cboStatus.SelectedIndex, cboFormType.SelectedIndex, flpPanel, ErrorLog) Then
+                                                     txtNote.Text, cboStatus.SelectedIndex, cboFormType.SelectedIndex, txtRefNoPayer.Text, IIf(IsNumeric(txtYA) = False, 0, CInt(txtYA.Text)), flpPanel, ErrorLog) Then
                         MsgBox("Successfully saved your data.", MsgBoxStyle.Information)
-                        Me.Close()
+                        ' Me.Close()
+                        If isRemote = True Then
+                            Me.Close()
+                        Else
+                            isRemote = False
+                        End If
                     Else
                         MsgBox("Unsuccessfully save data." & vbCrLf & ErrorLog.ErrorMessage, MsgBoxStyle.Critical)
                     End If
@@ -765,5 +789,20 @@ Public Class frmSupport_Add
 
         End Try
     End Sub
+
+    Private Sub txtYA_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtYA.KeyPress
+        numbervalidation_Decimal(e)
+    End Sub
+
+    Private Sub txtYA_KeyUp(sender As Object, e As KeyEventArgs) Handles txtYA.KeyUp
+        Try
+            If txtYA.TextLength = 0 Then
+                txtYA.Text = "0"
+            End If
+        Catch ex As Exception
+
+        End Try
+    End Sub
+
 
 End Class

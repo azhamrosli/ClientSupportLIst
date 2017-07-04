@@ -579,7 +579,7 @@ Public Class frmClient
                             Case 5
                                 itm.BackColor = Color.LightGreen
                             Case 4
-                                itm.BackColor = Color.HotPink
+                                itm.BackColor = Color.LightGray
                             Case 7
                                 itm.BackColor = Color.Black
                                 itm.ForeColor = Color.White
@@ -947,7 +947,8 @@ Public Class frmClient
                         If dt IsNot Nothing Then
                             mdlProcess_Office.SaveSupport(IIf(IsDBNull(dt.Rows(0)("CompanyID")), "", dt.Rows(0)("CompanyID")), IIf(IsDBNull(dt.Rows(0)("TeamviewerID")), "", dt.Rows(0)("TeamviewerID")), _
                                                           IIf(IsDBNull(dt.Rows(0)("TeamviewerPass")), "", dt.Rows(0)("TeamviewerPass")), IIf(IsDBNull(dt.Rows(0)("PersonName")), "", dt.Rows(0)("PersonName")), _
-                                                         IIf(IsDBNull(dt.Rows(0)("Problem")), "", dt.Rows(0)("Problem")), IIf(IsDBNull(dt.Rows(0)("Note")), "", dt.Rows(0)("Note")), 0, IIf(IsDBNull(dt.Rows(0)("TypeForm")), 0, dt.Rows(0)("TypeForm")), Nothing)
+                                                         IIf(IsDBNull(dt.Rows(0)("Problem")), "", dt.Rows(0)("Problem")), IIf(IsDBNull(dt.Rows(0)("Note")), "", dt.Rows(0)("Note")), 0, IIf(IsDBNull(dt.Rows(0)("TypeForm")), 0, dt.Rows(0)("TypeForm")), _
+                                                          IIf(IsDBNull(dt.Rows(0)("RefPayerNo")), "", dt.Rows(0)("RefPayerNo")), IIf(IsDBNull(dt.Rows(0)("YA")), 0, dt.Rows(0)("YA")), Nothing)
 
                         End If
 
@@ -1241,6 +1242,10 @@ Public Class frmClient
                     PnlCont.Controls.Add(lblDateTime)
                     PnlCont.Controls.Add(txtMsg)
 
+                    PnlCont.AutoSize = True
+                    PnlCont.AutoSizeMode = Windows.Forms.AutoSizeMode.GrowAndShrink
+                    PnlWrp.AutoSize = True
+                    PnlWrp.AutoSizeMode = Windows.Forms.AutoSizeMode.GrowAndShrink
                     PnlWrp.Controls.Add(PnlCont)
 
                 Else
@@ -1287,6 +1292,10 @@ Public Class frmClient
                     PnlCont.Controls.Add(lblDateTime)
                     PnlCont.Controls.Add(txtMsg)
 
+                    PnlCont.AutoSize = True
+                    PnlCont.AutoSizeMode = Windows.Forms.AutoSizeMode.GrowAndShrink
+                    PnlWrp.AutoSize = True
+                    PnlWrp.AutoSizeMode = Windows.Forms.AutoSizeMode.GrowAndShrink
                     PnlWrp.Controls.Add(PnlCont)
 
                 End If
@@ -1323,4 +1332,7 @@ Public Class frmClient
 
 
 
+    Private Sub picNotification_Click(sender As Object, e As EventArgs)
+
+    End Sub
 End Class
