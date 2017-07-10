@@ -147,7 +147,6 @@ C:\Users\Azham\Documents\GitHub\ClientSupportLIst\AutoCreateUpdate\bin\Debug\New
 C:\Users\Azham\Documents\GitHub\ClientSupportLIst\AutoCreateUpdate\bin\Debug\System.Data.SQLite.xml
 C:\Users\Azham\Documents\GitHub\ClientSupportLIst\AutoCreateUpdate\bin\Debug\Interop.WMPLib.dll
 C:\Users\Azham\Documents\GitHub\ClientSupportLIst\AutoCreateUpdate\bin\Debug\AxInterop.WMPLib.dll
-C:\Users\Azham\Documents\GitHub\ClientSupportLIst\AutoCreateUpdate\obj\Debug\AutoCreateUpdate.vbprojResolveAssemblyReference.cache
 C:\Users\Azham\Documents\GitHub\ClientSupportLIst\AutoCreateUpdate\obj\Debug\AutoCreateUpdate.frmCalender.resources
 C:\Users\Azham\Documents\GitHub\ClientSupportLIst\AutoCreateUpdate\obj\Debug\AutoCreateUpdate.frmClient.resources
 C:\Users\Azham\Documents\GitHub\ClientSupportLIst\AutoCreateUpdate\obj\Debug\AutoCreateUpdate.frmClient_Add.resources

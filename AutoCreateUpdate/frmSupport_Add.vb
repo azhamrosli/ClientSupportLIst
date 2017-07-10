@@ -6,6 +6,7 @@ Public Class frmSupport_Add
     Dim isRemote As Boolean = False
     Dim ListofString As List(Of String)
     Dim ErrorLog As clsError = Nothing
+    Dim isSQLVersion As Boolean = False
     Private Sub LoadData(Optional ByVal Type As Integer = 0)
         Try
             Dim dt As DataTable = Nothing
@@ -35,36 +36,48 @@ Public Class frmSupport_Add
 
                     If IsDBNull(dt.Rows(0)("License_Enterprise")) = False AndAlso dt.Rows(0)("License_Enterprise") = 1 Then
                         tmpstr += "Enterprise,"
+                        isSQLVersion = False
                     ElseIf IsDBNull(dt.Rows(0)("License_Enterprise")) = False AndAlso dt.Rows(0)("License_Enterprise") = 2 Then
                         tmpstr += "Enterprise C+,"
+                        isSQLVersion = False
                     ElseIf IsDBNull(dt.Rows(0)("License_Enterprise")) = False AndAlso dt.Rows(0)("License_Enterprise") = 3 Then
                         tmpstr += "Enterprise B+,"
+                        isSQLVersion = False
                     End If
 
                     If IsDBNull(dt.Rows(0)("License_SmallBusiness")) = False AndAlso dt.Rows(0)("License_SmallBusiness") = 1 Then
                         tmpstr += "Small Business,"
+                        isSQLVersion = False
                     ElseIf IsDBNull(dt.Rows(0)("License_SmallBusiness")) = False AndAlso dt.Rows(0)("License_SmallBusiness") = 2 Then
                         tmpstr += "Small Business C+,"
+                        isSQLVersion = False
                     ElseIf IsDBNull(dt.Rows(0)("License_SmallBusiness")) = False AndAlso dt.Rows(0)("License_SmallBusiness") = 3 Then
                         tmpstr += "Small Business B+,"
+                        isSQLVersion = False
                     End If
 
                     If IsDBNull(dt.Rows(0)("License_Lite")) = False AndAlso dt.Rows(0)("License_Lite") = 1 Then
                         tmpstr += "Lite,"
+                        isSQLVersion = False
                     ElseIf IsDBNull(dt.Rows(0)("License_Lite")) = False AndAlso dt.Rows(0)("License_Lite") = 2 Then
                         tmpstr += "Lite C+,"
+                        isSQLVersion = False
                     ElseIf IsDBNull(dt.Rows(0)("License_Lite")) = False AndAlso dt.Rows(0)("License_Lite") = 3 Then
                         tmpstr += "Lite B+,"
+                        isSQLVersion = False
                     End If
 
                     If IsDBNull(dt.Rows(0)("License_Education")) = False AndAlso dt.Rows(0)("License_Education") = 1 Then
                         tmpstr += "Education,"
+                        isSQLVersion = False
                     End If
                     If IsDBNull(dt.Rows(0)("License_Trial")) = False AndAlso dt.Rows(0)("License_Trial") = 1 Then
                         tmpstr += "Trial,"
+                        isSQLVersion = False
                     End If
                     If IsDBNull(dt.Rows(0)("License_SQL_En")) = False AndAlso dt.Rows(0)("License_SQL_En") = 1 Then
                         tmpstr += "SQL,"
+                        isSQLVersion = True
                     End If
 
                     lblTypeCompany.Text = "Version " & tmpstr
@@ -103,7 +116,7 @@ Public Class frmSupport_Add
                     cboFormType.SelectedIndex = 0
                 End If
             Else
-                cboFormType.SelectedIndex = 0
+                cboFormType.SelectedIndex = 10
             End If
 
             If Type = 0 Then
@@ -321,7 +334,7 @@ Public Class frmSupport_Add
 
                     Dim rtbSize As New Size(TextRenderer.MeasureText(txtMsg.Text, txtMsg.Font, txtMsg.Size, TextFormatFlags.WordBreak))
 
-                    sizepnl = rtbSize.Height + 70
+                    sizepnl = rtbSize.Height
 
                     txtMsg.Size = New System.Drawing.Size(535, sizepnl)
                     PnlWrp.Size = New System.Drawing.Size(1300, sizepnl + 10)
@@ -373,7 +386,7 @@ Public Class frmSupport_Add
 
                     Dim rtbSize As New Size(TextRenderer.MeasureText(txtMsg.Text, txtMsg.Font, txtMsg.Size, TextFormatFlags.WordBreak))
 
-                    sizepnl = rtbSize.Height + 70
+                    sizepnl = rtbSize.Height
 
                     txtMsg.Size = New System.Drawing.Size(535, sizepnl)
                     PnlWrp.Size = New System.Drawing.Size(1300, sizepnl + 10)
@@ -595,12 +608,8 @@ Public Class frmSupport_Add
                     If mdlProcess_Office.SaveSupport(txtRefID.Text, txtTVID.Text, txtTVPass.Text, txtPerson.Text, txtProblem.Text, _
                                                      txtNote.Text, cboStatus.SelectedIndex, cboFormType.SelectedIndex, txtRefNoPayer.Text, IIf(IsNumeric(txtYA) = False, 0, CInt(txtYA.Text)), flpPanel, ErrorLog) Then
                         MsgBox("Successfully saved your data.", MsgBoxStyle.Information)
-                        ' Me.Close()
-                        If isRemote = True Then
-                            Me.Close()
-                        Else
-                            isRemote = False
-                        End If
+                        Me.Close()
+                        
                     Else
                         MsgBox("Unsuccessfully save data." & vbCrLf & ErrorLog.ErrorMessage, MsgBoxStyle.Critical)
                     End If
@@ -805,4 +814,17 @@ Public Class frmSupport_Add
     End Sub
 
 
+    Private Sub cboFormType_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cboFormType.SelectedIndexChanged
+        Try
+            If isAllowChangeTypeForm(cboFormType.SelectedIndex, isSQLVersion) = False Then
+                Dim tmpResult As DialogResult = MessageBox.Show("Are you sure want to change form type?", "", MessageBoxButtons.YesNo)
+
+                If tmpResult = Windows.Forms.DialogResult.No Then
+                    cboFormType.SelectedIndex = 10
+                End If
+            End If
+        Catch ex As Exception
+
+        End Try
+    End Sub
 End Class

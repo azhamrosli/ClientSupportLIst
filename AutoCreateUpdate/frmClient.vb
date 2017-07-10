@@ -58,6 +58,7 @@ Public Class frmClient
     End Sub
 
     Private Sub frmClient_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
         Try
             Timer1.Enabled = True
             Timer1.Start()
@@ -130,6 +131,45 @@ Public Class frmClient
                     Me.LoadDataSupport()
                 End If
 
+                'Dim lblName As New Label
+                'Dim lblDt As New Label
+                'Dim lblMsg As New Label
+                'Dim pnl As New Panel
+
+                'pnl.Name = "pnlnoti" & Format(Now, "ddMMMyyyyHHmmss")
+                'pnl.AutoSize = True
+                'pnl.AutoSizeMode = Windows.Forms.AutoSizeMode.GrowAndShrink
+                'pnl.Margin = New Padding(5)
+                'pnl.Padding = New Padding(10)
+
+                'If My.Computer.Name.ToUpper = m_name.ToUpper Then
+                '    pnl.BackColor = Color.FromArgb(220, 248, 198)
+                'Else
+                '    pnl.BackColor = Color.LightPink
+                'End If
+
+
+
+                'lblName.Name = "lblnamenoti" & Format(Now, "ddMMMyyyyHHmmss")
+                'lblName.Text = m_name.ToString
+                'lblName.Location = New Point(13, 10)
+                'lblName.AutoSize = True
+
+                'lblDt.Name = "lbldtnoti" & Format(Now, "ddMMMyyyyHHmmss")
+                'lblDt.Text = Format(Now, "dd-MMM-yyyy HH:MM tt")
+                'lblDt.Location = New Point(flwNotification.Width - 200, 10)
+                'lblDt.AutoSize = True
+
+                'lblMsg.Name = "lblmsgnoti" & Format(Now, "ddMMMyyyyHHmmss")
+                'lblMsg.Text = m_message.ToString
+                'lblMsg.Location = New Point(13, 49)
+                'lblMsg.AutoSize = True
+
+
+                'pnl.Controls.Add(lblName)
+                'pnl.Controls.Add(lblDt)
+                'pnl.Controls.Add(lblMsg)
+                'flwNotification.Controls.Add(pnl)
             End If
 
         Catch ex As Exception
@@ -606,17 +646,6 @@ Public Class frmClient
                     subitm.Text = IIf(IsDBNull(dt.Rows(i)("TeamviewerPass")), "", dt.Rows(i)("TeamviewerPass"))
                     itm.SubItems.Add(subitm)
 
-                    subitm = New ListViewItem.ListViewSubItem
-                    subitm.Text = IIf(IsDBNull(dt.Rows(i)("Problem")), "", dt.Rows(i)("Problem"))
-                    itm.SubItems.Add(subitm)
-
-                    subitm = New ListViewItem.ListViewSubItem
-                    subitm.Text = IIf(IsDBNull(dt.Rows(i)("PersonName")), "", dt.Rows(i)("PersonName"))
-                    itm.SubItems.Add(subitm)
-
-                    subitm = New ListViewItem.ListViewSubItem
-                    subitm.Text = IIf(IsDBNull(dt.Rows(i)("RefID")), "", dt.Rows(i)("RefID"))
-                    itm.SubItems.Add(subitm)
 
                     tmpstr = Nothing
                     subitm = New ListViewItem.ListViewSubItem
@@ -654,6 +683,20 @@ Public Class frmClient
                         tmpstr += "SQL,"
                     End If
                     subitm.Text = tmpstr
+                    itm.SubItems.Add(subitm)
+
+
+                    subitm = New ListViewItem.ListViewSubItem
+                    subitm.Text = IIf(IsDBNull(dt.Rows(i)("PersonName")), "", dt.Rows(i)("PersonName"))
+                    itm.SubItems.Add(subitm)
+
+                    subitm = New ListViewItem.ListViewSubItem
+                    subitm.Text = IIf(IsDBNull(dt.Rows(i)("Problem")), "", dt.Rows(i)("Problem"))
+                    itm.SubItems.Add(subitm)
+
+
+                    subitm = New ListViewItem.ListViewSubItem
+                    subitm.Text = IIf(IsDBNull(dt.Rows(i)("RefID")), "", dt.Rows(i)("RefID"))
                     itm.SubItems.Add(subitm)
 
 
@@ -803,7 +846,19 @@ Public Class frmClient
 
         End Try
     End Sub
+    Private Sub CopyServerNameToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CopyServerNameToolStripMenuItem.Click
+        Try
+            For i As Integer = 0 To LvLists.Items.Count - 1
+                If LvLists.Items(i).Selected Then
+                    Clipboard.SetText(LvLists.Items(i).SubItems(12).Text)
+                    MsgBox("Copy " & LvLists.Items(i).SubItems(12).Text)
+                End If
+            Next
 
+        Catch ex As Exception
+
+        End Try
+    End Sub
     Private Sub CopyTelNoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CopyTelNoToolStripMenuItem.Click
         Try
             For i As Integer = 0 To LvLists.Items.Count - 1
@@ -1193,7 +1248,7 @@ Public Class frmClient
                 'flpMain.Controls.Add(txt)
                 '==============================================================================================
                 '==============================================================================================
-                Dim PnlWrp As Panel
+
                 Dim PnlCont As Panel
                 Dim lblUserName As Label
                 Dim lblDateTime As Label
@@ -1201,7 +1256,7 @@ Public Class frmClient
                 Dim sizepnl As Integer = 70
 
                 If m_name.ToLower <> My.Computer.Name.ToLower Then
-                    PnlWrp = New Panel
+
 
                     PnlCont = New Panel
                     PnlCont.Location = New Point(0, 0)
@@ -1213,43 +1268,43 @@ Public Class frmClient
                     lblUserName.Location = New Point(9, 10)
                     lblUserName.Size = New System.Drawing.Size(331, 13)
                     lblUserName.TextAlign = ContentAlignment.MiddleLeft
-                    lblUserName.Font = New Font("Tahoma", 8.25F, FontStyle.Bold)
+                    lblUserName.Font = New Font("Segoe UI Emoji", 8.25F, FontStyle.Bold)
 
                     lblDateTime = New Label
                     lblDateTime.Name = "lbldt" & Format(Now, "ddMMyyyyHHmmsss")
                     lblDateTime.Text = Format(Now, "dd-MM-yyyy HH:mm tt") 'ConvertDateTimeToFacebookDateTime(m_datetime)
                     lblDateTime.ForeColor = Color.Black
-                    lblDateTime.Location = New Point(346, 10)
+                    lblDateTime.Location = New Point(flpMain.Width - 50, 10)
                     lblDateTime.Size = New System.Drawing.Size(201, 16)
                     lblDateTime.TextAlign = ContentAlignment.MiddleRight
 
                     txtMsg = New RichTextBox
-                    txtMsg.Text = m_message
+                    txtMsg.Text = m_message.Trim
                     txtMsg.Location = New Point(9, 37)
                     txtMsg.BackColor = Color.White
                     txtMsg.ReadOnly = True
                     txtMsg.BorderStyle = BorderStyle.None
 
+
                     Dim rtbSize As New Size(TextRenderer.MeasureText(txtMsg.Text, txtMsg.Font, txtMsg.Size, TextFormatFlags.WordBreak))
 
-                    sizepnl = rtbSize.Height + 70
+                    sizepnl = rtbSize.Height + 20
 
-                    txtMsg.Size = New System.Drawing.Size(535, sizepnl)
-                    PnlWrp.Size = New System.Drawing.Size(730, sizepnl + 10)
-                    PnlCont.Size = New System.Drawing.Size(550, sizepnl + 10)
+                    txtMsg.Size = New System.Drawing.Size(flpMain.Width - 250, sizepnl)
+                    'PnlWrp.Size = New System.Drawing.Size(730, sizepnl + 10)
+                    'PnlCont.Size = New System.Drawing.Size(550, sizepnl + 10)
 
                     PnlCont.Controls.Add(lblUserName)
                     PnlCont.Controls.Add(lblDateTime)
                     PnlCont.Controls.Add(txtMsg)
 
+
                     PnlCont.AutoSize = True
                     PnlCont.AutoSizeMode = Windows.Forms.AutoSizeMode.GrowAndShrink
-                    PnlWrp.AutoSize = True
-                    PnlWrp.AutoSizeMode = Windows.Forms.AutoSizeMode.GrowAndShrink
-                    PnlWrp.Controls.Add(PnlCont)
-
+                    PnlCont.Padding = New Padding(10)
+                    PnlCont.Margin = New Padding(10)
                 Else
-                    PnlWrp = New Panel
+
 
                     PnlCont = New Panel
                     PnlCont.Location = New Point(180, 0)
@@ -1261,32 +1316,31 @@ Public Class frmClient
                     lblUserName.Location = New Point(9, 10)
                     lblUserName.Size = New System.Drawing.Size(331, 16)
                     lblUserName.TextAlign = ContentAlignment.MiddleLeft
-                    lblUserName.Font = New Font("Tahoma", 8.25F, FontStyle.Bold)
+                    lblUserName.Font = New Font("Segoe UI Emoji", 8.25F, FontStyle.Bold)
 
 
                     lblDateTime = New Label
                     lblDateTime.Name = "lbldt" & Format(Now, "ddMMyyyyHHmmsss")
                     lblDateTime.Text = Format(Now, "dd-MM-yyyy HH:mm tt") 'ConvertDateTimeToFacebookDateTime(m_datetime)
                     lblDateTime.ForeColor = Color.Black
-                    lblDateTime.Location = New Point(346, 10)
+                    lblDateTime.Location = New Point(flpMain.Width - 250, 10)
                     lblDateTime.Size = New System.Drawing.Size(201, 16)
                     lblDateTime.TextAlign = ContentAlignment.MiddleRight
 
                     txtMsg = New RichTextBox
-                    txtMsg.Text = m_message
+                    txtMsg.Text = m_message.Trim
                     txtMsg.Location = New Point(9, 37)
                     txtMsg.BackColor = Color.FromArgb(220, 248, 198)
                     txtMsg.ReadOnly = True
                     txtMsg.BorderStyle = BorderStyle.None
 
-
                     Dim rtbSize As New Size(TextRenderer.MeasureText(txtMsg.Text, txtMsg.Font, txtMsg.Size, TextFormatFlags.WordBreak))
 
-                    sizepnl = rtbSize.Height + 70
+                    sizepnl = rtbSize.Height + 20
 
-                    txtMsg.Size = New System.Drawing.Size(535, sizepnl)
-                    PnlWrp.Size = New System.Drawing.Size(730, sizepnl + 10)
-                    PnlCont.Size = New System.Drawing.Size(550, sizepnl + 10)
+                    txtMsg.Size = New System.Drawing.Size(flpMain.Width - 50, sizepnl)
+                    'PnlWrp.Size = New System.Drawing.Size(730, sizepnl + 10)
+                    'PnlCont.Size = New System.Drawing.Size(550, sizepnl + 10)
 
                     PnlCont.Controls.Add(lblUserName)
                     PnlCont.Controls.Add(lblDateTime)
@@ -1294,13 +1348,11 @@ Public Class frmClient
 
                     PnlCont.AutoSize = True
                     PnlCont.AutoSizeMode = Windows.Forms.AutoSizeMode.GrowAndShrink
-                    PnlWrp.AutoSize = True
-                    PnlWrp.AutoSizeMode = Windows.Forms.AutoSizeMode.GrowAndShrink
-                    PnlWrp.Controls.Add(PnlCont)
-
+                    PnlCont.Padding = New Padding(10)
+                    PnlCont.Margin = New Padding(10)
                 End If
 
-                flpMain.Controls.Add(PnlWrp)
+                flpMain.Controls.Add(PnlCont)
                 flpMain.VerticalScroll.Value = flpMain.VerticalScroll.Maximum
                 txtMessage.Focus()
 
@@ -1335,4 +1387,54 @@ Public Class frmClient
     Private Sub picNotification_Click(sender As Object, e As EventArgs)
 
     End Sub
+    'Private Sub ResizeBox()
+    '    Try
+
+    '        For i As Integer = 0 To flwNotification.Controls.Count - 1
+    '            If TypeOf flwNotification.Controls(i) Is Panel Then
+    '                'AndAlso flwNotification.Controls(i).Name.Contains("lbldt")
+    '                'lblDt.Name = "lbldtnoti" & Format(Now, "ddMMMyyyyHHmmss")
+    '                'lblDt.Text = Format(m_datetime, "dd-MMM-yyyy HH:MM tt")
+    '                'lblDt.Location = New Point(flwNotification.Width - 200, 10)
+    '                'lblDt.AutoSize = True
+    '                For Each lbl As Label In flwNotification.Controls(i).Controls
+    '                    If lbl.Name.Contains("lbldt") Then
+    '                        lbl.Location = New Point(flwNotification.Width - 200, 10)
+    '                    End If
+
+    '                Next
+
+    '            End If
+    '        Next
+    '        'lbldt
+    '        Dim sizepnl As Integer = 0
+    '        For i As Integer = 0 To flpMain.Controls.Count - 1
+    '            If TypeOf flpMain.Controls(i) Is Panel Then
+    '                'AndAlso flwNotification.Controls(i).Name.Contains("lbldt")
+    '                'lblDt.Name = "lbldtnoti" & Format(Now, "ddMMMyyyyHHmmss")
+    '                'lblDt.Text = Format(m_datetime, "dd-MMM-yyyy HH:MM tt")
+    '                'lblDt.Location = New Point(flwNotification.Width - 200, 10)
+    '                'lblDt.AutoSize = True
+    '                For x As Integer = 0 To flpMain.Controls(i).Controls.Count - 1
+    '                    If TypeOf flpMain.Controls(i).Controls(x) Is Label Then
+    '                        If flpMain.Controls(i).Controls(x).Name.Contains("lbldt") Then
+    '                            flpMain.Controls(i).Controls(x).Location = New Point(flpMain.Width - 250, 10)
+    '                        End If
+    '                    ElseIf TypeOf flpMain.Controls(i).Controls(x) Is RichTextBox Then
+    '                        Dim rtbSize As New Size(TextRenderer.MeasureText(flpMain.Controls(i).Controls(x).Text, flpMain.Controls(i).Controls(x).Font, flpMain.Controls(i).Controls(x).Size, TextFormatFlags.WordBreak))
+
+    '                        sizepnl = rtbSize.Height + 20
+
+    '                        flpMain.Controls(i).Controls(x).Size = New System.Drawing.Size(flpMain.Width - 50, sizepnl)
+    '                    End If
+    '                Next
+
+    '            End If
+    '        Next
+    '    Catch ex As Exception
+
+    '    End Try
+    'End Sub
+
+   
 End Class

@@ -13,8 +13,8 @@ Module mdlProcess_Office
     Public LicenseType As Integer = 0
     Public V1 As Integer = 2
     Public V2 As Integer = 3
-    Public V3 As Integer = 7
-    Public V4 As Integer = 0
+    Public V3 As Integer = 9
+    Public V4 As Integer = 3
     'Public connection As HubConnection = New HubConnection("http://localhost:63739/signalr")
     Public connection As HubConnection = New HubConnection("http://www.arsoftwaremalaysia.com/signalr")
     Public myHub As IHubProxy = connection.CreateHubProxy("hitCounter")
@@ -1713,7 +1713,7 @@ Module mdlProcess_Office
             cmd.Parameters.Add("@Status", SqlDbType.Int).Value = Status
             cmd.Parameters.Add("@ModifiedBy", SqlDbType.NVarChar, 250).Value = My.Computer.Name
             cmd.Parameters.Add("@TypeForm", SqlDbType.Int).Value = TypeForm
-            cmd.Parameters.Add("@RefPayerNo", SqlDbType.Int).Value = RefPayerNo
+            cmd.Parameters.Add("@RefPayerNo", SqlDbType.NVarChar, 50).Value = RefPayerNo
             cmd.Parameters.Add("@YA", SqlDbType.Int).Value = YA
 
             ' Return ADO.ExecuteSQLCmd_NOIDReturn(cmd, SqlCon, System.Reflection.MethodBase.GetCurrentMethod().Name, Errorlog)
@@ -2024,7 +2024,7 @@ Module mdlProcess_Office
             cmd.Parameters.Add("@DateCreated", SqlDbType.DateTime).Value = Now
             cmd.Parameters.Add("@ModifiedBy", SqlDbType.NVarChar, 250).Value = My.Computer.Name
             cmd.Parameters.Add("@TypeForm", SqlDbType.Int).Value = TypeForm
-            cmd.Parameters.Add("@RefPayerNo", SqlDbType.Int).Value = RefPayerNo
+            cmd.Parameters.Add("@RefPayerNo", SqlDbType.NVarChar, 50).Value = RefPayerNo
             cmd.Parameters.Add("@YA", SqlDbType.Int).Value = YA
 
             Dim ReturnID As Integer = 0
@@ -2624,24 +2624,52 @@ Module mdlProcess_Office
                 Case 2
                     Return "B+ SQL"
                 Case 3
-                    Return "IEToolbar SQL"
+                    Return "P+ SQL"
                 Case 4
-                    Return "Office Access"
+                    Return "IEToolbar SQL"
                 Case 5
-                    Return "C+ Access"
+                    Return "Office Access"
                 Case 6
-                    Return "B+ Access"
+                    Return "C+ Access"
                 Case 7
-                    Return "IEToolbar Access"
+                    Return "B+ Access"
                 Case 8
-                    Return "General"
+                    Return "P+ Access"
                 Case 9
+                    Return "IEToolbar Access"
+                Case 10
+                    Return "General"
+                Case 11
                     Return "SQL Lite"
                 Case Else
                     Return ""
             End Select
         Catch ex As Exception
             Return ""
+        End Try
+    End Function
+    Public Function isAllowChangeTypeForm(ByVal Type As Integer, ByVal isSQL As Boolean) As Boolean
+        Try
+
+            Select Case Type
+                Case 0, 1, 2, 3
+                    If isSQL Then
+                        Return True
+                    Else
+                        Return False
+                    End If
+                Case 5, 6, 7, 8, 9
+                    If isSQL Then
+                        Return False
+                    Else
+                        Return True
+                    End If
+                Case Else
+                    Return True
+            End Select
+
+        Catch ex As Exception
+            Return False
         End Try
     End Function
     Public Function ConvertDateTimeToFacebookDateTime(ByVal DateData As DateTime, Optional ByVal FormatType As Integer = 0, Optional ByRef ErrorLog As String = "") As String

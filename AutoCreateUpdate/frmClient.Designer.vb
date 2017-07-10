@@ -25,9 +25,7 @@ Partial Class frmClient
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmClient))
         Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.lblCountNotification = New System.Windows.Forms.Label()
         Me.Panel3 = New System.Windows.Forms.Panel()
-        Me.PicNotification = New System.Windows.Forms.PictureBox()
         Me.lblVersion = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
@@ -93,10 +91,10 @@ Partial Class frmClient
         Me.ColumnHeader13 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader14 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader15 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader19 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader16 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader17 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader18 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.ColumnHeader19 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader20 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader21 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader24 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
@@ -109,6 +107,7 @@ Partial Class frmClient
         Me.CopyCompanyNameToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.CopyPersonNameToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.CopyTelNoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.CopyServerNameToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AddNewToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.EditToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.StatusSolveToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -146,11 +145,11 @@ Partial Class frmClient
         Me.ColumnHeader40 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader41 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.TabPage3 = New System.Windows.Forms.TabPage()
-        Me.FlowLayoutPanel1 = New System.Windows.Forms.FlowLayoutPanel()
+        Me.Button2 = New System.Windows.Forms.Button()
+        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.Label12 = New System.Windows.Forms.Label()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.Panel1.SuspendLayout()
-        Me.Panel3.SuspendLayout()
-        CType(Me.PicNotification, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         Me.TabControl1.SuspendLayout()
@@ -166,7 +165,6 @@ Partial Class frmClient
         'Panel1
         '
         Me.Panel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(33, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(31, Byte), Integer))
-        Me.Panel1.Controls.Add(Me.lblCountNotification)
         Me.Panel1.Controls.Add(Me.Panel3)
         Me.Panel1.Controls.Add(Me.lblVersion)
         Me.Panel1.Controls.Add(Me.Label1)
@@ -178,38 +176,13 @@ Partial Class frmClient
         Me.Panel1.Size = New System.Drawing.Size(1211, 49)
         Me.Panel1.TabIndex = 10
         '
-        'lblCountNotification
-        '
-        Me.lblCountNotification.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.lblCountNotification.AutoSize = True
-        Me.lblCountNotification.BackColor = System.Drawing.Color.Transparent
-        Me.lblCountNotification.ForeColor = System.Drawing.Color.Red
-        Me.lblCountNotification.Location = New System.Drawing.Point(1133, 7)
-        Me.lblCountNotification.Name = "lblCountNotification"
-        Me.lblCountNotification.Size = New System.Drawing.Size(45, 25)
-        Me.lblCountNotification.TabIndex = 13
-        Me.lblCountNotification.Text = "10+"
-        '
         'Panel3
         '
-        Me.Panel3.Controls.Add(Me.PicNotification)
         Me.Panel3.Dock = System.Windows.Forms.DockStyle.Right
         Me.Panel3.Location = New System.Drawing.Point(1162, 0)
         Me.Panel3.Name = "Panel3"
         Me.Panel3.Size = New System.Drawing.Size(49, 49)
         Me.Panel3.TabIndex = 12
-        '
-        'PicNotification
-        '
-        Me.PicNotification.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.PicNotification.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.PicNotification.Image = Global.AutoCreateUpdate.My.Resources.Resources.notification1
-        Me.PicNotification.Location = New System.Drawing.Point(0, 0)
-        Me.PicNotification.Name = "PicNotification"
-        Me.PicNotification.Size = New System.Drawing.Size(49, 49)
-        Me.PicNotification.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage
-        Me.PicNotification.TabIndex = 0
-        Me.PicNotification.TabStop = False
         '
         'lblVersion
         '
@@ -229,7 +202,7 @@ Partial Class frmClient
         Me.Label1.ForeColor = System.Drawing.Color.White
         Me.Label1.Location = New System.Drawing.Point(137, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(127, 32)
+        Me.Label1.Size = New System.Drawing.Size(98, 25)
         Me.Label1.TabIndex = 10
         Me.Label1.Text = "Client List"
         '
@@ -350,7 +323,7 @@ Partial Class frmClient
         Me.Label4.AutoSize = True
         Me.Label4.Location = New System.Drawing.Point(17, 110)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(60, 25)
+        Me.Label4.Size = New System.Drawing.Size(47, 20)
         Me.Label4.TabIndex = 157
         Me.Label4.Text = "Type :"
         '
@@ -363,16 +336,16 @@ Partial Class frmClient
         Me.cboType.Location = New System.Drawing.Point(179, 107)
         Me.cboType.Margin = New System.Windows.Forms.Padding(2)
         Me.cboType.Name = "cboType"
-        Me.cboType.Size = New System.Drawing.Size(490, 30)
+        Me.cboType.Size = New System.Drawing.Size(490, 25)
         Me.cboType.TabIndex = 156
         '
         'chkIsBan
         '
         Me.chkIsBan.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.chkIsBan.AutoSize = True
-        Me.chkIsBan.Location = New System.Drawing.Point(179, 133)
+        Me.chkIsBan.Location = New System.Drawing.Point(179, 138)
         Me.chkIsBan.Name = "chkIsBan"
-        Me.chkIsBan.Size = New System.Drawing.Size(157, 29)
+        Me.chkIsBan.Size = New System.Drawing.Size(124, 24)
         Me.chkIsBan.TabIndex = 155
         Me.chkIsBan.Text = "Filter Ban Only"
         Me.chkIsBan.UseVisualStyleBackColor = True
@@ -392,7 +365,7 @@ Partial Class frmClient
         Me.txtID.Location = New System.Drawing.Point(179, 38)
         Me.txtID.MaxLength = 150
         Me.txtID.Name = "txtID"
-        Me.txtID.Size = New System.Drawing.Size(490, 31)
+        Me.txtID.Size = New System.Drawing.Size(490, 27)
         Me.txtID.TabIndex = 152
         '
         'btnFind
@@ -410,7 +383,7 @@ Partial Class frmClient
         Me.Label3.AutoSize = True
         Me.Label3.Location = New System.Drawing.Point(17, 78)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(156, 25)
+        Me.Label3.Size = New System.Drawing.Size(123, 20)
         Me.Label3.TabIndex = 149
         Me.Label3.Text = "Company Name :"
         '
@@ -419,7 +392,7 @@ Partial Class frmClient
         Me.txtName.Location = New System.Drawing.Point(179, 75)
         Me.txtName.MaxLength = 150
         Me.txtName.Name = "txtName"
-        Me.txtName.Size = New System.Drawing.Size(490, 31)
+        Me.txtName.Size = New System.Drawing.Size(490, 27)
         Me.txtName.TabIndex = 148
         '
         'Label2
@@ -427,7 +400,7 @@ Partial Class frmClient
         Me.Label2.AutoSize = True
         Me.Label2.Location = New System.Drawing.Point(17, 41)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(127, 25)
+        Me.Label2.Size = New System.Drawing.Size(101, 20)
         Me.Label2.TabIndex = 0
         Me.Label2.Text = "Reference ID :"
         '
@@ -457,9 +430,9 @@ Partial Class frmClient
         '
         Me.chkSelectAll.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.chkSelectAll.AutoSize = True
-        Me.chkSelectAll.Location = New System.Drawing.Point(30, 270)
+        Me.chkSelectAll.Location = New System.Drawing.Point(30, 275)
         Me.chkSelectAll.Name = "chkSelectAll"
-        Me.chkSelectAll.Size = New System.Drawing.Size(111, 29)
+        Me.chkSelectAll.Size = New System.Drawing.Size(90, 24)
         Me.chkSelectAll.TabIndex = 154
         Me.chkSelectAll.Text = "Select All"
         Me.chkSelectAll.UseVisualStyleBackColor = True
@@ -559,10 +532,10 @@ Partial Class frmClient
         Me.TabPage1.Controls.Add(Me.txtIDS)
         Me.TabPage1.Controls.Add(Me.Label8)
         Me.TabPage1.Controls.Add(Me.btnClears)
-        Me.TabPage1.Location = New System.Drawing.Point(4, 34)
+        Me.TabPage1.Location = New System.Drawing.Point(4, 28)
         Me.TabPage1.Name = "TabPage1"
         Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage1.Size = New System.Drawing.Size(1203, 528)
+        Me.TabPage1.Size = New System.Drawing.Size(1203, 534)
         Me.TabPage1.TabIndex = 0
         Me.TabPage1.Text = "F1 Support                          "
         '
@@ -585,7 +558,7 @@ Partial Class frmClient
         Me.Label5.Font = New System.Drawing.Font("Segoe UI Semibold", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label5.Location = New System.Drawing.Point(18, 394)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(203, 25)
+        Me.Label5.Size = New System.Drawing.Size(162, 20)
         Me.Label5.TabIndex = 223
         Me.Label5.Text = "Top Company Support"
         '
@@ -595,7 +568,7 @@ Partial Class frmClient
         Me.lblTopSupport2.AutoSize = True
         Me.lblTopSupport2.Location = New System.Drawing.Point(18, 456)
         Me.lblTopSupport2.Name = "lblTopSupport2"
-        Me.lblTopSupport2.Size = New System.Drawing.Size(22, 25)
+        Me.lblTopSupport2.Size = New System.Drawing.Size(17, 20)
         Me.lblTopSupport2.TabIndex = 222
         Me.lblTopSupport2.Text = "2"
         '
@@ -605,7 +578,7 @@ Partial Class frmClient
         Me.lblTopSupport3.AutoSize = True
         Me.lblTopSupport3.Location = New System.Drawing.Point(18, 481)
         Me.lblTopSupport3.Name = "lblTopSupport3"
-        Me.lblTopSupport3.Size = New System.Drawing.Size(22, 25)
+        Me.lblTopSupport3.Size = New System.Drawing.Size(17, 20)
         Me.lblTopSupport3.TabIndex = 221
         Me.lblTopSupport3.Text = "3"
         '
@@ -615,7 +588,7 @@ Partial Class frmClient
         Me.lblTopSupport1.AutoSize = True
         Me.lblTopSupport1.Location = New System.Drawing.Point(18, 428)
         Me.lblTopSupport1.Name = "lblTopSupport1"
-        Me.lblTopSupport1.Size = New System.Drawing.Size(22, 25)
+        Me.lblTopSupport1.Size = New System.Drawing.Size(17, 20)
         Me.lblTopSupport1.TabIndex = 220
         Me.lblTopSupport1.Text = "1"
         '
@@ -624,7 +597,7 @@ Partial Class frmClient
         Me.lblNotification.AutoSize = True
         Me.lblNotification.Location = New System.Drawing.Point(641, 438)
         Me.lblNotification.Name = "lblNotification"
-        Me.lblNotification.Size = New System.Drawing.Size(67, 25)
+        Me.lblNotification.Size = New System.Drawing.Size(53, 20)
         Me.lblNotification.TabIndex = 218
         Me.lblNotification.Text = "Label5"
         Me.lblNotification.Visible = False
@@ -748,7 +721,7 @@ Partial Class frmClient
         Me.lblTotalSupportPendingToTesting.AutoSize = True
         Me.lblTotalSupportPendingToTesting.Location = New System.Drawing.Point(6, 143)
         Me.lblTotalSupportPendingToTesting.Name = "lblTotalSupportPendingToTesting"
-        Me.lblTotalSupportPendingToTesting.Size = New System.Drawing.Size(229, 25)
+        Me.lblTotalSupportPendingToTesting.Size = New System.Drawing.Size(181, 20)
         Me.lblTotalSupportPendingToTesting.TabIndex = 6
         Me.lblTotalSupportPendingToTesting.Text = "Total Support Month : 100"
         '
@@ -757,7 +730,7 @@ Partial Class frmClient
         Me.lblTotalSupportBug.AutoSize = True
         Me.lblTotalSupportBug.Location = New System.Drawing.Point(6, 123)
         Me.lblTotalSupportBug.Name = "lblTotalSupportBug"
-        Me.lblTotalSupportBug.Size = New System.Drawing.Size(229, 25)
+        Me.lblTotalSupportBug.Size = New System.Drawing.Size(181, 20)
         Me.lblTotalSupportBug.TabIndex = 5
         Me.lblTotalSupportBug.Text = "Total Support Month : 100"
         '
@@ -766,7 +739,7 @@ Partial Class frmClient
         Me.lblTotalSupportYearly.AutoSize = True
         Me.lblTotalSupportYearly.Location = New System.Drawing.Point(6, 103)
         Me.lblTotalSupportYearly.Name = "lblTotalSupportYearly"
-        Me.lblTotalSupportYearly.Size = New System.Drawing.Size(229, 25)
+        Me.lblTotalSupportYearly.Size = New System.Drawing.Size(181, 20)
         Me.lblTotalSupportYearly.TabIndex = 4
         Me.lblTotalSupportYearly.Text = "Total Support Month : 100"
         '
@@ -775,7 +748,7 @@ Partial Class frmClient
         Me.lblTotalSupportYesterday.AutoSize = True
         Me.lblTotalSupportYesterday.Location = New System.Drawing.Point(6, 42)
         Me.lblTotalSupportYesterday.Name = "lblTotalSupportYesterday"
-        Me.lblTotalSupportYesterday.Size = New System.Drawing.Size(219, 25)
+        Me.lblTotalSupportYesterday.Size = New System.Drawing.Size(174, 20)
         Me.lblTotalSupportYesterday.TabIndex = 3
         Me.lblTotalSupportYesterday.Text = "Total Support Week : 100"
         '
@@ -784,7 +757,7 @@ Partial Class frmClient
         Me.lblTotalSupportMonth.AutoSize = True
         Me.lblTotalSupportMonth.Location = New System.Drawing.Point(6, 83)
         Me.lblTotalSupportMonth.Name = "lblTotalSupportMonth"
-        Me.lblTotalSupportMonth.Size = New System.Drawing.Size(229, 25)
+        Me.lblTotalSupportMonth.Size = New System.Drawing.Size(181, 20)
         Me.lblTotalSupportMonth.TabIndex = 2
         Me.lblTotalSupportMonth.Text = "Total Support Month : 100"
         '
@@ -793,7 +766,7 @@ Partial Class frmClient
         Me.lblTotalSupportWeek.AutoSize = True
         Me.lblTotalSupportWeek.Location = New System.Drawing.Point(6, 63)
         Me.lblTotalSupportWeek.Name = "lblTotalSupportWeek"
-        Me.lblTotalSupportWeek.Size = New System.Drawing.Size(219, 25)
+        Me.lblTotalSupportWeek.Size = New System.Drawing.Size(174, 20)
         Me.lblTotalSupportWeek.TabIndex = 1
         Me.lblTotalSupportWeek.Text = "Total Support Week : 100"
         '
@@ -802,7 +775,7 @@ Partial Class frmClient
         Me.lblTotalSupportToday.AutoSize = True
         Me.lblTotalSupportToday.Location = New System.Drawing.Point(6, 23)
         Me.lblTotalSupportToday.Name = "lblTotalSupportToday"
-        Me.lblTotalSupportToday.Size = New System.Drawing.Size(222, 25)
+        Me.lblTotalSupportToday.Size = New System.Drawing.Size(178, 20)
         Me.lblTotalSupportToday.TabIndex = 0
         Me.lblTotalSupportToday.Text = "Total Support Today : 100"
         '
@@ -824,7 +797,7 @@ Partial Class frmClient
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.LvLists.BackColor = System.Drawing.Color.White
         Me.LvLists.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.LvLists.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader2, Me.ColumnHeader3, Me.ColumnHeader12, Me.ColumnHeader4, Me.ColumnHeader5, Me.ColumnHeader13, Me.ColumnHeader14, Me.ColumnHeader15, Me.ColumnHeader16, Me.ColumnHeader17, Me.ColumnHeader18, Me.ColumnHeader19, Me.ColumnHeader20, Me.ColumnHeader21, Me.ColumnHeader24, Me.ColumnHeader22, Me.ColumnHeader23})
+        Me.LvLists.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader2, Me.ColumnHeader3, Me.ColumnHeader12, Me.ColumnHeader4, Me.ColumnHeader5, Me.ColumnHeader13, Me.ColumnHeader14, Me.ColumnHeader15, Me.ColumnHeader19, Me.ColumnHeader17, Me.ColumnHeader16, Me.ColumnHeader18, Me.ColumnHeader20, Me.ColumnHeader21, Me.ColumnHeader24, Me.ColumnHeader22, Me.ColumnHeader23})
         Me.LvLists.ContextMenuStrip = Me.ContextMenuStrip1
         Me.LvLists.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LvLists.FullRowSelect = True
@@ -839,7 +812,6 @@ Partial Class frmClient
         'ColumnHeader2
         '
         Me.ColumnHeader2.Text = "No"
-        Me.ColumnHeader2.Width = 80
         '
         'ColumnHeader3
         '
@@ -854,7 +826,7 @@ Partial Class frmClient
         'ColumnHeader4
         '
         Me.ColumnHeader4.Text = "Status"
-        Me.ColumnHeader4.Width = 250
+        Me.ColumnHeader4.Width = 200
         '
         'ColumnHeader5
         '
@@ -871,12 +843,17 @@ Partial Class frmClient
         '
         Me.ColumnHeader14.Text = "TV ID"
         Me.ColumnHeader14.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
-        Me.ColumnHeader14.Width = 200
+        Me.ColumnHeader14.Width = 130
         '
         'ColumnHeader15
         '
         Me.ColumnHeader15.Text = "TV Pass"
-        Me.ColumnHeader15.Width = 100
+        Me.ColumnHeader15.Width = 80
+        '
+        'ColumnHeader19
+        '
+        Me.ColumnHeader19.Text = "License Type"
+        Me.ColumnHeader19.Width = 200
         '
         'ColumnHeader16
         '
@@ -885,21 +862,14 @@ Partial Class frmClient
         '
         'ColumnHeader17
         '
-        Me.ColumnHeader17.DisplayIndex = 10
         Me.ColumnHeader17.Text = "Person Incharge"
         Me.ColumnHeader17.Width = 150
         '
         'ColumnHeader18
         '
-        Me.ColumnHeader18.DisplayIndex = 11
+        Me.ColumnHeader18.DisplayIndex = 12
         Me.ColumnHeader18.Text = "Ref ID"
         Me.ColumnHeader18.Width = 100
-        '
-        'ColumnHeader19
-        '
-        Me.ColumnHeader19.DisplayIndex = 12
-        Me.ColumnHeader19.Text = "License Type"
-        Me.ColumnHeader19.Width = 250
         '
         'ColumnHeader20
         '
@@ -910,7 +880,7 @@ Partial Class frmClient
         '
         'ColumnHeader21
         '
-        Me.ColumnHeader21.DisplayIndex = 9
+        Me.ColumnHeader21.DisplayIndex = 11
         Me.ColumnHeader21.Text = "Note"
         Me.ColumnHeader21.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         Me.ColumnHeader21.Width = 200
@@ -935,117 +905,123 @@ Partial Class frmClient
         'ContextMenuStrip1
         '
         Me.ContextMenuStrip1.ImageScalingSize = New System.Drawing.Size(20, 20)
-        Me.ContextMenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.OpenTeamviewerToolStripMenuItem, Me.CopyTeamviewerIDToolStripMenuItem, Me.CopyTeamviewerPassToolStripMenuItem, Me.CopyCompanyNameToolStripMenuItem, Me.CopyPersonNameToolStripMenuItem, Me.CopyTelNoToolStripMenuItem, Me.AddNewToolStripMenuItem, Me.EditToolStripMenuItem, Me.StatusSolveToolStripMenuItem, Me.StatusHoldToolStripMenuItem, Me.StatusUrgentToolStripMenuItem, Me.StatusBugOnProgramToolStripMenuItem, Me.StatusPendingToTestingToolStripMenuItem, Me.StatusOtherToolStripMenuItem, Me.DuplicateThisSupportToolStripMenuItem})
+        Me.ContextMenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.OpenTeamviewerToolStripMenuItem, Me.CopyTeamviewerIDToolStripMenuItem, Me.CopyTeamviewerPassToolStripMenuItem, Me.CopyCompanyNameToolStripMenuItem, Me.CopyPersonNameToolStripMenuItem, Me.CopyTelNoToolStripMenuItem, Me.CopyServerNameToolStripMenuItem, Me.AddNewToolStripMenuItem, Me.EditToolStripMenuItem, Me.StatusSolveToolStripMenuItem, Me.StatusHoldToolStripMenuItem, Me.StatusUrgentToolStripMenuItem, Me.StatusBugOnProgramToolStripMenuItem, Me.StatusPendingToTestingToolStripMenuItem, Me.StatusOtherToolStripMenuItem, Me.DuplicateThisSupportToolStripMenuItem})
         Me.ContextMenuStrip1.Name = "ContextMenuStrip1"
-        Me.ContextMenuStrip1.Size = New System.Drawing.Size(254, 364)
+        Me.ContextMenuStrip1.Size = New System.Drawing.Size(217, 356)
         '
         'OpenTeamviewerToolStripMenuItem
         '
         Me.OpenTeamviewerToolStripMenuItem.Name = "OpenTeamviewerToolStripMenuItem"
-        Me.OpenTeamviewerToolStripMenuItem.Size = New System.Drawing.Size(253, 24)
+        Me.OpenTeamviewerToolStripMenuItem.Size = New System.Drawing.Size(216, 22)
         Me.OpenTeamviewerToolStripMenuItem.Text = "Open Teamviewer"
         '
         'CopyTeamviewerIDToolStripMenuItem
         '
         Me.CopyTeamviewerIDToolStripMenuItem.Name = "CopyTeamviewerIDToolStripMenuItem"
-        Me.CopyTeamviewerIDToolStripMenuItem.Size = New System.Drawing.Size(253, 24)
+        Me.CopyTeamviewerIDToolStripMenuItem.Size = New System.Drawing.Size(216, 22)
         Me.CopyTeamviewerIDToolStripMenuItem.Text = "Copy Teamviewer ID"
         '
         'CopyTeamviewerPassToolStripMenuItem
         '
         Me.CopyTeamviewerPassToolStripMenuItem.Name = "CopyTeamviewerPassToolStripMenuItem"
-        Me.CopyTeamviewerPassToolStripMenuItem.Size = New System.Drawing.Size(253, 24)
+        Me.CopyTeamviewerPassToolStripMenuItem.Size = New System.Drawing.Size(216, 22)
         Me.CopyTeamviewerPassToolStripMenuItem.Text = "Copy Teamviewer Pass"
         '
         'CopyCompanyNameToolStripMenuItem
         '
         Me.CopyCompanyNameToolStripMenuItem.Name = "CopyCompanyNameToolStripMenuItem"
-        Me.CopyCompanyNameToolStripMenuItem.Size = New System.Drawing.Size(253, 24)
+        Me.CopyCompanyNameToolStripMenuItem.Size = New System.Drawing.Size(216, 22)
         Me.CopyCompanyNameToolStripMenuItem.Text = "Copy Company Name"
         '
         'CopyPersonNameToolStripMenuItem
         '
         Me.CopyPersonNameToolStripMenuItem.Name = "CopyPersonNameToolStripMenuItem"
-        Me.CopyPersonNameToolStripMenuItem.Size = New System.Drawing.Size(253, 24)
+        Me.CopyPersonNameToolStripMenuItem.Size = New System.Drawing.Size(216, 22)
         Me.CopyPersonNameToolStripMenuItem.Text = "Copy Person Name"
         '
         'CopyTelNoToolStripMenuItem
         '
         Me.CopyTelNoToolStripMenuItem.Name = "CopyTelNoToolStripMenuItem"
-        Me.CopyTelNoToolStripMenuItem.Size = New System.Drawing.Size(253, 24)
+        Me.CopyTelNoToolStripMenuItem.Size = New System.Drawing.Size(216, 22)
         Me.CopyTelNoToolStripMenuItem.Text = "Copy Tel No"
+        '
+        'CopyServerNameToolStripMenuItem
+        '
+        Me.CopyServerNameToolStripMenuItem.Name = "CopyServerNameToolStripMenuItem"
+        Me.CopyServerNameToolStripMenuItem.Size = New System.Drawing.Size(216, 22)
+        Me.CopyServerNameToolStripMenuItem.Text = "Copy ServerName"
         '
         'AddNewToolStripMenuItem
         '
         Me.AddNewToolStripMenuItem.Name = "AddNewToolStripMenuItem"
-        Me.AddNewToolStripMenuItem.Size = New System.Drawing.Size(253, 24)
+        Me.AddNewToolStripMenuItem.Size = New System.Drawing.Size(216, 22)
         Me.AddNewToolStripMenuItem.Text = "Add New"
         '
         'EditToolStripMenuItem
         '
         Me.EditToolStripMenuItem.Name = "EditToolStripMenuItem"
-        Me.EditToolStripMenuItem.Size = New System.Drawing.Size(253, 24)
+        Me.EditToolStripMenuItem.Size = New System.Drawing.Size(216, 22)
         Me.EditToolStripMenuItem.Text = "Edit"
         '
         'StatusSolveToolStripMenuItem
         '
         Me.StatusSolveToolStripMenuItem.Name = "StatusSolveToolStripMenuItem"
-        Me.StatusSolveToolStripMenuItem.Size = New System.Drawing.Size(253, 24)
+        Me.StatusSolveToolStripMenuItem.Size = New System.Drawing.Size(216, 22)
         Me.StatusSolveToolStripMenuItem.Text = "Status : Solve"
         '
         'StatusHoldToolStripMenuItem
         '
         Me.StatusHoldToolStripMenuItem.Name = "StatusHoldToolStripMenuItem"
-        Me.StatusHoldToolStripMenuItem.Size = New System.Drawing.Size(253, 24)
+        Me.StatusHoldToolStripMenuItem.Size = New System.Drawing.Size(216, 22)
         Me.StatusHoldToolStripMenuItem.Text = "Status : Hold"
         '
         'StatusUrgentToolStripMenuItem
         '
         Me.StatusUrgentToolStripMenuItem.Name = "StatusUrgentToolStripMenuItem"
-        Me.StatusUrgentToolStripMenuItem.Size = New System.Drawing.Size(253, 24)
+        Me.StatusUrgentToolStripMenuItem.Size = New System.Drawing.Size(216, 22)
         Me.StatusUrgentToolStripMenuItem.Text = "Status : Urgent"
         '
         'StatusBugOnProgramToolStripMenuItem
         '
         Me.StatusBugOnProgramToolStripMenuItem.Name = "StatusBugOnProgramToolStripMenuItem"
-        Me.StatusBugOnProgramToolStripMenuItem.Size = New System.Drawing.Size(253, 24)
+        Me.StatusBugOnProgramToolStripMenuItem.Size = New System.Drawing.Size(216, 22)
         Me.StatusBugOnProgramToolStripMenuItem.Text = "Status : Bug on Program"
         '
         'StatusPendingToTestingToolStripMenuItem
         '
         Me.StatusPendingToTestingToolStripMenuItem.Name = "StatusPendingToTestingToolStripMenuItem"
-        Me.StatusPendingToTestingToolStripMenuItem.Size = New System.Drawing.Size(253, 24)
+        Me.StatusPendingToTestingToolStripMenuItem.Size = New System.Drawing.Size(216, 22)
         Me.StatusPendingToTestingToolStripMenuItem.Text = "Status : Pending To Testing"
         '
         'StatusOtherToolStripMenuItem
         '
         Me.StatusOtherToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NewToolStripMenuItem, Me.CancelToolStripMenuItem, Me.PCProblemToolStripMenuItem})
         Me.StatusOtherToolStripMenuItem.Name = "StatusOtherToolStripMenuItem"
-        Me.StatusOtherToolStripMenuItem.Size = New System.Drawing.Size(253, 24)
+        Me.StatusOtherToolStripMenuItem.Size = New System.Drawing.Size(216, 22)
         Me.StatusOtherToolStripMenuItem.Text = "Status Other"
         '
         'NewToolStripMenuItem
         '
         Me.NewToolStripMenuItem.Name = "NewToolStripMenuItem"
-        Me.NewToolStripMenuItem.Size = New System.Drawing.Size(161, 26)
+        Me.NewToolStripMenuItem.Size = New System.Drawing.Size(137, 22)
         Me.NewToolStripMenuItem.Text = "New"
         '
         'CancelToolStripMenuItem
         '
         Me.CancelToolStripMenuItem.Name = "CancelToolStripMenuItem"
-        Me.CancelToolStripMenuItem.Size = New System.Drawing.Size(161, 26)
+        Me.CancelToolStripMenuItem.Size = New System.Drawing.Size(137, 22)
         Me.CancelToolStripMenuItem.Text = "Cancel"
         '
         'PCProblemToolStripMenuItem
         '
         Me.PCProblemToolStripMenuItem.Name = "PCProblemToolStripMenuItem"
-        Me.PCProblemToolStripMenuItem.Size = New System.Drawing.Size(161, 26)
+        Me.PCProblemToolStripMenuItem.Size = New System.Drawing.Size(137, 22)
         Me.PCProblemToolStripMenuItem.Text = "PC Problem"
         '
         'DuplicateThisSupportToolStripMenuItem
         '
         Me.DuplicateThisSupportToolStripMenuItem.Name = "DuplicateThisSupportToolStripMenuItem"
-        Me.DuplicateThisSupportToolStripMenuItem.Size = New System.Drawing.Size(253, 24)
+        Me.DuplicateThisSupportToolStripMenuItem.Size = New System.Drawing.Size(216, 22)
         Me.DuplicateThisSupportToolStripMenuItem.Text = "Duplicate This Support"
         '
         'Label6
@@ -1054,7 +1030,7 @@ Partial Class frmClient
         Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label6.Location = New System.Drawing.Point(8, 68)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(121, 20)
+        Me.Label6.Size = New System.Drawing.Size(97, 16)
         Me.Label6.TabIndex = 206
         Me.Label6.Text = "Person Name :"
         '
@@ -1064,7 +1040,7 @@ Partial Class frmClient
         Me.txtPersonS.Location = New System.Drawing.Point(122, 65)
         Me.txtPersonS.MaxLength = 150
         Me.txtPersonS.Name = "txtPersonS"
-        Me.txtPersonS.Size = New System.Drawing.Size(380, 26)
+        Me.txtPersonS.Size = New System.Drawing.Size(380, 22)
         Me.txtPersonS.TabIndex = 205
         '
         'btnAdds
@@ -1085,7 +1061,7 @@ Partial Class frmClient
         Me.cboStatuss.Items.AddRange(New Object() {"New", "Hold", "Cancel", "Solved", "Connetion Problem", "Bug on Program", "PC Problem", "Urgent", "Pending To Testing", "All"})
         Me.cboStatuss.Location = New System.Drawing.Point(581, 65)
         Me.cboStatuss.Name = "cboStatuss"
-        Me.cboStatuss.Size = New System.Drawing.Size(207, 33)
+        Me.cboStatuss.Size = New System.Drawing.Size(207, 27)
         Me.cboStatuss.TabIndex = 204
         '
         'Label10
@@ -1094,7 +1070,7 @@ Partial Class frmClient
         Me.Label10.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label10.Location = New System.Drawing.Point(8, 9)
         Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(118, 20)
+        Me.Label10.Size = New System.Drawing.Size(93, 16)
         Me.Label10.TabIndex = 193
         Me.Label10.Text = "Reference ID :"
         '
@@ -1104,7 +1080,7 @@ Partial Class frmClient
         Me.Label11.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label11.Location = New System.Drawing.Point(521, 70)
         Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(67, 20)
+        Me.Label11.Size = New System.Drawing.Size(51, 16)
         Me.Label11.TabIndex = 203
         Me.Label11.Text = "Status :"
         '
@@ -1114,7 +1090,7 @@ Partial Class frmClient
         Me.txtNameS.Location = New System.Drawing.Point(122, 37)
         Me.txtNameS.MaxLength = 150
         Me.txtNameS.Name = "txtNameS"
-        Me.txtNameS.Size = New System.Drawing.Size(380, 26)
+        Me.txtNameS.Size = New System.Drawing.Size(380, 22)
         Me.txtNameS.TabIndex = 194
         '
         'dtTos
@@ -1123,7 +1099,7 @@ Partial Class frmClient
         Me.dtTos.Format = System.Windows.Forms.DateTimePickerFormat.Custom
         Me.dtTos.Location = New System.Drawing.Point(581, 32)
         Me.dtTos.Name = "dtTos"
-        Me.dtTos.Size = New System.Drawing.Size(207, 31)
+        Me.dtTos.Size = New System.Drawing.Size(207, 27)
         Me.dtTos.TabIndex = 202
         '
         'Label9
@@ -1132,7 +1108,7 @@ Partial Class frmClient
         Me.Label9.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label9.Location = New System.Drawing.Point(6, 40)
         Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(138, 20)
+        Me.Label9.Size = New System.Drawing.Size(112, 16)
         Me.Label9.TabIndex = 195
         Me.Label9.Text = "Company Name :"
         '
@@ -1142,7 +1118,7 @@ Partial Class frmClient
         Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label7.Location = New System.Drawing.Point(521, 40)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(38, 20)
+        Me.Label7.Size = New System.Drawing.Size(31, 16)
         Me.Label7.TabIndex = 201
         Me.Label7.Text = "To :"
         '
@@ -1163,7 +1139,7 @@ Partial Class frmClient
         Me.dtFroms.Format = System.Windows.Forms.DateTimePickerFormat.Custom
         Me.dtFroms.Location = New System.Drawing.Point(581, 1)
         Me.dtFroms.Name = "dtFroms"
-        Me.dtFroms.Size = New System.Drawing.Size(207, 31)
+        Me.dtFroms.Size = New System.Drawing.Size(207, 27)
         Me.dtFroms.TabIndex = 200
         '
         'txtIDS
@@ -1172,7 +1148,7 @@ Partial Class frmClient
         Me.txtIDS.Location = New System.Drawing.Point(122, 6)
         Me.txtIDS.MaxLength = 150
         Me.txtIDS.Name = "txtIDS"
-        Me.txtIDS.Size = New System.Drawing.Size(380, 26)
+        Me.txtIDS.Size = New System.Drawing.Size(380, 22)
         Me.txtIDS.TabIndex = 197
         '
         'Label8
@@ -1181,7 +1157,7 @@ Partial Class frmClient
         Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label8.Location = New System.Drawing.Point(521, 9)
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(58, 20)
+        Me.Label8.Size = New System.Drawing.Size(45, 16)
         Me.Label8.TabIndex = 199
         Me.Label8.Text = "From :"
         '
@@ -1209,10 +1185,10 @@ Partial Class frmClient
         Me.TabPage2.Controls.Add(Me.Button1)
         Me.TabPage2.Controls.Add(Me.chkSelectAll)
         Me.TabPage2.Controls.Add(Me.btnRemove)
-        Me.TabPage2.Location = New System.Drawing.Point(4, 34)
+        Me.TabPage2.Location = New System.Drawing.Point(4, 28)
         Me.TabPage2.Name = "TabPage2"
         Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage2.Size = New System.Drawing.Size(1203, 528)
+        Me.TabPage2.Size = New System.Drawing.Size(1203, 534)
         Me.TabPage2.TabIndex = 1
         Me.TabPage2.Text = "F2 Company List                          "
         Me.TabPage2.UseVisualStyleBackColor = True
@@ -1222,9 +1198,9 @@ Partial Class frmClient
         Me.Message.Controls.Add(Me.flpMain)
         Me.Message.Controls.Add(Me.Panel2)
         Me.Message.Controls.Add(Me.lvUserOnline)
-        Me.Message.Location = New System.Drawing.Point(4, 34)
+        Me.Message.Location = New System.Drawing.Point(4, 28)
         Me.Message.Name = "Message"
-        Me.Message.Size = New System.Drawing.Size(1203, 528)
+        Me.Message.Size = New System.Drawing.Size(1203, 534)
         Me.Message.TabIndex = 2
         Me.Message.Text = "Message                                                    "
         Me.Message.UseVisualStyleBackColor = True
@@ -1236,7 +1212,7 @@ Partial Class frmClient
         Me.flpMain.Dock = System.Windows.Forms.DockStyle.Fill
         Me.flpMain.Location = New System.Drawing.Point(203, 0)
         Me.flpMain.Name = "flpMain"
-        Me.flpMain.Size = New System.Drawing.Size(1000, 485)
+        Me.flpMain.Size = New System.Drawing.Size(1000, 491)
         Me.flpMain.TabIndex = 193
         '
         'Panel2
@@ -1244,7 +1220,7 @@ Partial Class frmClient
         Me.Panel2.Controls.Add(Me.btnSentMessage)
         Me.Panel2.Controls.Add(Me.txtMessage)
         Me.Panel2.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.Panel2.Location = New System.Drawing.Point(203, 485)
+        Me.Panel2.Location = New System.Drawing.Point(203, 491)
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Size = New System.Drawing.Size(1000, 43)
         Me.Panel2.TabIndex = 192
@@ -1263,6 +1239,7 @@ Partial Class frmClient
         '
         Me.txtMessage.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.txtMessage.Font = New System.Drawing.Font("Segoe UI Emoji", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtMessage.Location = New System.Drawing.Point(0, 0)
         Me.txtMessage.Multiline = True
         Me.txtMessage.Name = "txtMessage"
@@ -1281,7 +1258,7 @@ Partial Class frmClient
         Me.lvUserOnline.GridLines = True
         Me.lvUserOnline.Location = New System.Drawing.Point(0, 0)
         Me.lvUserOnline.Name = "lvUserOnline"
-        Me.lvUserOnline.Size = New System.Drawing.Size(203, 528)
+        Me.lvUserOnline.Size = New System.Drawing.Size(203, 534)
         Me.lvUserOnline.TabIndex = 191
         Me.lvUserOnline.UseCompatibleStateImageBehavior = False
         Me.lvUserOnline.View = System.Windows.Forms.View.Details
@@ -1298,21 +1275,40 @@ Partial Class frmClient
         '
         'TabPage3
         '
-        Me.TabPage3.Controls.Add(Me.FlowLayoutPanel1)
-        Me.TabPage3.Location = New System.Drawing.Point(4, 34)
+        Me.TabPage3.Controls.Add(Me.Button2)
+        Me.TabPage3.Controls.Add(Me.TextBox1)
+        Me.TabPage3.Controls.Add(Me.Label12)
+        Me.TabPage3.Location = New System.Drawing.Point(4, 28)
         Me.TabPage3.Name = "TabPage3"
-        Me.TabPage3.Size = New System.Drawing.Size(1203, 528)
+        Me.TabPage3.Size = New System.Drawing.Size(1203, 534)
         Me.TabPage3.TabIndex = 3
-        Me.TabPage3.Text = "Notification                        "
+        Me.TabPage3.Text = "File Compare Control                                      "
         Me.TabPage3.UseVisualStyleBackColor = True
         '
-        'FlowLayoutPanel1
+        'Button2
         '
-        Me.FlowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.FlowLayoutPanel1.Location = New System.Drawing.Point(0, 0)
-        Me.FlowLayoutPanel1.Name = "FlowLayoutPanel1"
-        Me.FlowLayoutPanel1.Size = New System.Drawing.Size(1203, 528)
-        Me.FlowLayoutPanel1.TabIndex = 0
+        Me.Button2.Location = New System.Drawing.Point(679, 4)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(67, 31)
+        Me.Button2.TabIndex = 2
+        Me.Button2.Text = "..."
+        Me.Button2.UseVisualStyleBackColor = True
+        '
+        'TextBox1
+        '
+        Me.TextBox1.Location = New System.Drawing.Point(112, 7)
+        Me.TextBox1.Name = "TextBox1"
+        Me.TextBox1.Size = New System.Drawing.Size(561, 27)
+        Me.TextBox1.TabIndex = 1
+        '
+        'Label12
+        '
+        Me.Label12.AutoSize = True
+        Me.Label12.Location = New System.Drawing.Point(8, 10)
+        Me.Label12.Name = "Label12"
+        Me.Label12.Size = New System.Drawing.Size(98, 20)
+        Me.Label12.TabIndex = 0
+        Me.Label12.Text = "Root Folder : "
         '
         'Timer1
         '
@@ -1321,7 +1317,7 @@ Partial Class frmClient
         'frmClient
         '
         Me.AcceptButton = Me.btnFind
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(10.0!, 25.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 19.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(1211, 615)
@@ -1339,8 +1335,6 @@ Partial Class frmClient
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
-        Me.Panel3.ResumeLayout(False)
-        CType(Me.PicNotification, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
@@ -1356,6 +1350,7 @@ Partial Class frmClient
         Me.Panel2.ResumeLayout(False)
         Me.Panel2.PerformLayout()
         Me.TabPage3.ResumeLayout(False)
+        Me.TabPage3.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
@@ -1479,9 +1474,10 @@ Partial Class frmClient
     Friend WithEvents ColumnHeader24 As System.Windows.Forms.ColumnHeader
     Friend WithEvents lblVersion As System.Windows.Forms.Label
     Friend WithEvents Panel3 As System.Windows.Forms.Panel
-    Friend WithEvents lblCountNotification As System.Windows.Forms.Label
-    Friend WithEvents PicNotification As System.Windows.Forms.PictureBox
     Friend WithEvents TabPage3 As System.Windows.Forms.TabPage
-    Friend WithEvents FlowLayoutPanel1 As System.Windows.Forms.FlowLayoutPanel
+    Friend WithEvents CopyServerNameToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents Button2 As System.Windows.Forms.Button
+    Friend WithEvents TextBox1 As System.Windows.Forms.TextBox
+    Friend WithEvents Label12 As System.Windows.Forms.Label
 
 End Class
