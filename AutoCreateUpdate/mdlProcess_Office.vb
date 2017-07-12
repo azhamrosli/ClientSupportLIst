@@ -12,8 +12,8 @@ Module mdlProcess_Office
     Dim SqlCon As SqlConnection
     Public LicenseType As Integer = 0
     Public V1 As Integer = 2
-    Public V2 As Integer = 3
-    Public V3 As Integer = 9
+    Public V2 As Integer = 5
+    Public V3 As Integer = 2
     Public V4 As Integer = 3
     'Public connection As HubConnection = New HubConnection("http://localhost:63739/signalr")
     Public connection As HubConnection = New HubConnection("http://www.arsoftwaremalaysia.com/signalr")
@@ -705,7 +705,7 @@ Module mdlProcess_Office
             Return Nothing
         End Try
     End Function
-    Public Function LoadSupport_Search(ByVal RefID As String, ByVal Com As String, ByVal dtFrom As DateTime, ByVal dtTo As DateTime, _
+    Public Function LoadSupport_Search(ByVal Problem As String, ByVal Com As String, ByVal dtFrom As DateTime, ByVal dtTo As DateTime, _
                                 ByVal Status As Integer, ByVal Person As String, Optional ByRef ErrorLog As clsError = Nothing) As DataTable
         Try
             ' Dim StrSQL As String = "SELECT dbSupport.*,dbClient.* FROM dbSupport INNER JOIN dbClient ON dbSupport.CompanyID=dbClient.ID"
@@ -734,12 +734,12 @@ Module mdlProcess_Office
             End If
 
 
-            If RefID IsNot Nothing AndAlso RefID <> "" Then
+            If Problem IsNot Nothing AndAlso Problem <> "" Then
                 If isWhere = False Then
                     isWhere = True
-                    StrSQL += " WHERE dbClient.RefID LIKE '%" & RefID & "%'"
+                    StrSQL += " WHERE dbSupport.Problem LIKE '%" & Problem & "%'"
                 Else
-                    StrSQL += " AND dbClient.RefID LIKE '%" & RefID & "%'"
+                    StrSQL += " AND dbSupport.Problem LIKE '%" & Problem & "%'"
                 End If
             End If
 
@@ -1375,7 +1375,38 @@ Module mdlProcess_Office
             Return False
         End Try
     End Function
+    Public Function ValidateRefID(ByVal ID As String, Optional ByRef Errorlog As clsError = Nothing) As Boolean
+        Try
 
+            Dim StrSQL As String = "SELECT COUNT(*) countData FROM dbClient WHERE RefID=@ID"
+
+            ADO = New SQLDataObject()
+            cmd = New SqlCommand
+            cmd.CommandText = StrSQL
+            cmd.CommandTimeout = 0
+            cmd.Parameters.Add("@ID", SqlDbType.NVarChar, 30).Value = ID
+
+            Dim dt As DataTable = ADO.GetSQLDataTable(cmd, SqlCon, System.Reflection.MethodBase.GetCurrentMethod().Name, Errorlog)
+
+            If dt IsNot Nothing AndAlso dt.Rows.Count > 0 AndAlso dt.Rows(0)("countData") > 0 Then
+                Return True
+            Else
+                Return False
+            End If
+        Catch ex As Exception
+            If Errorlog Is Nothing Then
+                Errorlog = New clsError
+            End If
+
+            With Errorlog
+                .ErrorName = System.Reflection.MethodBase.GetCurrentMethod().Name
+                .ErrorCode = ex.GetHashCode.ToString
+                .ErrorDateTime = Now
+                .ErrorMessage = ex.Message
+            End With
+            Return False
+        End Try
+    End Function
 #End Region
 #Region "UPDATE"
     'Public Function UpdatePromotion(ByVal PromotionID As String, ByVal ProductID As String, ByVal ProductName As String, ByVal DateFrom As DateTime, ByVal DateTo As DateTime, _
@@ -1494,6 +1525,61 @@ Module mdlProcess_Office
     '        Return False
     '    End Try
     'End Function
+    Public Function UpdateImportClient2(ByVal dgView As DataGridView, Optional ByRef Errorlog As clsError = Nothing) As Boolean
+        Try
+            Dim ListofCmd As New List(Of SqlCommand)
+            Dim StrSQL As String = Nothing
+            Dim ReturnValue As Integer = 0
+            ADO = New SQLDataObject()
+            Dim SqlCon As SqlConnection = Nothing
+            If DBConnection(SqlCon, Errorlog) = False OrElse SqlCon Is Nothing Then
+                Return Nothing
+            End If
+
+            For i As Integer = 0 To dgView.Rows.Count - 1
+
+
+                If ValidateRefID(dgView.Rows(i).Cells(17).Value) Then
+                    StrSQL = "UPDATE dbClient SET CompanyName=@CompanyName,Address1=@Address1,Address2=@Address2,Address3=@Address3,State=@State,City=@City,Postcode=@Postcode,Country=@Country,Phone1=@Phone1 WHERE RefID=@RefID"
+
+
+                    cmd = New SqlCommand
+                    cmd.CommandText = StrSQL
+                    cmd.CommandTimeout = 0
+
+                    cmd.Parameters.Add("@ID", SqlDbType.NVarChar, 30).Value = dgView.Rows(i).Cells(0).Value
+                    cmd.Parameters.Add("@RefID", SqlDbType.NVarChar, 30).Value = dgView.Rows(i).Cells(17).Value
+                    cmd.Parameters.Add("@CompanyName", SqlDbType.NVarChar, 250).Value = dgView.Rows(i).Cells(1).Value
+                    cmd.Parameters.Add("@Address1", SqlDbType.NVarChar, 100).Value = dgView.Rows(i).Cells(2).Value
+                    cmd.Parameters.Add("@Address2", SqlDbType.NVarChar, 100).Value = dgView.Rows(i).Cells(3).Value
+                    cmd.Parameters.Add("@Address3", SqlDbType.NVarChar, 100).Value = dgView.Rows(i).Cells(4).Value
+                    cmd.Parameters.Add("@State", SqlDbType.NVarChar, 100).Value = dgView.Rows(i).Cells(5).Value
+                    cmd.Parameters.Add("@City", SqlDbType.NVarChar, 100).Value = dgView.Rows(i).Cells(6).Value
+                    cmd.Parameters.Add("@Postcode", SqlDbType.NVarChar, 10).Value = dgView.Rows(i).Cells(7).Value
+                    cmd.Parameters.Add("@Country", SqlDbType.NVarChar, 150).Value = dgView.Rows(i).Cells(8).Value
+                    cmd.Parameters.Add("@Phone1", SqlDbType.NVarChar, 20).Value = dgView.Rows(i).Cells(9).Value
+
+
+                    ListofCmd.Add(cmd)
+                End If
+
+
+            Next
+            Return ADO.ExecuteSQLTransactionBySQLCommand_NOReturnID(ListofCmd, SqlCon, System.Reflection.MethodBase.GetCurrentMethod().Name, Errorlog)
+        Catch ex As Exception
+            If Errorlog Is Nothing Then
+                Errorlog = New clsError
+            End If
+
+            With Errorlog
+                .ErrorName = System.Reflection.MethodBase.GetCurrentMethod().Name
+                .ErrorCode = ex.GetHashCode.ToString
+                .ErrorDateTime = Now
+                .ErrorMessage = ex.Message
+            End With
+            Return False
+        End Try
+    End Function
     Public Function UpdateClient(ByVal ID As String, ByVal RefID As String, ByVal CompanyName As String, ByVal Address1 As String, ByVal Address2 As String, _
                                ByVal Address3 As String, ByVal State As String, ByVal City As String, ByVal Postcode As String, _
                                ByVal Country As String, ByVal Phone1 As String, ByVal Phone2 As String, _
@@ -1909,6 +1995,7 @@ Module mdlProcess_Office
             Return False
         End Try
     End Function
+   
     Public Function SaveClient(ByVal ID As String, ByRef RefID As String, ByVal CompanyName As String, ByVal Address1 As String, ByVal Address2 As String, _
                                ByVal Address3 As String, ByVal State As String, ByVal City As String, ByVal Postcode As String, _
                                ByVal Country As String, ByVal Phone1 As String, ByVal Phone2 As String, _

@@ -164,3 +164,4 @@ C:\Users\Azham\Documents\GitHub\ClientSupportLIst\AutoCreateUpdate\obj\Debug\Aut
 C:\Users\Azham\Documents\GitHub\ClientSupportLIst\AutoCreateUpdate\obj\Debug\AutoCreateUpdate.vbproj.GenerateResource.Cache
 C:\Users\Azham\Documents\GitHub\ClientSupportLIst\AutoCreateUpdate\obj\Debug\RdlCompile.cache
 C:\Users\Azham\Documents\GitHub\ClientSupportLIst\AutoCreateUpdate\obj\Debug\RdlCompile.compiled
+C:\Users\Azham\Documents\GitHub\ClientSupportLIst\AutoCreateUpdate\obj\Debug\AutoCreateUpdate.frmClient_Import_Update.resources

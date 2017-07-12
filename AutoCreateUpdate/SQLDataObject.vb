@@ -79,6 +79,11 @@ Public Class SQLDataObject
     End Function
     Public Function GetSQLDataTable(ByVal Command As SqlCommand, ByVal oConn As SqlConnection, Optional MethodName As String = "", Optional ByRef ErrorLog As clsError = Nothing) As DataTable
 
+        If oConn Is Nothing Then
+            If DBConnection(oConn, ErrorLog) = False OrElse oConn Is Nothing Then
+                Return Nothing
+            End If
+        End If
         If oConn.State = ConnectionState.Closed Then
             If ErrorLog IsNot Nothing Then
                 With ErrorLog

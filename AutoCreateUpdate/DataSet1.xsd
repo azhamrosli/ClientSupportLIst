@@ -12,7 +12,7 @@
   <xs:element name="DataSet1" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DataSet1" msprop:Generator_UserDSName="DataSet1">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="dtClient" msprop:Generator_TableClassName="dtClientDataTable" msprop:Generator_TableVarName="tabledtClient" msprop:Generator_RowChangedName="dtClientRowChanged" msprop:Generator_TablePropName="dtClient" msprop:Generator_RowDeletingName="dtClientRowDeleting" msprop:Generator_RowChangingName="dtClientRowChanging" msprop:Generator_RowEvHandlerName="dtClientRowChangeEventHandler" msprop:Generator_RowDeletedName="dtClientRowDeleted" msprop:Generator_RowClassName="dtClientRow" msprop:Generator_UserTableName="dtClient" msprop:Generator_RowEvArgName="dtClientRowChangeEvent">
+        <xs:element name="dtClient" msprop:Generator_TableClassName="dtClientDataTable" msprop:Generator_TableVarName="tabledtClient" msprop:Generator_TablePropName="dtClient" msprop:Generator_RowDeletingName="dtClientRowDeleting" msprop:Generator_RowChangingName="dtClientRowChanging" msprop:Generator_RowEvHandlerName="dtClientRowChangeEventHandler" msprop:Generator_RowDeletedName="dtClientRowDeleted" msprop:Generator_UserTableName="dtClient" msprop:Generator_RowChangedName="dtClientRowChanged" msprop:Generator_RowEvArgName="dtClientRowChangeEvent" msprop:Generator_RowClassName="dtClientRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="ID" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID" type="xs:string" minOccurs="0" />
@@ -36,7 +36,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="dbEmail" msprop:Generator_TableClassName="dbEmailDataTable" msprop:Generator_TableVarName="tabledbEmail" msprop:Generator_RowChangedName="dbEmailRowChanged" msprop:Generator_TablePropName="dbEmail" msprop:Generator_RowDeletingName="dbEmailRowDeleting" msprop:Generator_RowChangingName="dbEmailRowChanging" msprop:Generator_RowEvHandlerName="dbEmailRowChangeEventHandler" msprop:Generator_RowDeletedName="dbEmailRowDeleted" msprop:Generator_RowClassName="dbEmailRow" msprop:Generator_UserTableName="dbEmail" msprop:Generator_RowEvArgName="dbEmailRowChangeEvent">
+        <xs:element name="dbEmail" msprop:Generator_TableClassName="dbEmailDataTable" msprop:Generator_TableVarName="tabledbEmail" msprop:Generator_TablePropName="dbEmail" msprop:Generator_RowDeletingName="dbEmailRowDeleting" msprop:Generator_RowChangingName="dbEmailRowChanging" msprop:Generator_RowEvHandlerName="dbEmailRowChangeEventHandler" msprop:Generator_RowDeletedName="dbEmailRowDeleted" msprop:Generator_UserTableName="dbEmail" msprop:Generator_RowChangedName="dbEmailRowChanged" msprop:Generator_RowEvArgName="dbEmailRowChangeEvent" msprop:Generator_RowClassName="dbEmailRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="RefID" msprop:Generator_ColumnVarNameInTable="columnRefID" msprop:Generator_ColumnPropNameInRow="RefID" msprop:Generator_ColumnPropNameInTable="RefIDColumn" msprop:Generator_UserColumnName="RefID" type="xs:string" minOccurs="0" />

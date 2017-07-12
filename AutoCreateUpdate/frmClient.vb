@@ -18,11 +18,12 @@ Public Class frmClient
     Dim m_listofUser As List(Of String)
     Dim m_listofUserConID As List(Of String)
     Dim isViewMessageCount As Integer = 0
+    Dim TooltipSupport As ToolTip
     Private Delegate Sub MyDelegate()
 
     ' Private Delegate Sub AppendTextBoxDelegate(ByVal txt As String)
     Private Sub btnImport_Click(sender As Object, e As EventArgs) Handles btnImport.Click
-        Dim frm As New frmClient_Import
+        Dim frm As New frmClient_Import_Update
         frm.ShowDialog()
         LoadData()
     End Sub
@@ -127,9 +128,7 @@ Public Class frmClient
                 frm.Name = m_name.ToString
                 frm.Type = m_type
                 frm.Show()
-                If m_type = 0 Then
-                    Me.LoadDataSupport()
-                End If
+
 
                 'Dim lblName As New Label
                 'Dim lblDt As New Label
@@ -577,7 +576,7 @@ Public Class frmClient
                 Typex = cboStatuss.SelectedIndex
             End If
             dt = mdlProcess_Office.LoadSupport_Search(txtIDS.Text, txtNameS.Text, dtFroms.Value, dtTos.Value, Typex, txtPersonS.Text)
-
+            Dim tmpdata As String = ""
             LvLists.Items.Clear()
             If dt IsNot Nothing Then
                 Dim itm As ListViewItem
@@ -724,6 +723,17 @@ Public Class frmClient
                     subitm = New ListViewItem.ListViewSubItem
                     subitm.Text = IIf(IsDBNull(dt.Rows(i)("ModifiedBy")), "", dt.Rows(i)("ModifiedBy"))
                     itm.SubItems.Add(subitm)
+
+                    tmpdata = IIf(IsDBNull(dt.Rows(i)("CompanyName")), "", dt.Rows(i)("CompanyName")) & vbCrLf
+                    tmpdata += "Status : " & tmpstr & vbCrLf
+                    tmpdata += "Phone No : " & IIf(IsDBNull(dt.Rows(i)("Phone1")), "", dt.Rows(i)("Phone1")) & vbCrLf
+                    tmpdata += "Phone No 2 : " & IIf(IsDBNull(dt.Rows(i)("Phone2")), "", dt.Rows(i)("Phone2")) & vbCrLf
+                    tmpdata += "Person Name : " & IIf(IsDBNull(dt.Rows(i)("PersonName")), "", dt.Rows(i)("PersonName")) & vbCrLf
+                    tmpdata += "Type Form : " & mdlProcess_Office.GetTypeFrom(IIf(IsDBNull(dt.Rows(i)("TypeForm")), 100, dt.Rows(i)("TypeForm"))) & vbCrLf
+                    tmpdata += "Problem : " & IIf(IsDBNull(dt.Rows(i)("Problem")), "", dt.Rows(i)("Problem")) & vbCrLf
+                    itm.ToolTipText = tmpdata
+
+
 
                     LvLists.Items.Add(itm)
                 Next
@@ -1387,6 +1397,8 @@ Public Class frmClient
     Private Sub picNotification_Click(sender As Object, e As EventArgs)
 
     End Sub
+
+  
     'Private Sub ResizeBox()
     '    Try
 
@@ -1436,5 +1448,39 @@ Public Class frmClient
     '    End Try
     'End Sub
 
-   
+    Private Sub LvLists_ItemSelectionChanged(sender As Object, e As ListViewItemSelectionChangedEventArgs) Handles LvLists.ItemSelectionChanged
+        'Try
+        '    For i As Integer = 0 To LvLists.Items.Count - 1
+        '        If LvLists.Items(i).Selected = True Then
+        '            TooltipSupport = New ToolTip
+        '            TooltipSupport.AutoPopDelay = 5000
+        '            TooltipSupport.InitialDelay = 1000
+        '            TooltipSupport.ReshowDelay = 500
+        '            TooltipSupport.ShowAlways = True
+
+        '            TooltipSupport.ToolTipTitle = LvLists.Items(i).SubItems(4).Text
+        '            Dim tmpdata As String = ""
+
+        '            tmpdata = "Status : " & LvLists.Items(i).SubItems(3).Text & vbCrLf
+        '            tmpdata += "Phone No : " & LvLists.Items(i).SubItems(5).Text & vbCrLf
+        '            tmpdata += "Person Name : " & LvLists.Items(i).SubItems(8).Text & vbCrLf
+        '            tmpdata += "Type Form : " & LvLists.Items(i).SubItems(13).Text & vbCrLf
+        '            tmpdata += "Problem : " & LvLists.Items(i).SubItems(9).Text & vbCrLf
+
+
+        '            TooltipSupport.Show(tmpdata, Me.LvLists)
+
+        '        End If
+        '    Next
+
+
+
+        'Catch ex As Exception
+
+        'End Try
+    End Sub
+    Private Sub LvLists_SelectedIndexChanged(sender As Object, e As EventArgs) Handles LvLists.SelectedIndexChanged
+        
+    End Sub
+
 End Class

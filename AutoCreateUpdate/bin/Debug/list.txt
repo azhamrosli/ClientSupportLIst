@@ -1,9 +1,6 @@
-D:\Share Folder\SU8\File\SQL\SystemSecurity.exe
-D:\Share Folder\SU8\File\SQL\TaxO.ini
-D:\Share Folder\SU8\File\SQL\TaxOff.ini
-D:\Share Folder\SU8\File\SQL\TaxOffice.exe
-D:\Share Folder\SU8\File\SQL\UserId.ini
-D:\Share Folder\SU8\File\SQL\TAXcom DLL
-D:\Share Folder\SU8\File\SQL\Taxoffice Revenue+
-D:\Share Folder\SU8\File\SQL\Taxoffice Taxcom B+
-D:\Share Folder\SU8\File\SQL\Taxoffice Taxcom C+
+C:\Users\Azham\Desktop\New folder (6)\DatabaseUpdate.exe
+C:\Users\Azham\Desktop\New folder (6)\SchedulerBackupDatabase.exe
+C:\Users\Azham\Desktop\New folder (6)\TaxOffice.exe
+C:\Users\Azham\Desktop\New folder (6)\Taxver.ini
+C:\Users\Azham\Desktop\New folder (6)\Taxoffice Taxcom B+
+C:\Users\Azham\Desktop\New folder (6)\Taxoffice Taxcom C+

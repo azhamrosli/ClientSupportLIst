@@ -26,12 +26,17 @@ Partial Class frmClient_Import
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Panel3 = New System.Windows.Forms.Panel()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.txtFileName = New System.Windows.Forms.TextBox()
-        Me.btnFind = New System.Windows.Forms.Button()
         Me.dgview = New System.Windows.Forms.DataGridView()
+        Me.btnSave = New System.Windows.Forms.Button()
+        Me.btnRemove = New System.Windows.Forms.Button()
+        Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
+        Me.btnFind = New System.Windows.Forms.Button()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.PictureBox2 = New System.Windows.Forms.PictureBox()
+        Me.DtClientBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.DataSet1 = New AutoCreateUpdate.DataSet1()
         Me.IDDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.CompanyNameDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Address1DataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -49,16 +54,12 @@ Partial Class frmClient_Import
         Me.LicenseLiteDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.LicenseEducationDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.LicenseTrialDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DtClientBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.DataSet1 = New AutoCreateUpdate.DataSet1()
-        Me.btnSave = New System.Windows.Forms.Button()
-        Me.btnRemove = New System.Windows.Forms.Button()
-        Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
+        Me.RefID = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Panel1.SuspendLayout()
         Me.Panel3.SuspendLayout()
+        CType(Me.dgview, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.dgview, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DtClientBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataSet1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -83,7 +84,7 @@ Partial Class frmClient_Import
         Me.Label1.ForeColor = System.Drawing.Color.White
         Me.Label1.Location = New System.Drawing.Point(136, 9)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(168, 32)
+        Me.Label1.Size = New System.Drawing.Size(131, 25)
         Me.Label1.TabIndex = 10
         Me.Label1.Text = "Client Import"
         '
@@ -98,6 +99,75 @@ Partial Class frmClient_Import
         Me.Panel3.Name = "Panel3"
         Me.Panel3.Size = New System.Drawing.Size(75, 49)
         Me.Panel3.TabIndex = 9
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(12, 71)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(39, 20)
+        Me.Label2.TabIndex = 12
+        Me.Label2.Text = "File :"
+        '
+        'txtFileName
+        '
+        Me.txtFileName.Location = New System.Drawing.Point(86, 68)
+        Me.txtFileName.MaxLength = 150
+        Me.txtFileName.Name = "txtFileName"
+        Me.txtFileName.Size = New System.Drawing.Size(619, 27)
+        Me.txtFileName.TabIndex = 149
+        '
+        'dgview
+        '
+        Me.dgview.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.dgview.AutoGenerateColumns = False
+        Me.dgview.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgview.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.IDDataGridViewTextBoxColumn, Me.CompanyNameDataGridViewTextBoxColumn, Me.Address1DataGridViewTextBoxColumn, Me.Address2DataGridViewTextBoxColumn, Me.Address3DataGridViewTextBoxColumn, Me.StateDataGridViewTextBoxColumn, Me.CityDataGridViewTextBoxColumn, Me.PostcodeDataGridViewTextBoxColumn, Me.CountryDataGridViewTextBoxColumn, Me.Phone1DataGridViewTextBoxColumn, Me.Phone2DataGridViewTextBoxColumn, Me.FaxNoDataGridViewTextBoxColumn, Me.LicenseEnterpriseDataGridViewTextBoxColumn, Me.LicenseSmallBusinessDataGridViewTextBoxColumn, Me.LicenseLiteDataGridViewTextBoxColumn, Me.LicenseEducationDataGridViewTextBoxColumn, Me.LicenseTrialDataGridViewTextBoxColumn, Me.RefID})
+        Me.dgview.DataSource = Me.DtClientBindingSource
+        Me.dgview.Location = New System.Drawing.Point(18, 109)
+        Me.dgview.Name = "dgview"
+        Me.dgview.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken
+        Me.dgview.RowTemplate.Height = 24
+        Me.dgview.Size = New System.Drawing.Size(1158, 468)
+        Me.dgview.TabIndex = 153
+        '
+        'btnSave
+        '
+        Me.btnSave.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnSave.Location = New System.Drawing.Point(1082, 64)
+        Me.btnSave.Name = "btnSave"
+        Me.btnSave.Size = New System.Drawing.Size(93, 39)
+        Me.btnSave.TabIndex = 155
+        Me.btnSave.Text = "Import"
+        Me.btnSave.UseVisualStyleBackColor = True
+        '
+        'btnRemove
+        '
+        Me.btnRemove.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnRemove.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnRemove.Location = New System.Drawing.Point(983, 64)
+        Me.btnRemove.Name = "btnRemove"
+        Me.btnRemove.Size = New System.Drawing.Size(93, 39)
+        Me.btnRemove.TabIndex = 156
+        Me.btnRemove.Text = "Remove"
+        Me.btnRemove.UseVisualStyleBackColor = True
+        '
+        'OpenFileDialog1
+        '
+        Me.OpenFileDialog1.FileName = "OpenFileDialog1"
+        '
+        'btnFind
+        '
+        Me.btnFind.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnFind.Image = Global.AutoCreateUpdate.My.Resources.Resources.Search_Find
+        Me.btnFind.Location = New System.Drawing.Point(711, 64)
+        Me.btnFind.Name = "btnFind"
+        Me.btnFind.Size = New System.Drawing.Size(75, 39)
+        Me.btnFind.TabIndex = 152
+        Me.btnFind.UseVisualStyleBackColor = True
         '
         'PictureBox1
         '
@@ -123,48 +193,15 @@ Partial Class frmClient_Import
         Me.PictureBox2.TabIndex = 0
         Me.PictureBox2.TabStop = False
         '
-        'Label2
+        'DtClientBindingSource
         '
-        Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(12, 71)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(50, 25)
-        Me.Label2.TabIndex = 12
-        Me.Label2.Text = "File :"
+        Me.DtClientBindingSource.DataMember = "dtClient"
+        Me.DtClientBindingSource.DataSource = Me.DataSet1
         '
-        'txtFileName
+        'DataSet1
         '
-        Me.txtFileName.Location = New System.Drawing.Point(86, 68)
-        Me.txtFileName.MaxLength = 150
-        Me.txtFileName.Name = "txtFileName"
-        Me.txtFileName.Size = New System.Drawing.Size(619, 31)
-        Me.txtFileName.TabIndex = 149
-        '
-        'btnFind
-        '
-        Me.btnFind.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnFind.Image = Global.AutoCreateUpdate.My.Resources.Resources.Search_Find
-        Me.btnFind.Location = New System.Drawing.Point(711, 64)
-        Me.btnFind.Name = "btnFind"
-        Me.btnFind.Size = New System.Drawing.Size(75, 39)
-        Me.btnFind.TabIndex = 152
-        Me.btnFind.UseVisualStyleBackColor = True
-        '
-        'dgview
-        '
-        Me.dgview.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.dgview.AutoGenerateColumns = False
-        Me.dgview.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgview.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.IDDataGridViewTextBoxColumn, Me.CompanyNameDataGridViewTextBoxColumn, Me.Address1DataGridViewTextBoxColumn, Me.Address2DataGridViewTextBoxColumn, Me.Address3DataGridViewTextBoxColumn, Me.StateDataGridViewTextBoxColumn, Me.CityDataGridViewTextBoxColumn, Me.PostcodeDataGridViewTextBoxColumn, Me.CountryDataGridViewTextBoxColumn, Me.Phone1DataGridViewTextBoxColumn, Me.Phone2DataGridViewTextBoxColumn, Me.FaxNoDataGridViewTextBoxColumn, Me.LicenseEnterpriseDataGridViewTextBoxColumn, Me.LicenseSmallBusinessDataGridViewTextBoxColumn, Me.LicenseLiteDataGridViewTextBoxColumn, Me.LicenseEducationDataGridViewTextBoxColumn, Me.LicenseTrialDataGridViewTextBoxColumn})
-        Me.dgview.DataSource = Me.DtClientBindingSource
-        Me.dgview.Location = New System.Drawing.Point(18, 109)
-        Me.dgview.Name = "dgview"
-        Me.dgview.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken
-        Me.dgview.RowTemplate.Height = 24
-        Me.dgview.Size = New System.Drawing.Size(1158, 468)
-        Me.dgview.TabIndex = 153
+        Me.DataSet1.DataSetName = "DataSet1"
+        Me.DataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'IDDataGridViewTextBoxColumn
         '
@@ -268,45 +305,15 @@ Partial Class frmClient_Import
         Me.LicenseTrialDataGridViewTextBoxColumn.HeaderText = "License_Trial"
         Me.LicenseTrialDataGridViewTextBoxColumn.Name = "LicenseTrialDataGridViewTextBoxColumn"
         '
-        'DtClientBindingSource
+        'RefID
         '
-        Me.DtClientBindingSource.DataMember = "dtClient"
-        Me.DtClientBindingSource.DataSource = Me.DataSet1
-        '
-        'DataSet1
-        '
-        Me.DataSet1.DataSetName = "DataSet1"
-        Me.DataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'btnSave
-        '
-        Me.btnSave.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnSave.Location = New System.Drawing.Point(1082, 64)
-        Me.btnSave.Name = "btnSave"
-        Me.btnSave.Size = New System.Drawing.Size(93, 39)
-        Me.btnSave.TabIndex = 155
-        Me.btnSave.Text = "Import"
-        Me.btnSave.UseVisualStyleBackColor = True
-        '
-        'btnRemove
-        '
-        Me.btnRemove.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnRemove.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnRemove.Location = New System.Drawing.Point(983, 64)
-        Me.btnRemove.Name = "btnRemove"
-        Me.btnRemove.Size = New System.Drawing.Size(93, 39)
-        Me.btnRemove.TabIndex = 156
-        Me.btnRemove.Text = "Remove"
-        Me.btnRemove.UseVisualStyleBackColor = True
-        '
-        'OpenFileDialog1
-        '
-        Me.OpenFileDialog1.FileName = "OpenFileDialog1"
+        Me.RefID.DataPropertyName = "RefID"
+        Me.RefID.HeaderText = "RefID"
+        Me.RefID.Name = "RefID"
         '
         'frmClient_Import
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(10.0!, 25.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 19.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(1188, 585)
@@ -325,9 +332,9 @@ Partial Class frmClient_Import
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
         Me.Panel3.ResumeLayout(False)
+        CType(Me.dgview, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.dgview, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DtClientBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DataSet1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
@@ -347,6 +354,7 @@ Partial Class frmClient_Import
     Friend WithEvents btnRemove As System.Windows.Forms.Button
     Friend WithEvents OpenFileDialog1 As System.Windows.Forms.OpenFileDialog
     Friend WithEvents DataSet1 As AutoCreateUpdate.DataSet1
+    Friend WithEvents DtClientBindingSource As System.Windows.Forms.BindingSource
     Friend WithEvents IDDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents CompanyNameDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents Address1DataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
@@ -364,5 +372,5 @@ Partial Class frmClient_Import
     Friend WithEvents LicenseLiteDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents LicenseEducationDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents LicenseTrialDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents DtClientBindingSource As System.Windows.Forms.BindingSource
+    Friend WithEvents RefID As System.Windows.Forms.DataGridViewTextBoxColumn
 End Class

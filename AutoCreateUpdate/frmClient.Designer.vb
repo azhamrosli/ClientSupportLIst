@@ -92,8 +92,8 @@ Partial Class frmClient
         Me.ColumnHeader14 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader15 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader19 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.ColumnHeader16 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader17 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader16 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader18 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader20 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader21 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
@@ -149,6 +149,7 @@ Partial Class frmClient
         Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.Label12 = New System.Windows.Forms.Label()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
+        Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
         Me.Panel1.SuspendLayout()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
@@ -804,8 +805,10 @@ Partial Class frmClient
         Me.LvLists.GridLines = True
         Me.LvLists.Location = New System.Drawing.Point(11, 188)
         Me.LvLists.Name = "LvLists"
+        Me.LvLists.ShowItemToolTips = True
         Me.LvLists.Size = New System.Drawing.Size(1187, 191)
         Me.LvLists.TabIndex = 190
+        Me.ToolTip1.SetToolTip(Me.LvLists, "Data")
         Me.LvLists.UseCompatibleStateImageBehavior = False
         Me.LvLists.View = System.Windows.Forms.View.Details
         '
@@ -855,15 +858,15 @@ Partial Class frmClient
         Me.ColumnHeader19.Text = "License Type"
         Me.ColumnHeader19.Width = 200
         '
-        'ColumnHeader16
-        '
-        Me.ColumnHeader16.Text = "Problem"
-        Me.ColumnHeader16.Width = 250
-        '
         'ColumnHeader17
         '
         Me.ColumnHeader17.Text = "Person Incharge"
         Me.ColumnHeader17.Width = 150
+        '
+        'ColumnHeader16
+        '
+        Me.ColumnHeader16.Text = "Problem"
+        Me.ColumnHeader16.Width = 250
         '
         'ColumnHeader18
         '
@@ -1028,7 +1031,7 @@ Partial Class frmClient
         '
         Me.Label6.AutoSize = True
         Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.Location = New System.Drawing.Point(8, 68)
+        Me.Label6.Location = New System.Drawing.Point(6, 40)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(97, 16)
         Me.Label6.TabIndex = 206
@@ -1037,7 +1040,7 @@ Partial Class frmClient
         'txtPersonS
         '
         Me.txtPersonS.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtPersonS.Location = New System.Drawing.Point(122, 65)
+        Me.txtPersonS.Location = New System.Drawing.Point(116, 37)
         Me.txtPersonS.MaxLength = 150
         Me.txtPersonS.Name = "txtPersonS"
         Me.txtPersonS.Size = New System.Drawing.Size(380, 22)
@@ -1068,11 +1071,11 @@ Partial Class frmClient
         '
         Me.Label10.AutoSize = True
         Me.Label10.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label10.Location = New System.Drawing.Point(8, 9)
+        Me.Label10.Location = New System.Drawing.Point(8, 70)
         Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(93, 16)
+        Me.Label10.Size = New System.Drawing.Size(65, 16)
         Me.Label10.TabIndex = 193
-        Me.Label10.Text = "Reference ID :"
+        Me.Label10.Text = "Problem :"
         '
         'Label11
         '
@@ -1087,7 +1090,7 @@ Partial Class frmClient
         'txtNameS
         '
         Me.txtNameS.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtNameS.Location = New System.Drawing.Point(122, 37)
+        Me.txtNameS.Location = New System.Drawing.Point(116, 9)
         Me.txtNameS.MaxLength = 150
         Me.txtNameS.Name = "txtNameS"
         Me.txtNameS.Size = New System.Drawing.Size(380, 22)
@@ -1106,7 +1109,7 @@ Partial Class frmClient
         '
         Me.Label9.AutoSize = True
         Me.Label9.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label9.Location = New System.Drawing.Point(6, 40)
+        Me.Label9.Location = New System.Drawing.Point(6, 12)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(112, 16)
         Me.Label9.TabIndex = 195
@@ -1145,7 +1148,7 @@ Partial Class frmClient
         'txtIDS
         '
         Me.txtIDS.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtIDS.Location = New System.Drawing.Point(122, 6)
+        Me.txtIDS.Location = New System.Drawing.Point(116, 65)
         Me.txtIDS.MaxLength = 150
         Me.txtIDS.Name = "txtIDS"
         Me.txtIDS.Size = New System.Drawing.Size(380, 22)
@@ -1314,6 +1317,13 @@ Partial Class frmClient
         '
         Me.Timer1.Interval = 3600000
         '
+        'ToolTip1
+        '
+        Me.ToolTip1.AutoPopDelay = 10000
+        Me.ToolTip1.InitialDelay = 500
+        Me.ToolTip1.ReshowDelay = 100
+        Me.ToolTip1.ShowAlways = True
+        '
         'frmClient
         '
         Me.AcceptButton = Me.btnFind
@@ -1479,5 +1489,6 @@ Partial Class frmClient
     Friend WithEvents Button2 As System.Windows.Forms.Button
     Friend WithEvents TextBox1 As System.Windows.Forms.TextBox
     Friend WithEvents Label12 As System.Windows.Forms.Label
+    Friend WithEvents ToolTip1 As System.Windows.Forms.ToolTip
 
 End Class

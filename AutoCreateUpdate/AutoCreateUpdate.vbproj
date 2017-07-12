@@ -172,6 +172,12 @@
     <Compile Include="frmClient_Import.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="frmClient_Import_Update.Designer.vb">
+      <DependentUpon>frmClient_Import_Update.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmClient_Import_Update.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmClient_User.Designer.vb">
       <DependentUpon>frmClient_User.vb</DependentUpon>
     </Compile>
@@ -259,6 +265,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmClient_Import.resx">
       <DependentUpon>frmClient_Import.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmClient_Import_Update.resx">
+      <DependentUpon>frmClient_Import_Update.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmClient_User.resx">
       <DependentUpon>frmClient_User.vb</DependentUpon>

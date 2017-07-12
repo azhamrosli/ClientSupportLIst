@@ -7,6 +7,7 @@ Public Class frmSupport_Add
     Dim ListofString As List(Of String)
     Dim ErrorLog As clsError = Nothing
     Dim isSQLVersion As Boolean = False
+    Dim isYGLTeam As Boolean = True
     Private Sub LoadData(Optional ByVal Type As Integer = 0)
         Try
             Dim dt As DataTable = Nothing
@@ -18,6 +19,7 @@ Public Class frmSupport_Add
 
                 If dt IsNot Nothing Then
                     txtRefID.Text = IIf(IsDBNull(dt.Rows(0)("CompanyID")), "", dt.Rows(0)("CompanyID"))
+                   
                     txtComName.Text = IIf(IsDBNull(dt.Rows(0)("CompanyName")), "", dt.Rows(0)("CompanyName"))
                     txtTVID.Text = IIf(IsDBNull(dt.Rows(0)("TeamviewerID")), "", dt.Rows(0)("TeamviewerID"))
                     txtTVPass.Text = IIf(IsDBNull(dt.Rows(0)("TeamviewerPass")), "", dt.Rows(0)("TeamviewerPass"))
@@ -31,6 +33,9 @@ Public Class frmSupport_Add
 
                     If Type = 0 Then
                         txtID.Text = IIf(IsDBNull(dt.Rows(0)("RefID")), "", dt.Rows(0)("RefID"))
+                        If txtID.Text <> "A1000001" Then
+                            isYGLTeam = False
+                        End If
                     End If
 
 
@@ -816,13 +821,16 @@ Public Class frmSupport_Add
 
     Private Sub cboFormType_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cboFormType.SelectedIndexChanged
         Try
-            If isAllowChangeTypeForm(cboFormType.SelectedIndex, isSQLVersion) = False Then
-                Dim tmpResult As DialogResult = MessageBox.Show("Are you sure want to change form type?", "", MessageBoxButtons.YesNo)
+            If isYGLTeam = False Then
+                If isAllowChangeTypeForm(cboFormType.SelectedIndex, isSQLVersion) = False Then
+                    Dim tmpResult As DialogResult = MessageBox.Show("Are you sure want to change form type?", "", MessageBoxButtons.YesNo)
 
-                If tmpResult = Windows.Forms.DialogResult.No Then
-                    cboFormType.SelectedIndex = 10
+                    If tmpResult = Windows.Forms.DialogResult.No Then
+                        cboFormType.SelectedIndex = 10
+                    End If
                 End If
             End If
+           
         Catch ex As Exception
 
         End Try
