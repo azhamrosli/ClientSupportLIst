@@ -619,7 +619,8 @@ Public Class frmClient
                             Case 5
                                 itm.BackColor = Color.LightGreen
                             Case 4
-                                itm.BackColor = Color.LightGray
+                                itm.BackColor = Color.DarkCyan
+                                itm.ForeColor = Color.White
                             Case 7
                                 itm.BackColor = Color.Black
                                 itm.ForeColor = Color.White
@@ -1522,6 +1523,20 @@ Public Class frmClient
     Private Sub Button2_Click_1(sender As Object, e As EventArgs) Handles btnFileBrowser.Click
         Try
 
+        Catch ex As Exception
+
+        End Try
+    End Sub
+
+    Private Sub StatusCantTriggerProblemToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles StatusCantTriggerProblemToolStripMenuItem.Click
+        Try
+            'pending to test
+            For i As Integer = 0 To LvLists.Items.Count - 1
+                If LvLists.Items(i).Selected = True Then
+                    mdlProcess_Office.UpdateStatusSupport(LvLists.Items(i).SubItems(1).Text, LvLists.Items(i).SubItems(4).Text, 4)
+                End If
+            Next
+            Me.LoadDataSupport(1)
         Catch ex As Exception
 
         End Try

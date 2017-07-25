@@ -154,6 +154,7 @@ Partial Class frmClient
         Me.Label12 = New System.Windows.Forms.Label()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
+        Me.StatusCantTriggerProblemToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.Panel1.SuspendLayout()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
@@ -939,123 +940,123 @@ Partial Class frmClient
         'ContextMenuStrip1
         '
         Me.ContextMenuStrip1.ImageScalingSize = New System.Drawing.Size(20, 20)
-        Me.ContextMenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.OpenTeamviewerToolStripMenuItem, Me.CopyTeamviewerIDToolStripMenuItem, Me.CopyTeamviewerPassToolStripMenuItem, Me.CopyCompanyNameToolStripMenuItem, Me.CopyPersonNameToolStripMenuItem, Me.CopyTelNoToolStripMenuItem, Me.CopyServerNameToolStripMenuItem, Me.AddNewToolStripMenuItem, Me.EditToolStripMenuItem, Me.StatusSolveToolStripMenuItem, Me.StatusHoldToolStripMenuItem, Me.StatusUrgentToolStripMenuItem, Me.StatusBugOnProgramToolStripMenuItem, Me.StatusPendingToTestingToolStripMenuItem, Me.StatusOtherToolStripMenuItem, Me.DuplicateThisSupportToolStripMenuItem})
+        Me.ContextMenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.OpenTeamviewerToolStripMenuItem, Me.CopyTeamviewerIDToolStripMenuItem, Me.CopyTeamviewerPassToolStripMenuItem, Me.CopyCompanyNameToolStripMenuItem, Me.CopyPersonNameToolStripMenuItem, Me.CopyTelNoToolStripMenuItem, Me.CopyServerNameToolStripMenuItem, Me.AddNewToolStripMenuItem, Me.EditToolStripMenuItem, Me.StatusSolveToolStripMenuItem, Me.StatusHoldToolStripMenuItem, Me.StatusUrgentToolStripMenuItem, Me.StatusBugOnProgramToolStripMenuItem, Me.StatusPendingToTestingToolStripMenuItem, Me.StatusCantTriggerProblemToolStripMenuItem, Me.StatusOtherToolStripMenuItem, Me.DuplicateThisSupportToolStripMenuItem})
         Me.ContextMenuStrip1.Name = "ContextMenuStrip1"
-        Me.ContextMenuStrip1.Size = New System.Drawing.Size(217, 356)
+        Me.ContextMenuStrip1.Size = New System.Drawing.Size(232, 400)
         '
         'OpenTeamviewerToolStripMenuItem
         '
         Me.OpenTeamviewerToolStripMenuItem.Name = "OpenTeamviewerToolStripMenuItem"
-        Me.OpenTeamviewerToolStripMenuItem.Size = New System.Drawing.Size(216, 22)
+        Me.OpenTeamviewerToolStripMenuItem.Size = New System.Drawing.Size(231, 22)
         Me.OpenTeamviewerToolStripMenuItem.Text = "Open Teamviewer"
         '
         'CopyTeamviewerIDToolStripMenuItem
         '
         Me.CopyTeamviewerIDToolStripMenuItem.Name = "CopyTeamviewerIDToolStripMenuItem"
-        Me.CopyTeamviewerIDToolStripMenuItem.Size = New System.Drawing.Size(216, 22)
+        Me.CopyTeamviewerIDToolStripMenuItem.Size = New System.Drawing.Size(231, 22)
         Me.CopyTeamviewerIDToolStripMenuItem.Text = "Copy Teamviewer ID"
         '
         'CopyTeamviewerPassToolStripMenuItem
         '
         Me.CopyTeamviewerPassToolStripMenuItem.Name = "CopyTeamviewerPassToolStripMenuItem"
-        Me.CopyTeamviewerPassToolStripMenuItem.Size = New System.Drawing.Size(216, 22)
+        Me.CopyTeamviewerPassToolStripMenuItem.Size = New System.Drawing.Size(231, 22)
         Me.CopyTeamviewerPassToolStripMenuItem.Text = "Copy Teamviewer Pass"
         '
         'CopyCompanyNameToolStripMenuItem
         '
         Me.CopyCompanyNameToolStripMenuItem.Name = "CopyCompanyNameToolStripMenuItem"
-        Me.CopyCompanyNameToolStripMenuItem.Size = New System.Drawing.Size(216, 22)
+        Me.CopyCompanyNameToolStripMenuItem.Size = New System.Drawing.Size(231, 22)
         Me.CopyCompanyNameToolStripMenuItem.Text = "Copy Company Name"
         '
         'CopyPersonNameToolStripMenuItem
         '
         Me.CopyPersonNameToolStripMenuItem.Name = "CopyPersonNameToolStripMenuItem"
-        Me.CopyPersonNameToolStripMenuItem.Size = New System.Drawing.Size(216, 22)
+        Me.CopyPersonNameToolStripMenuItem.Size = New System.Drawing.Size(231, 22)
         Me.CopyPersonNameToolStripMenuItem.Text = "Copy Person Name"
         '
         'CopyTelNoToolStripMenuItem
         '
         Me.CopyTelNoToolStripMenuItem.Name = "CopyTelNoToolStripMenuItem"
-        Me.CopyTelNoToolStripMenuItem.Size = New System.Drawing.Size(216, 22)
+        Me.CopyTelNoToolStripMenuItem.Size = New System.Drawing.Size(231, 22)
         Me.CopyTelNoToolStripMenuItem.Text = "Copy Tel No"
         '
         'CopyServerNameToolStripMenuItem
         '
         Me.CopyServerNameToolStripMenuItem.Name = "CopyServerNameToolStripMenuItem"
-        Me.CopyServerNameToolStripMenuItem.Size = New System.Drawing.Size(216, 22)
+        Me.CopyServerNameToolStripMenuItem.Size = New System.Drawing.Size(231, 22)
         Me.CopyServerNameToolStripMenuItem.Text = "Copy ServerName"
         '
         'AddNewToolStripMenuItem
         '
         Me.AddNewToolStripMenuItem.Name = "AddNewToolStripMenuItem"
-        Me.AddNewToolStripMenuItem.Size = New System.Drawing.Size(216, 22)
+        Me.AddNewToolStripMenuItem.Size = New System.Drawing.Size(231, 22)
         Me.AddNewToolStripMenuItem.Text = "Add New"
         '
         'EditToolStripMenuItem
         '
         Me.EditToolStripMenuItem.Name = "EditToolStripMenuItem"
-        Me.EditToolStripMenuItem.Size = New System.Drawing.Size(216, 22)
+        Me.EditToolStripMenuItem.Size = New System.Drawing.Size(231, 22)
         Me.EditToolStripMenuItem.Text = "Edit"
         '
         'StatusSolveToolStripMenuItem
         '
         Me.StatusSolveToolStripMenuItem.Name = "StatusSolveToolStripMenuItem"
-        Me.StatusSolveToolStripMenuItem.Size = New System.Drawing.Size(216, 22)
+        Me.StatusSolveToolStripMenuItem.Size = New System.Drawing.Size(231, 22)
         Me.StatusSolveToolStripMenuItem.Text = "Status : Solve"
         '
         'StatusHoldToolStripMenuItem
         '
         Me.StatusHoldToolStripMenuItem.Name = "StatusHoldToolStripMenuItem"
-        Me.StatusHoldToolStripMenuItem.Size = New System.Drawing.Size(216, 22)
+        Me.StatusHoldToolStripMenuItem.Size = New System.Drawing.Size(231, 22)
         Me.StatusHoldToolStripMenuItem.Text = "Status : Hold"
         '
         'StatusUrgentToolStripMenuItem
         '
         Me.StatusUrgentToolStripMenuItem.Name = "StatusUrgentToolStripMenuItem"
-        Me.StatusUrgentToolStripMenuItem.Size = New System.Drawing.Size(216, 22)
+        Me.StatusUrgentToolStripMenuItem.Size = New System.Drawing.Size(231, 22)
         Me.StatusUrgentToolStripMenuItem.Text = "Status : Urgent"
         '
         'StatusBugOnProgramToolStripMenuItem
         '
         Me.StatusBugOnProgramToolStripMenuItem.Name = "StatusBugOnProgramToolStripMenuItem"
-        Me.StatusBugOnProgramToolStripMenuItem.Size = New System.Drawing.Size(216, 22)
+        Me.StatusBugOnProgramToolStripMenuItem.Size = New System.Drawing.Size(231, 22)
         Me.StatusBugOnProgramToolStripMenuItem.Text = "Status : Bug on Program"
         '
         'StatusPendingToTestingToolStripMenuItem
         '
         Me.StatusPendingToTestingToolStripMenuItem.Name = "StatusPendingToTestingToolStripMenuItem"
-        Me.StatusPendingToTestingToolStripMenuItem.Size = New System.Drawing.Size(216, 22)
+        Me.StatusPendingToTestingToolStripMenuItem.Size = New System.Drawing.Size(231, 22)
         Me.StatusPendingToTestingToolStripMenuItem.Text = "Status : Pending To Testing"
         '
         'StatusOtherToolStripMenuItem
         '
         Me.StatusOtherToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NewToolStripMenuItem, Me.CancelToolStripMenuItem, Me.PCProblemToolStripMenuItem})
         Me.StatusOtherToolStripMenuItem.Name = "StatusOtherToolStripMenuItem"
-        Me.StatusOtherToolStripMenuItem.Size = New System.Drawing.Size(216, 22)
+        Me.StatusOtherToolStripMenuItem.Size = New System.Drawing.Size(231, 22)
         Me.StatusOtherToolStripMenuItem.Text = "Status Other"
         '
         'NewToolStripMenuItem
         '
         Me.NewToolStripMenuItem.Name = "NewToolStripMenuItem"
-        Me.NewToolStripMenuItem.Size = New System.Drawing.Size(137, 22)
+        Me.NewToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.NewToolStripMenuItem.Text = "New"
         '
         'CancelToolStripMenuItem
         '
         Me.CancelToolStripMenuItem.Name = "CancelToolStripMenuItem"
-        Me.CancelToolStripMenuItem.Size = New System.Drawing.Size(137, 22)
+        Me.CancelToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.CancelToolStripMenuItem.Text = "Cancel"
         '
         'PCProblemToolStripMenuItem
         '
         Me.PCProblemToolStripMenuItem.Name = "PCProblemToolStripMenuItem"
-        Me.PCProblemToolStripMenuItem.Size = New System.Drawing.Size(137, 22)
+        Me.PCProblemToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.PCProblemToolStripMenuItem.Text = "PC Problem"
         '
         'DuplicateThisSupportToolStripMenuItem
         '
         Me.DuplicateThisSupportToolStripMenuItem.Name = "DuplicateThisSupportToolStripMenuItem"
-        Me.DuplicateThisSupportToolStripMenuItem.Size = New System.Drawing.Size(216, 22)
+        Me.DuplicateThisSupportToolStripMenuItem.Size = New System.Drawing.Size(231, 22)
         Me.DuplicateThisSupportToolStripMenuItem.Text = "Duplicate This Support"
         '
         'Label6
@@ -1367,6 +1368,12 @@ Partial Class frmClient
         Me.ToolTip1.ReshowDelay = 100
         Me.ToolTip1.ShowAlways = True
         '
+        'StatusCantTriggerProblemToolStripMenuItem
+        '
+        Me.StatusCantTriggerProblemToolStripMenuItem.Name = "StatusCantTriggerProblemToolStripMenuItem"
+        Me.StatusCantTriggerProblemToolStripMenuItem.Size = New System.Drawing.Size(231, 22)
+        Me.StatusCantTriggerProblemToolStripMenuItem.Text = "Status : Can't Trigger Problem"
+        '
         'frmClient
         '
         Me.AcceptButton = Me.btnFind
@@ -1538,5 +1545,6 @@ Partial Class frmClient
     Friend WithEvents txtReportName As System.Windows.Forms.TextBox
     Friend WithEvents ColumnHeader25 As System.Windows.Forms.ColumnHeader
     Friend WithEvents DataGridView1 As System.Windows.Forms.DataGridView
+    Friend WithEvents StatusCantTriggerProblemToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
 
 End Class
