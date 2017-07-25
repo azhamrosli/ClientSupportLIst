@@ -89,6 +89,14 @@ Public Class frmSupport_Add
                     lblTypeCompany.Text = "Version " & tmpstr
                     lblModifiedBy.Text = IIf(IsDBNull(dt.Rows(0)("ModifiedBy")), "", dt.Rows(0)("ModifiedBy"))
                     txtReportName.Text = IIf(IsDBNull(dt.Rows(0)("PersonReport")), "", dt.Rows(0)("PersonReport"))
+                    Application.DoEvents()
+                    If txtPerson.Text = "" Then
+                        If UserPC.Name IsNot Nothing Then
+                            txtPerson.Text = UserPC.Name
+                        Else
+                            txtPerson.Text = My.Computer.Name
+                        End If
+                    End If
                     ' Dim tmpdt As DataTable = 
 
                     If mdlProcess_Office.LoadSupportAttachmentCount_ByID(ID) Then
@@ -124,6 +132,13 @@ Public Class frmSupport_Add
                 End If
             Else
                 cboFormType.SelectedIndex = 10
+
+                If UserPC.Name IsNot Nothing Then
+                    txtPerson.Text = UserPC.Name
+                Else
+                    txtPerson.Text = My.Computer.Name
+                End If
+
             End If
 
             If Type = 0 Then
@@ -451,8 +466,25 @@ Public Class frmSupport_Add
     End Sub
 
     Private Sub frmSupport_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        LoadData()
 
+        Try
+
+            LoadData()
+            Dim tmpdt As DataTable = Nothing
+            tmpdt = mdlProcess_Office.LoadStaff_PCName()
+
+            If tmpdt IsNot Nothing Then
+
+                For x As Integer = 0 To tmpdt.Rows.Count - 1
+                    If IsDBNull(tmpdt.Rows(x)("Name")) = False Then
+                        txtPerson.AutoCompleteCustomSource.Add(tmpdt.Rows(x)("Name"))
+                    End If
+                Next
+
+            End If
+        Catch ex As Exception
+
+        End Try
     End Sub
 
     Private Sub txtName_KeyUp(sender As Object, e As KeyEventArgs) Handles txtName.KeyUp
@@ -793,11 +825,14 @@ Public Class frmSupport_Add
 
                             For x As Integer = 0 To tmpdt.Rows.Count - 1
                                 If IsDBNull(tmpdt.Rows(x)("Datax")) = False Then
-                                    txtPerson.AutoCompleteCustomSource.Add(tmpdt.Rows(x)("Datax"))
+                                    txtReportName.AutoCompleteCustomSource.Add(tmpdt.Rows(x)("Datax"))
                                 End If
                             Next
 
                         End If
+
+                        Application.DoEvents()
+                      
                     End If
 
                     lblTypeCompany.Text = "Version " & LvList.Items(i).SubItems(5).Text

@@ -341,6 +341,17 @@ Namespace My
                 Me("showimage") = value
             End Set
         End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property LastLogin() As Date
+            Get
+                Return CType(Me("LastLogin"),Date)
+            End Get
+            Set
+                Me("LastLogin") = value
+            End Set
+        End Property
     End Class
 End Namespace
 

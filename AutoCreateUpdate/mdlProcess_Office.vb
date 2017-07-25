@@ -5,6 +5,7 @@ Imports System.Net.Mail
 Imports System.Net
 Imports System.Data.SqlClient
 Imports Microsoft.AspNet.SignalR.Client
+Imports System.Net.NetworkInformation
 
 Module mdlProcess_Office
     Dim ADO As SQLDataObject
@@ -13,7 +14,7 @@ Module mdlProcess_Office
     Public LicenseType As Integer = 0
     Public V1 As Integer = 2
     Public V2 As Integer = 5
-    Public V3 As Integer = 5
+    Public V3 As Integer = 6
     Public V4 As Integer = 4
     'Public connection As HubConnection = New HubConnection("http://localhost:63739/signalr")
     Public connection As HubConnection = New HubConnection("http://www.arsoftwaremalaysia.com/signalr")
@@ -71,6 +72,7 @@ Module mdlProcess_Office
     Public Const RegisterUserURL As String = "http://localhost:52310/pages/registeruser_confirm.html"
     Public Const ForgotPassURL As String = "http://localhost:52310/pages/forgotpass.html"
     Public SystemInfo As SystemDetails
+    Public UserPC As Staff_PC = Nothing
     Structure SystemDetails
         Dim V1 As Integer
         Dim V2 As Integer
@@ -80,6 +82,11 @@ Module mdlProcess_Office
         Dim isActive As Integer
         Dim LicenseType As Integer
         Dim LicenseName As String
+    End Structure
+    Structure Staff_PC
+        Dim ID As Decimal
+        Dim PC_Name As String
+        Dim Name As String
     End Structure
 #End Region
 #Region "DATABASE"
@@ -218,6 +225,94 @@ Module mdlProcess_Office
 #End Region
 #Region "LOAD"
 #Region "PUBLIS USED"
+    Public Function LoadStaff_PCName(Optional ByRef Errorlog As clsError = Nothing) As DataTable
+        Try
+            Dim StrSQL As String = "SELECT DISTINCT(PC_Name) as Datax,Name FROM DB_StaffPC"
+
+            ADO = New SQLDataObject()
+            Dim SqlCon As SqlConnection = Nothing
+            If DBConnection(SqlCon, Errorlog) = False OrElse SqlCon Is Nothing Then
+                Return Nothing
+            End If
+
+            cmd = New SqlCommand
+
+
+            cmd.CommandText = StrSQL
+            cmd.CommandTimeout = 0
+
+            Dim dt As DataTable = ADO.GetSQLDataTable(cmd, SqlCon, System.Reflection.MethodBase.GetCurrentMethod().Name, Errorlog)
+
+            If dt IsNot Nothing AndAlso dt.Rows.Count > 0 Then
+                Return dt
+            Else
+                Return Nothing
+            End If
+        Catch ex As Exception
+            If Errorlog Is Nothing Then
+                Errorlog = New clsError
+            End If
+
+            With Errorlog
+                .ErrorName = System.Reflection.MethodBase.GetCurrentMethod().Name
+                .ErrorCode = ex.GetHashCode.ToString
+                .ErrorDateTime = Now
+                .ErrorMessage = ex.Message
+            End With
+            Return Nothing
+        End Try
+    End Function
+    Public Function LoadPCName_ByPCName(ByVal PC_Name As String, Optional ByRef Errorlog As clsError = Nothing) As DataTable
+        Try
+            Dim StrSQL As String = "SELECT *  FROM DB_StaffPC WHERE PC_Name=@PC_Name"
+
+
+            ADO = New SQLDataObject()
+            Dim SqlCon As SqlConnection = Nothing
+            If DBConnection(SqlCon, Errorlog) = False OrElse SqlCon Is Nothing Then
+                Return Nothing
+            End If
+
+            cmd = New SqlCommand
+
+            cmd.CommandText = StrSQL
+            cmd.CommandTimeout = 0
+            cmd.Parameters.Add("@PC_Name", SqlDbType.NVarChar, 150).Value = PC_Name
+
+
+            Dim dt As DataTable = ADO.GetSQLDataTable(cmd, SqlCon, System.Reflection.MethodBase.GetCurrentMethod().Name, Errorlog)
+
+            If dt IsNot Nothing AndAlso dt.Rows.Count > 0 Then
+
+                If UserPC.Name Is Nothing Then
+                    UserPC = New Staff_PC
+                End If
+
+                UserPC.ID = IIf(IsDBNull(dt.Rows(0)("ID")), 0, dt.Rows(0)("ID"))
+                UserPC.PC_Name = IIf(IsDBNull(dt.Rows(0)("PC_Name")), 0, dt.Rows(0)("PC_Name"))
+                UserPC.Name = IIf(IsDBNull(dt.Rows(0)("Name")), 0, dt.Rows(0)("Name"))
+
+                Return dt
+            Else
+                Return Nothing
+            End If
+        Catch ex As Exception
+            '  Errorlog = "ERROR : " & ex.Message
+
+            If Errorlog Is Nothing Then
+                Errorlog = New clsError
+            End If
+
+            With Errorlog
+                .ErrorName = System.Reflection.MethodBase.GetCurrentMethod().Name
+                .ErrorCode = ex.GetHashCode.ToString
+                .ErrorDateTime = Now
+                .ErrorMessage = ex.Message
+            End With
+
+            Return Nothing
+        End Try
+    End Function
     Public Function LoadSupport_ByID(ByVal ID As Integer, Optional ByRef Errorlog As clsError = Nothing) As DataTable
         Try
             Dim StrSQL As String = "SELECT dbSupport.*,dbClient.*  FROM dbSupport INNER JOIN dbClient ON dbSupport.CompanyID=dbClient.ID WHERE dbSupport.ID=" & ID
@@ -1566,6 +1661,32 @@ Module mdlProcess_Office
     '        Return False
     '    End Try
     'End Function
+    Public Function UpdateStaffPC(ByVal ID As Decimal, ByVal StaffName As String, Optional ByRef Errorlog As clsError = Nothing) As Boolean
+        Try
+            Dim StrSQL As String = Nothing
+            Dim ReturnValue As Integer = 0
+            Dim tmpBol As Boolean = True
+            StrSQL = "UPDATE DB_StaffPC SET Name=@Name WHERE ID=@ID"
+
+
+            ADO = New SQLDataObject()
+            Dim SqlCon As SqlConnection = Nothing
+            If DBConnection(SqlCon, Errorlog) = False OrElse SqlCon Is Nothing Then
+                Return Nothing
+            End If
+
+            cmd = New SqlCommand
+            cmd.CommandText = StrSQL
+            cmd.CommandTimeout = 0
+
+            cmd.Parameters.Add("@ID", SqlDbType.Decimal).Value = ID
+            cmd.Parameters.Add("@Name", SqlDbType.NVarChar, 150).Value = StaffName
+
+            Return ADO.ExecuteSQLCmd_NOIDReturn(cmd, SqlCon, System.Reflection.MethodBase.GetCurrentMethod().Name, Errorlog)
+        Catch ex As Exception
+            Return False
+        End Try
+    End Function
     Public Function UpdateImportClient2(ByVal dgView As DataGridView, Optional ByRef Errorlog As clsError = Nothing) As Boolean
         Try
             Dim ListofCmd As New List(Of SqlCommand)
@@ -2038,7 +2159,7 @@ Module mdlProcess_Office
             Return False
         End Try
     End Function
-   
+
     Public Function SaveClient(ByVal ID As String, ByRef RefID As String, ByVal CompanyName As String, ByVal Address1 As String, ByVal Address2 As String, _
                                ByVal Address3 As String, ByVal State As String, ByVal City As String, ByVal Postcode As String, _
                                ByVal Country As String, ByVal Phone1 As String, ByVal Phone2 As String, _
@@ -2151,7 +2272,7 @@ Module mdlProcess_Office
             cmd = New SqlCommand
             cmd.CommandText = StrSQL
             cmd.CommandTimeout = 0
-          
+
 
 
             cmd.Parameters.Add("@CompanyID", SqlDbType.NVarChar, 30).Value = RefID
@@ -2309,6 +2430,34 @@ Module mdlProcess_Office
             cmd.Parameters.Add("@DateTime", SqlDbType.DateTime).Value = Now
             cmd.Parameters.Add("@Message", SqlDbType.NVarChar, 3000).Value = Message
             cmd.Parameters.Add("@Username", SqlDbType.NVarChar, 250).Value = My.Computer.Name
+
+
+            Return ADO.ExecuteSQLCmd(cmd, SqlCon, System.Reflection.MethodBase.GetCurrentMethod().Name, Errorlog, ReturnID)
+        Catch ex As Exception
+            Return False
+        End Try
+    End Function
+    Public Function SaveStaffPC(ByRef ReturnID As Integer, Optional ByRef Errorlog As clsError = Nothing) As Boolean
+        Try
+            Dim StrSQL As String = Nothing
+            Dim ReturnValue As Integer = 0
+            Dim tmpBol As Boolean = True
+            StrSQL = "INSERT INTO DB_StaffPC (PC_Name,Name) VALUES (@PC_Name,@Name)"
+
+
+            ADO = New SQLDataObject()
+            Dim SqlCon As SqlConnection = Nothing
+            If DBConnection(SqlCon, Errorlog) = False OrElse SqlCon Is Nothing Then
+                Return Nothing
+            End If
+
+            cmd = New SqlCommand
+            cmd.CommandText = StrSQL
+            cmd.CommandTimeout = 0
+
+            cmd.Parameters.Add("@PC_Name", SqlDbType.NVarChar, 150).Value = My.Computer.Name
+            cmd.Parameters.Add("@Name", SqlDbType.NVarChar, 150).Value = "Anonymous"
+
 
 
             Return ADO.ExecuteSQLCmd(cmd, SqlCon, System.Reflection.MethodBase.GetCurrentMethod().Name, Errorlog, ReturnID)
@@ -2743,6 +2892,7 @@ Module mdlProcess_Office
     'End Function
 #End Region
 #Region "GENERAL"
+   
     Public Function GetLastDayOfMonth(intMonth, intYear) As Date
         Try
             Return DateSerial(intYear, intMonth + 1, 0)

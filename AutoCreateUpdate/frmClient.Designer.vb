@@ -30,7 +30,6 @@ Partial Class frmClient
         Me.Label1 = New System.Windows.Forms.Label()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.btnSave = New System.Windows.Forms.Button()
-        Me.btnCancel = New System.Windows.Forms.Button()
         Me.LvList = New System.Windows.Forms.ListView()
         Me.ColumnHeader8 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader11 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
@@ -118,6 +117,7 @@ Partial Class frmClient
         Me.StatusUrgentToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.StatusBugOnProgramToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.StatusPendingToTestingToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.StatusCantTriggerProblemToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.StatusOtherToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.NewToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.CancelToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -148,13 +148,16 @@ Partial Class frmClient
         Me.ColumnHeader40 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader41 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.TabPage3 = New System.Windows.Forms.TabPage()
-        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
-        Me.btnFileBrowser = New System.Windows.Forms.Button()
-        Me.txtFileBrowser = New System.Windows.Forms.TextBox()
-        Me.Label12 = New System.Windows.Forms.Label()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
-        Me.StatusCantTriggerProblemToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.Label12 = New System.Windows.Forms.Label()
+        Me.Label14 = New System.Windows.Forms.Label()
+        Me.Label15 = New System.Windows.Forms.Label()
+        Me.txtPCName = New System.Windows.Forms.TextBox()
+        Me.txtStaffName = New System.Windows.Forms.TextBox()
+        Me.txtLastLogin = New System.Windows.Forms.TextBox()
+        Me.Label16 = New System.Windows.Forms.Label()
+        Me.btnUpdateName = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
@@ -166,7 +169,6 @@ Partial Class frmClient
         Me.Message.SuspendLayout()
         Me.Panel2.SuspendLayout()
         Me.TabPage3.SuspendLayout()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Panel1
@@ -235,18 +237,6 @@ Partial Class frmClient
         Me.btnSave.TabIndex = 148
         Me.btnSave.Text = "Add"
         Me.btnSave.UseVisualStyleBackColor = True
-        '
-        'btnCancel
-        '
-        Me.btnCancel.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel
-        Me.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnCancel.Location = New System.Drawing.Point(1026, 547)
-        Me.btnCancel.Name = "btnCancel"
-        Me.btnCancel.Size = New System.Drawing.Size(174, 57)
-        Me.btnCancel.TabIndex = 147
-        Me.btnCancel.Text = "Cancel"
-        Me.btnCancel.UseVisualStyleBackColor = True
         '
         'LvList
         '
@@ -942,7 +932,7 @@ Partial Class frmClient
         Me.ContextMenuStrip1.ImageScalingSize = New System.Drawing.Size(20, 20)
         Me.ContextMenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.OpenTeamviewerToolStripMenuItem, Me.CopyTeamviewerIDToolStripMenuItem, Me.CopyTeamviewerPassToolStripMenuItem, Me.CopyCompanyNameToolStripMenuItem, Me.CopyPersonNameToolStripMenuItem, Me.CopyTelNoToolStripMenuItem, Me.CopyServerNameToolStripMenuItem, Me.AddNewToolStripMenuItem, Me.EditToolStripMenuItem, Me.StatusSolveToolStripMenuItem, Me.StatusHoldToolStripMenuItem, Me.StatusUrgentToolStripMenuItem, Me.StatusBugOnProgramToolStripMenuItem, Me.StatusPendingToTestingToolStripMenuItem, Me.StatusCantTriggerProblemToolStripMenuItem, Me.StatusOtherToolStripMenuItem, Me.DuplicateThisSupportToolStripMenuItem})
         Me.ContextMenuStrip1.Name = "ContextMenuStrip1"
-        Me.ContextMenuStrip1.Size = New System.Drawing.Size(232, 400)
+        Me.ContextMenuStrip1.Size = New System.Drawing.Size(232, 378)
         '
         'OpenTeamviewerToolStripMenuItem
         '
@@ -1028,6 +1018,12 @@ Partial Class frmClient
         Me.StatusPendingToTestingToolStripMenuItem.Size = New System.Drawing.Size(231, 22)
         Me.StatusPendingToTestingToolStripMenuItem.Text = "Status : Pending To Testing"
         '
+        'StatusCantTriggerProblemToolStripMenuItem
+        '
+        Me.StatusCantTriggerProblemToolStripMenuItem.Name = "StatusCantTriggerProblemToolStripMenuItem"
+        Me.StatusCantTriggerProblemToolStripMenuItem.Size = New System.Drawing.Size(231, 22)
+        Me.StatusCantTriggerProblemToolStripMenuItem.Text = "Status : Can't Trigger Problem"
+        '
         'StatusOtherToolStripMenuItem
         '
         Me.StatusOtherToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NewToolStripMenuItem, Me.CancelToolStripMenuItem, Me.PCProblemToolStripMenuItem})
@@ -1038,19 +1034,19 @@ Partial Class frmClient
         'NewToolStripMenuItem
         '
         Me.NewToolStripMenuItem.Name = "NewToolStripMenuItem"
-        Me.NewToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.NewToolStripMenuItem.Size = New System.Drawing.Size(137, 22)
         Me.NewToolStripMenuItem.Text = "New"
         '
         'CancelToolStripMenuItem
         '
         Me.CancelToolStripMenuItem.Name = "CancelToolStripMenuItem"
-        Me.CancelToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.CancelToolStripMenuItem.Size = New System.Drawing.Size(137, 22)
         Me.CancelToolStripMenuItem.Text = "Cancel"
         '
         'PCProblemToolStripMenuItem
         '
         Me.PCProblemToolStripMenuItem.Name = "PCProblemToolStripMenuItem"
-        Me.PCProblemToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.PCProblemToolStripMenuItem.Size = New System.Drawing.Size(137, 22)
         Me.PCProblemToolStripMenuItem.Text = "PC Problem"
         '
         'DuplicateThisSupportToolStripMenuItem
@@ -1310,52 +1306,20 @@ Partial Class frmClient
         '
         'TabPage3
         '
-        Me.TabPage3.Controls.Add(Me.DataGridView1)
-        Me.TabPage3.Controls.Add(Me.btnFileBrowser)
-        Me.TabPage3.Controls.Add(Me.txtFileBrowser)
+        Me.TabPage3.Controls.Add(Me.btnUpdateName)
+        Me.TabPage3.Controls.Add(Me.Label16)
+        Me.TabPage3.Controls.Add(Me.txtLastLogin)
+        Me.TabPage3.Controls.Add(Me.txtStaffName)
+        Me.TabPage3.Controls.Add(Me.txtPCName)
+        Me.TabPage3.Controls.Add(Me.Label15)
+        Me.TabPage3.Controls.Add(Me.Label14)
         Me.TabPage3.Controls.Add(Me.Label12)
         Me.TabPage3.Location = New System.Drawing.Point(4, 28)
         Me.TabPage3.Name = "TabPage3"
         Me.TabPage3.Size = New System.Drawing.Size(1203, 534)
         Me.TabPage3.TabIndex = 3
-        Me.TabPage3.Text = "File Compare Control                                      "
+        Me.TabPage3.Text = "Setting                                                                     "
         Me.TabPage3.UseVisualStyleBackColor = True
-        '
-        'DataGridView1
-        '
-        Me.DataGridView1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Location = New System.Drawing.Point(8, 40)
-        Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.Size = New System.Drawing.Size(1187, 486)
-        Me.DataGridView1.TabIndex = 3
-        '
-        'btnFileBrowser
-        '
-        Me.btnFileBrowser.Location = New System.Drawing.Point(679, 4)
-        Me.btnFileBrowser.Name = "btnFileBrowser"
-        Me.btnFileBrowser.Size = New System.Drawing.Size(67, 31)
-        Me.btnFileBrowser.TabIndex = 2
-        Me.btnFileBrowser.Text = "..."
-        Me.btnFileBrowser.UseVisualStyleBackColor = True
-        '
-        'txtFileBrowser
-        '
-        Me.txtFileBrowser.Location = New System.Drawing.Point(112, 7)
-        Me.txtFileBrowser.Name = "txtFileBrowser"
-        Me.txtFileBrowser.Size = New System.Drawing.Size(561, 27)
-        Me.txtFileBrowser.TabIndex = 1
-        '
-        'Label12
-        '
-        Me.Label12.AutoSize = True
-        Me.Label12.Location = New System.Drawing.Point(8, 10)
-        Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(98, 20)
-        Me.Label12.TabIndex = 0
-        Me.Label12.Text = "Root Folder : "
         '
         'Timer1
         '
@@ -1368,11 +1332,74 @@ Partial Class frmClient
         Me.ToolTip1.ReshowDelay = 100
         Me.ToolTip1.ShowAlways = True
         '
-        'StatusCantTriggerProblemToolStripMenuItem
+        'Label12
         '
-        Me.StatusCantTriggerProblemToolStripMenuItem.Name = "StatusCantTriggerProblemToolStripMenuItem"
-        Me.StatusCantTriggerProblemToolStripMenuItem.Size = New System.Drawing.Size(231, 22)
-        Me.StatusCantTriggerProblemToolStripMenuItem.Text = "Status : Can't Trigger Problem"
+        Me.Label12.AutoSize = True
+        Me.Label12.Location = New System.Drawing.Point(20, 58)
+        Me.Label12.Name = "Label12"
+        Me.Label12.Size = New System.Drawing.Size(81, 20)
+        Me.Label12.TabIndex = 0
+        Me.Label12.Text = "PC Name : "
+        '
+        'Label14
+        '
+        Me.Label14.AutoSize = True
+        Me.Label14.Location = New System.Drawing.Point(20, 91)
+        Me.Label14.Name = "Label14"
+        Me.Label14.Size = New System.Drawing.Size(93, 20)
+        Me.Label14.TabIndex = 1
+        Me.Label14.Text = "Your Name : "
+        '
+        'Label15
+        '
+        Me.Label15.AutoSize = True
+        Me.Label15.Location = New System.Drawing.Point(20, 157)
+        Me.Label15.Name = "Label15"
+        Me.Label15.Size = New System.Drawing.Size(87, 20)
+        Me.Label15.TabIndex = 2
+        Me.Label15.Text = "Last Login : "
+        '
+        'txtPCName
+        '
+        Me.txtPCName.Location = New System.Drawing.Point(129, 55)
+        Me.txtPCName.Name = "txtPCName"
+        Me.txtPCName.ReadOnly = True
+        Me.txtPCName.Size = New System.Drawing.Size(533, 27)
+        Me.txtPCName.TabIndex = 3
+        '
+        'txtStaffName
+        '
+        Me.txtStaffName.Location = New System.Drawing.Point(129, 88)
+        Me.txtStaffName.Name = "txtStaffName"
+        Me.txtStaffName.Size = New System.Drawing.Size(533, 27)
+        Me.txtStaffName.TabIndex = 4
+        '
+        'txtLastLogin
+        '
+        Me.txtLastLogin.Location = New System.Drawing.Point(129, 154)
+        Me.txtLastLogin.Name = "txtLastLogin"
+        Me.txtLastLogin.ReadOnly = True
+        Me.txtLastLogin.Size = New System.Drawing.Size(533, 27)
+        Me.txtLastLogin.TabIndex = 5
+        '
+        'Label16
+        '
+        Me.Label16.AutoSize = True
+        Me.Label16.Font = New System.Drawing.Font("Segoe UI Semibold", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label16.Location = New System.Drawing.Point(20, 18)
+        Me.Label16.Name = "Label16"
+        Me.Label16.Size = New System.Drawing.Size(164, 20)
+        Me.Label16.TabIndex = 6
+        Me.Label16.Text = "Account Configuration"
+        '
+        'btnUpdateName
+        '
+        Me.btnUpdateName.Location = New System.Drawing.Point(528, 121)
+        Me.btnUpdateName.Name = "btnUpdateName"
+        Me.btnUpdateName.Size = New System.Drawing.Size(134, 27)
+        Me.btnUpdateName.TabIndex = 7
+        Me.btnUpdateName.Text = "Update Name"
+        Me.btnUpdateName.UseVisualStyleBackColor = True
         '
         'frmClient
         '
@@ -1382,7 +1409,6 @@ Partial Class frmClient
         Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(1211, 615)
         Me.Controls.Add(Me.TabControl1)
-        Me.Controls.Add(Me.btnCancel)
         Me.Controls.Add(Me.Panel1)
         Me.Font = New System.Drawing.Font("Segoe UI", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
@@ -1411,7 +1437,6 @@ Partial Class frmClient
         Me.Panel2.PerformLayout()
         Me.TabPage3.ResumeLayout(False)
         Me.TabPage3.PerformLayout()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -1419,7 +1444,6 @@ Partial Class frmClient
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents PictureBox2 As System.Windows.Forms.PictureBox
     Friend WithEvents btnSave As System.Windows.Forms.Button
-    Friend WithEvents btnCancel As System.Windows.Forms.Button
     Friend WithEvents LvList As System.Windows.Forms.ListView
     Friend WithEvents ColumnHeader8 As System.Windows.Forms.ColumnHeader
     Friend WithEvents ColumnHeader11 As System.Windows.Forms.ColumnHeader
@@ -1537,14 +1561,18 @@ Partial Class frmClient
     Friend WithEvents Panel3 As System.Windows.Forms.Panel
     Friend WithEvents TabPage3 As System.Windows.Forms.TabPage
     Friend WithEvents CopyServerNameToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents btnFileBrowser As System.Windows.Forms.Button
-    Friend WithEvents txtFileBrowser As System.Windows.Forms.TextBox
-    Friend WithEvents Label12 As System.Windows.Forms.Label
     Friend WithEvents ToolTip1 As System.Windows.Forms.ToolTip
     Friend WithEvents Label13 As System.Windows.Forms.Label
     Friend WithEvents txtReportName As System.Windows.Forms.TextBox
     Friend WithEvents ColumnHeader25 As System.Windows.Forms.ColumnHeader
-    Friend WithEvents DataGridView1 As System.Windows.Forms.DataGridView
     Friend WithEvents StatusCantTriggerProblemToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents Label16 As System.Windows.Forms.Label
+    Friend WithEvents txtLastLogin As System.Windows.Forms.TextBox
+    Friend WithEvents txtStaffName As System.Windows.Forms.TextBox
+    Friend WithEvents txtPCName As System.Windows.Forms.TextBox
+    Friend WithEvents Label15 As System.Windows.Forms.Label
+    Friend WithEvents Label14 As System.Windows.Forms.Label
+    Friend WithEvents Label12 As System.Windows.Forms.Label
+    Friend WithEvents btnUpdateName As System.Windows.Forms.Button
 
 End Class

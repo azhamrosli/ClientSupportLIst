@@ -254,7 +254,7 @@ Partial Class frmSupport_Add
         Me.cboFormType.Location = New System.Drawing.Point(673, 223)
         Me.cboFormType.Name = "cboFormType"
         Me.cboFormType.Size = New System.Drawing.Size(139, 21)
-        Me.cboFormType.TabIndex = 202
+        Me.cboFormType.TabIndex = 5
         '
         'lblModifiedBy
         '
@@ -361,7 +361,7 @@ Partial Class frmSupport_Add
         Me.txtName.MaxLength = 150
         Me.txtName.Name = "txtName"
         Me.txtName.Size = New System.Drawing.Size(365, 22)
-        Me.txtName.TabIndex = 196
+        Me.txtName.TabIndex = 0
         '
         'Label12
         '
@@ -380,7 +380,7 @@ Partial Class frmSupport_Add
         Me.btnFind.Location = New System.Drawing.Point(374, 66)
         Me.btnFind.Name = "btnFind"
         Me.btnFind.Size = New System.Drawing.Size(117, 39)
-        Me.btnFind.TabIndex = 198
+        Me.btnFind.TabIndex = 1
         Me.btnFind.Text = "Find"
         Me.btnFind.UseVisualStyleBackColor = True
         '
@@ -459,7 +459,7 @@ Partial Class frmSupport_Add
         Me.cboStatus.Location = New System.Drawing.Point(672, 544)
         Me.cboStatus.Name = "cboStatus"
         Me.cboStatus.Size = New System.Drawing.Size(444, 21)
-        Me.cboStatus.TabIndex = 206
+        Me.cboStatus.TabIndex = 8
         '
         'Label1
         '
@@ -509,7 +509,7 @@ Partial Class frmSupport_Add
         Me.txtTVPass.MaxLength = 150
         Me.txtTVPass.Name = "txtTVPass"
         Me.txtTVPass.Size = New System.Drawing.Size(139, 22)
-        Me.txtTVPass.TabIndex = 200
+        Me.txtTVPass.TabIndex = 3
         '
         'txtNote
         '
@@ -519,7 +519,7 @@ Partial Class frmSupport_Add
         Me.txtNote.Multiline = True
         Me.txtNote.Name = "txtNote"
         Me.txtNote.Size = New System.Drawing.Size(444, 124)
-        Me.txtNote.TabIndex = 205
+        Me.txtNote.TabIndex = 7
         '
         'Panel1
         '
@@ -559,7 +559,7 @@ Partial Class frmSupport_Add
         Me.txtProblem.Multiline = True
         Me.txtProblem.Name = "txtProblem"
         Me.txtProblem.Size = New System.Drawing.Size(444, 157)
-        Me.txtProblem.TabIndex = 203
+        Me.txtProblem.TabIndex = 6
         '
         'txtTVID
         '
@@ -570,13 +570,13 @@ Partial Class frmSupport_Add
         Me.txtTVID.MaxLength = 150
         Me.txtTVID.Name = "txtTVID"
         Me.txtTVID.Size = New System.Drawing.Size(139, 22)
-        Me.txtTVID.TabIndex = 199
+        Me.txtTVID.TabIndex = 2
         '
         'Label8
         '
         Me.Label8.AutoSize = True
         Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label8.Location = New System.Drawing.Point(544, 195)
+        Me.Label8.Location = New System.Drawing.Point(818, 198)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(112, 16)
         Me.Label8.TabIndex = 222
@@ -597,7 +597,7 @@ Partial Class frmSupport_Add
         Me.txtPerson.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
         Me.txtPerson.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
         Me.txtPerson.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtPerson.Location = New System.Drawing.Point(673, 195)
+        Me.txtPerson.Location = New System.Drawing.Point(933, 195)
         Me.txtPerson.MaxLength = 150
         Me.txtPerson.Name = "txtPerson"
         Me.txtPerson.Size = New System.Drawing.Size(139, 22)
@@ -616,7 +616,7 @@ Partial Class frmSupport_Add
         'txtYA
         '
         Me.txtYA.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtYA.Location = New System.Drawing.Point(917, 167)
+        Me.txtYA.Location = New System.Drawing.Point(933, 167)
         Me.txtYA.MaxLength = 150
         Me.txtYA.Name = "txtYA"
         Me.txtYA.Size = New System.Drawing.Size(139, 22)
@@ -628,7 +628,7 @@ Partial Class frmSupport_Add
         Me.txtRefNoPayer.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
         Me.txtRefNoPayer.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
         Me.txtRefNoPayer.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtRefNoPayer.Location = New System.Drawing.Point(917, 139)
+        Me.txtRefNoPayer.Location = New System.Drawing.Point(933, 139)
         Me.txtRefNoPayer.MaxLength = 150
         Me.txtRefNoPayer.Name = "txtRefNoPayer"
         Me.txtRefNoPayer.Size = New System.Drawing.Size(139, 22)
@@ -659,17 +659,17 @@ Partial Class frmSupport_Add
         Me.txtReportName.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
         Me.txtReportName.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
         Me.txtReportName.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtReportName.Location = New System.Drawing.Point(917, 195)
+        Me.txtReportName.Location = New System.Drawing.Point(673, 195)
         Me.txtReportName.MaxLength = 150
         Me.txtReportName.Name = "txtReportName"
         Me.txtReportName.Size = New System.Drawing.Size(139, 22)
-        Me.txtReportName.TabIndex = 238
+        Me.txtReportName.TabIndex = 4
         '
         'Label17
         '
         Me.Label17.AutoSize = True
         Me.Label17.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label17.Location = New System.Drawing.Point(817, 198)
+        Me.Label17.Location = New System.Drawing.Point(543, 198)
         Me.Label17.Name = "Label17"
         Me.Label17.Size = New System.Drawing.Size(74, 16)
         Me.Label17.TabIndex = 237

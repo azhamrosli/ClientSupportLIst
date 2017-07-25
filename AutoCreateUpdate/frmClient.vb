@@ -30,6 +30,9 @@ Public Class frmClient
 
     Private Sub frmClient_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
         Try
+            My.Settings.LastLogin = Now
+            My.Settings.Save()
+
             If connection IsNot Nothing AndAlso connection.State = ConnectionState.Connected Then
                 disConnect()
             End If
@@ -109,6 +112,33 @@ Public Class frmClient
             '  connection = New HubConnection("http://localhost:8080")
             ' myHub = connection.CreateHubProxy("hitCounter")
             startConnect()
+
+            LoadPCName_ByPCName(My.Computer.Name)
+
+            If UserPC.Name <> Nothing Then
+                txtPCName.Text = UserPC.PC_Name
+                txtStaffName.Text = UserPC.Name
+                If My.Settings.LastLogin.ToString <> "" Then
+                    txtLastLogin.Text = mdlProcess_Office.ConvertDateTimeToFacebookDateTime(My.Settings.LastLogin)
+                End If
+
+            Else
+                Dim tmpReturnID As Integer = 0
+                If SaveStaffPC(tmpReturnID) Then
+                    Application.DoEvents()
+                    LoadPCName_ByPCName(My.Computer.Name)
+                    If UserPC.Name <> Nothing Then
+                        txtPCName.Text = UserPC.PC_Name
+                        txtStaffName.Text = UserPC.Name
+                        If My.Settings.LastLogin.ToString <> "" Then
+                            txtLastLogin.Text = mdlProcess_Office.ConvertDateTimeToFacebookDateTime(My.Settings.LastLogin)
+                        End If
+
+                    End If
+
+                End If
+
+            End If
 
             LoadSupportDashboard()
         Catch ex As Exception
@@ -380,10 +410,6 @@ Public Class frmClient
         Catch ex As Exception
 
         End Try
-    End Sub
-
-    Private Sub btnCancel_Click(sender As Object, e As EventArgs) Handles btnCancel.Click
-        Me.Close()
     End Sub
 
     Private Sub btnRemove_Click(sender As Object, e As EventArgs) Handles btnRemove.Click
@@ -1520,7 +1546,7 @@ Public Class frmClient
         
     End Sub
 
-    Private Sub Button2_Click_1(sender As Object, e As EventArgs) Handles btnFileBrowser.Click
+    Private Sub Button2_Click_1(sender As Object, e As EventArgs)
         Try
 
         Catch ex As Exception
@@ -1537,6 +1563,31 @@ Public Class frmClient
                 End If
             Next
             Me.LoadDataSupport(1)
+        Catch ex As Exception
+
+        End Try
+    End Sub
+
+    Private Sub btnUpdateName_Click(sender As Object, e As EventArgs) Handles btnUpdateName.Click
+        Try
+            Dim result As DialogResult = MessageBox.Show("Are sure want to change name? it not be effected support person incharge.", "Alert", MessageBoxButtons.YesNo, MessageBoxIcon.Warning)
+            If result = Windows.Forms.DialogResult.Yes AndAlso UserPC.Name IsNot Nothing Then
+                If mdlProcess_Office.UpdateStaffPC(UserPC.ID, txtStaffName.Text) Then
+                    MsgBox("Successfully update staff name.", MsgBoxStyle.Information)
+                    LoadPCName_ByPCName(My.Computer.Name)
+
+                    If UserPC.Name <> Nothing Then
+                        txtPCName.Text = UserPC.PC_Name
+                        txtStaffName.Text = UserPC.Name
+                        If My.Settings.LastLogin.ToString <> "" Then
+                            txtLastLogin.Text = mdlProcess_Office.ConvertDateTimeToFacebookDateTime(My.Settings.LastLogin)
+                        End If
+                    End If
+                   
+                Else
+                    MsgBox("Unsuccessfully update staff name.", MsgBoxStyle.Critical)
+                End If
+            End If
         Catch ex As Exception
 
         End Try
