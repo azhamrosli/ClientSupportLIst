@@ -110,6 +110,7 @@ Public Class frmClient
             ' myHub = connection.CreateHubProxy("hitCounter")
             startConnect()
 
+            LoadSupportDashboard()
         Catch ex As Exception
 
         End Try
@@ -575,7 +576,7 @@ Public Class frmClient
             If cboStatuss.SelectedIndex <> cboStatuss.Items.Count - 1 Then
                 Typex = cboStatuss.SelectedIndex
             End If
-            dt = mdlProcess_Office.LoadSupport_Search(txtIDS.Text, txtNameS.Text, dtFroms.Value, dtTos.Value, Typex, txtPersonS.Text)
+            dt = mdlProcess_Office.LoadSupport_Search(txtIDS.Text, txtNameS.Text, dtFroms.Value, dtTos.Value, Typex, txtPersonS.Text, txtReportName.Text)
             Dim tmpdata As String = ""
             LvLists.Items.Clear()
             If dt IsNot Nothing Then
@@ -642,7 +643,7 @@ Public Class frmClient
                     itm.SubItems.Add(subitm)
 
                     subitm = New ListViewItem.ListViewSubItem
-                    subitm.Text = IIf(IsDBNull(dt.Rows(i)("TeamviewerPass")), "", dt.Rows(i)("TeamviewerPass"))
+                    subitm.Text = IIf(IsDBNull(dt.Rows(i)("PersonReport")), "", dt.Rows(i)("PersonReport"))
                     itm.SubItems.Add(subitm)
 
 
@@ -724,11 +725,18 @@ Public Class frmClient
                     subitm.Text = IIf(IsDBNull(dt.Rows(i)("ModifiedBy")), "", dt.Rows(i)("ModifiedBy"))
                     itm.SubItems.Add(subitm)
 
+                    subitm = New ListViewItem.ListViewSubItem
+                    subitm.Text = IIf(IsDBNull(dt.Rows(i)("TeamviewerPass")), "", dt.Rows(i)("TeamviewerPass"))
+                    itm.SubItems.Add(subitm)
+
+
                     tmpdata = IIf(IsDBNull(dt.Rows(i)("CompanyName")), "", dt.Rows(i)("CompanyName")) & vbCrLf
                     tmpdata += "Status : " & tmpstr & vbCrLf
                     tmpdata += "Phone No : " & IIf(IsDBNull(dt.Rows(i)("Phone1")), "", dt.Rows(i)("Phone1")) & vbCrLf
                     tmpdata += "Phone No 2 : " & IIf(IsDBNull(dt.Rows(i)("Phone2")), "", dt.Rows(i)("Phone2")) & vbCrLf
+                    tmpdata += "Server Name : " & IIf(IsDBNull(dt.Rows(i)("ServerName")), "", dt.Rows(i)("ServerName")) & vbCrLf
                     tmpdata += "Person Name : " & IIf(IsDBNull(dt.Rows(i)("PersonName")), "", dt.Rows(i)("PersonName")) & vbCrLf
+                    tmpdata += "Report Incharge : " & IIf(IsDBNull(dt.Rows(i)("PersonReport")), "", dt.Rows(i)("PersonReport")) & vbCrLf
                     tmpdata += "Type Form : " & mdlProcess_Office.GetTypeFrom(IIf(IsDBNull(dt.Rows(i)("TypeForm")), 100, dt.Rows(i)("TypeForm"))) & vbCrLf
                     tmpdata += "Problem : " & IIf(IsDBNull(dt.Rows(i)("Problem")), "", dt.Rows(i)("Problem")) & vbCrLf
                     itm.ToolTipText = tmpdata
@@ -738,47 +746,31 @@ Public Class frmClient
                     LvLists.Items.Add(itm)
                 Next
             End If
-            Dim DateFrom As DateTime = Now
-            Dim DateTo As DateTime = Now
-            Dim tmpInt As Integer = mdlProcess_Office.LoadSupportTotalSupport(2, DateFrom, DateTo)
-            lblTotalSupportToday.Text = "Total Support Today : " & mdlProcess_Office.LoadSupportTotalSupport(0)
-
-            tmpInt = mdlProcess_Office.LoadSupportTotalSupport(3, DateFrom, DateTo)
-
-            lblTotalSupportYesterday.Text = "Total Support Yesterday : " & tmpInt
-
-            tmpInt = mdlProcess_Office.LoadSupportTotalSupport(1, DateFrom, DateTo)
-
-            lblTotalSupportWeek.Text = "Total Support Week : " & tmpInt & " (" & Format(DateFrom, "dd-MMM-yyyy") & " - " & Format(DateTo, "dd-MMM-yyyy") & ")"
-
-            tmpInt = mdlProcess_Office.LoadSupportTotalSupport(2, DateFrom, DateTo)
-
-            lblTotalSupportMonth.Text = "Total Support Month : " & tmpInt & " (" & Format(DateFrom, "dd-MMM-yyyy") & " - " & Format(DateTo, "dd-MMM-yyyy") & ")"
-
-            tmpInt = mdlProcess_Office.LoadSupportTotalSupport(4, DateFrom, DateTo)
-
-            lblTotalSupportYearly.Text = "Total Support Yearly : " & tmpInt & " (" & Format(DateFrom, "dd-MMM-yyyy") & " - " & Format(DateTo, "dd-MMM-yyyy") & ")"
-
-            tmpInt = mdlProcess_Office.LoadSupportTotalSupport(5, DateFrom, DateTo)
-
-            lblTotalSupportPendingToTesting.Text = "Total Pending To Test : " & tmpInt & " (" & Format(DateFrom, "dd-MMM-yyyy") & " - " & Format(DateTo, "dd-MMM-yyyy") & ")"
-
-            tmpInt = mdlProcess_Office.LoadSupportTotalSupport(6, DateFrom, DateTo)
-
-            lblTotalSupportBug.Text = "Total Bug : " & tmpInt & " (" & Format(DateFrom, "dd-MMM-yyyy") & " - " & Format(DateTo, "dd-MMM-yyyy") & ")"
-
-
-            Dim tmpdt As DataTable = mdlProcess_Office.LoadTopSupport
-
-            If tmpdt IsNot Nothing AndAlso tmpdt.Rows.Count = 3 Then
-                lblTopSupport1.Text = IIf(IsDBNull(tmpdt.Rows(0)("CompanyName")), "", tmpdt.Rows(0)("CompanyName")) & " : " & IIf(IsDBNull(tmpdt.Rows(0)("countx")), 0, tmpdt.Rows(0)("countx"))
-                lblTopSupport2.Text = IIf(IsDBNull(tmpdt.Rows(1)("CompanyName")), "", tmpdt.Rows(1)("CompanyName")) & " : " & IIf(IsDBNull(tmpdt.Rows(1)("countx")), 0, tmpdt.Rows(1)("countx"))
-                lblTopSupport3.Text = IIf(IsDBNull(tmpdt.Rows(2)("CompanyName")), "", tmpdt.Rows(2)("CompanyName")) & " : " & IIf(IsDBNull(tmpdt.Rows(2)("countx")), 0, tmpdt.Rows(2)("countx"))
-            End If
 
         Catch ex As Exception
 
         End Try
+    End Sub
+    Private Sub listView1_ColumnClick(sender As Object, e As System.Windows.Forms.ColumnClickEventArgs) Handles LvLists.ColumnClick
+        ' Determine whether the column is the same as the last column clicked.
+        If e.Column <> sortColumn Then
+            ' Set the sort column to the new column.
+            sortColumn = e.Column
+            ' Set the sort order to ascending by default.
+            LvLists.Sorting = SortOrder.Ascending
+        Else
+            ' Determine what the last sort order was and change it.
+            If LvLists.Sorting = SortOrder.Ascending Then
+                LvLists.Sorting = SortOrder.Descending
+            Else
+                LvLists.Sorting = SortOrder.Ascending
+            End If
+        End If
+        ' Call the sort method to manually sort.
+        LvLists.Sort()
+        ' Set the ListViewItemSorter property to a new ListViewItemComparer
+        ' object.
+        LvLists.ListViewItemSorter = New ListViewItemComparer(e.Column, LvLists.Sorting)
     End Sub
 
     Private Sub LvLists_DoubleClick(sender As Object, e As EventArgs) Handles LvLists.DoubleClick
@@ -897,7 +889,7 @@ Public Class frmClient
                     End If
 
                     ' Use these arguments for the process
-                    p.Arguments = "-i " & LvLists.Items(i).SubItems(6).Text & " -P " & LvLists.Items(i).SubItems(7).Text
+                    p.Arguments = "-i " & LvLists.Items(i).SubItems(6).Text & " -P " & LvLists.Items(i).SubItems(17).Text
 
                     ' Use a hidden window
                     p.WindowStyle = ProcessWindowStyle.Normal
@@ -950,7 +942,51 @@ Public Class frmClient
 
     Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
         Try
-            Me.LoadDataSupport(0)
+           
+            LoadSupportDashboard()
+        Catch ex As Exception
+
+        End Try
+    End Sub
+    Private Sub LoadSupportDashboard()
+        Try
+            Dim DateFrom As DateTime = Now
+            Dim DateTo As DateTime = Now
+            Dim tmpInt As Integer = mdlProcess_Office.LoadSupportTotalSupport(2, DateFrom, DateTo)
+            lblTotalSupportToday.Text = "Total Support Today : " & mdlProcess_Office.LoadSupportTotalSupport(0)
+
+            tmpInt = mdlProcess_Office.LoadSupportTotalSupport(3, DateFrom, DateTo)
+
+            lblTotalSupportYesterday.Text = "Total Support Yesterday : " & tmpInt
+
+            tmpInt = mdlProcess_Office.LoadSupportTotalSupport(1, DateFrom, DateTo)
+
+            lblTotalSupportWeek.Text = "Total Support Week : " & tmpInt & " (" & Format(DateFrom, "dd-MMM-yyyy") & " - " & Format(DateTo, "dd-MMM-yyyy") & ")"
+
+            tmpInt = mdlProcess_Office.LoadSupportTotalSupport(2, DateFrom, DateTo)
+
+            lblTotalSupportMonth.Text = "Total Support Month : " & tmpInt & " (" & Format(DateFrom, "dd-MMM-yyyy") & " - " & Format(DateTo, "dd-MMM-yyyy") & ")"
+
+            tmpInt = mdlProcess_Office.LoadSupportTotalSupport(4, DateFrom, DateTo)
+
+            lblTotalSupportYearly.Text = "Total Support Yearly : " & tmpInt & " (" & Format(DateFrom, "dd-MMM-yyyy") & " - " & Format(DateTo, "dd-MMM-yyyy") & ")"
+
+            tmpInt = mdlProcess_Office.LoadSupportTotalSupport(5, DateFrom, DateTo)
+
+            lblTotalSupportPendingToTesting.Text = "Total Pending To Test : " & tmpInt & " (" & Format(DateFrom, "dd-MMM-yyyy") & " - " & Format(DateTo, "dd-MMM-yyyy") & ")"
+
+            tmpInt = mdlProcess_Office.LoadSupportTotalSupport(6, DateFrom, DateTo)
+
+            lblTotalSupportBug.Text = "Total Bug : " & tmpInt & " (" & Format(DateFrom, "dd-MMM-yyyy") & " - " & Format(DateTo, "dd-MMM-yyyy") & ")"
+
+
+            Dim tmpdt As DataTable = mdlProcess_Office.LoadTopSupport
+
+            If tmpdt IsNot Nothing AndAlso tmpdt.Rows.Count = 3 Then
+                lblTopSupport1.Text = IIf(IsDBNull(tmpdt.Rows(0)("CompanyName")), "", tmpdt.Rows(0)("CompanyName")) & " : " & IIf(IsDBNull(tmpdt.Rows(0)("countx")), 0, tmpdt.Rows(0)("countx"))
+                lblTopSupport2.Text = IIf(IsDBNull(tmpdt.Rows(1)("CompanyName")), "", tmpdt.Rows(1)("CompanyName")) & " : " & IIf(IsDBNull(tmpdt.Rows(1)("countx")), 0, tmpdt.Rows(1)("countx"))
+                lblTopSupport3.Text = IIf(IsDBNull(tmpdt.Rows(2)("CompanyName")), "", tmpdt.Rows(2)("CompanyName")) & " : " & IIf(IsDBNull(tmpdt.Rows(2)("countx")), 0, tmpdt.Rows(2)("countx"))
+            End If
         Catch ex As Exception
 
         End Try
@@ -1013,7 +1049,7 @@ Public Class frmClient
                             mdlProcess_Office.SaveSupport(IIf(IsDBNull(dt.Rows(0)("CompanyID")), "", dt.Rows(0)("CompanyID")), IIf(IsDBNull(dt.Rows(0)("TeamviewerID")), "", dt.Rows(0)("TeamviewerID")), _
                                                           IIf(IsDBNull(dt.Rows(0)("TeamviewerPass")), "", dt.Rows(0)("TeamviewerPass")), IIf(IsDBNull(dt.Rows(0)("PersonName")), "", dt.Rows(0)("PersonName")), _
                                                          IIf(IsDBNull(dt.Rows(0)("Problem")), "", dt.Rows(0)("Problem")), IIf(IsDBNull(dt.Rows(0)("Note")), "", dt.Rows(0)("Note")), 0, IIf(IsDBNull(dt.Rows(0)("TypeForm")), 0, dt.Rows(0)("TypeForm")), _
-                                                          IIf(IsDBNull(dt.Rows(0)("RefPayerNo")), "", dt.Rows(0)("RefPayerNo")), IIf(IsDBNull(dt.Rows(0)("YA")), 0, dt.Rows(0)("YA")), Nothing)
+                                                          IIf(IsDBNull(dt.Rows(0)("RefPayerNo")), "", dt.Rows(0)("RefPayerNo")), IIf(IsDBNull(dt.Rows(0)("YA")), 0, dt.Rows(0)("YA")), IIf(IsDBNull(dt.Rows(0)("PersonReport")), "", dt.Rows(0)("PersonReport")), Nothing)
 
                         End If
 
@@ -1483,4 +1519,11 @@ Public Class frmClient
         
     End Sub
 
+    Private Sub Button2_Click_1(sender As Object, e As EventArgs) Handles btnFileBrowser.Click
+        Try
+
+        Catch ex As Exception
+
+        End Try
+    End Sub
 End Class

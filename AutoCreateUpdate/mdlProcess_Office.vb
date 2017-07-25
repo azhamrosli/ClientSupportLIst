@@ -13,8 +13,8 @@ Module mdlProcess_Office
     Public LicenseType As Integer = 0
     Public V1 As Integer = 2
     Public V2 As Integer = 5
-    Public V3 As Integer = 2
-    Public V4 As Integer = 3
+    Public V3 As Integer = 5
+    Public V4 As Integer = 4
     'Public connection As HubConnection = New HubConnection("http://localhost:63739/signalr")
     Public connection As HubConnection = New HubConnection("http://www.arsoftwaremalaysia.com/signalr")
     Public myHub As IHubProxy = connection.CreateHubProxy("hitCounter")
@@ -706,7 +706,7 @@ Module mdlProcess_Office
         End Try
     End Function
     Public Function LoadSupport_Search(ByVal Problem As String, ByVal Com As String, ByVal dtFrom As DateTime, ByVal dtTo As DateTime, _
-                                ByVal Status As Integer, ByVal Person As String, Optional ByRef ErrorLog As clsError = Nothing) As DataTable
+                                ByVal Status As Integer, ByVal Person As String, ByVal PersonReport As String, Optional ByRef ErrorLog As clsError = Nothing) As DataTable
         Try
             ' Dim StrSQL As String = "SELECT dbSupport.*,dbClient.* FROM dbSupport INNER JOIN dbClient ON dbSupport.CompanyID=dbClient.ID"
             Dim StrSQL As String = "SELECT dbSupport.*,dbClient.* FROM dbSupport INNER JOIN dbClient ON dbSupport.CompanyID=dbClient.ID WHERE dbSupport.Status=1 UNION SELECT dbSupport.*,dbClient.* FROM dbSupport INNER JOIN dbClient ON dbSupport.CompanyID=dbClient.ID"
@@ -758,6 +758,15 @@ Module mdlProcess_Office
                     StrSQL += " WHERE dbSupport.PersonName LIKE '%" & Person & "%'"
                 Else
                     StrSQL += " AND dbSupport.PersonName LIKE '%" & Person & "%'"
+                End If
+            End If
+
+            If PersonReport IsNot Nothing AndAlso PersonReport <> "" Then
+                If isWhere = False Then
+                    isWhere = True
+                    StrSQL += " WHERE dbSupport.PersonReport LIKE '%" & PersonReport & "%'"
+                Else
+                    StrSQL += " AND dbSupport.PersonReport LIKE '%" & PersonReport & "%'"
                 End If
             End If
 
@@ -1375,6 +1384,38 @@ Module mdlProcess_Office
             Return False
         End Try
     End Function
+    Public Function ValidateSupportID(ByVal ID As String, Optional ByRef Errorlog As clsError = Nothing) As Boolean
+        Try
+
+            Dim StrSQL As String = "SELECT COUNT(*) countData FROM DBSUPPORT WHERE SupportRefID=@ID"
+
+            ADO = New SQLDataObject()
+            cmd = New SqlCommand
+            cmd.CommandText = StrSQL
+            cmd.CommandTimeout = 0
+            cmd.Parameters.Add("@ID", SqlDbType.NVarChar, 30).Value = ID
+
+            Dim dt As DataTable = ADO.GetSQLDataTable(cmd, SqlCon, System.Reflection.MethodBase.GetCurrentMethod().Name, Errorlog)
+
+            If dt IsNot Nothing AndAlso dt.Rows.Count > 0 AndAlso dt.Rows(0)("countData") > 0 Then
+                Return True
+            Else
+                Return False
+            End If
+        Catch ex As Exception
+            If Errorlog Is Nothing Then
+                Errorlog = New clsError
+            End If
+
+            With Errorlog
+                .ErrorName = System.Reflection.MethodBase.GetCurrentMethod().Name
+                .ErrorCode = ex.GetHashCode.ToString
+                .ErrorDateTime = Now
+                .ErrorMessage = ex.Message
+            End With
+            Return False
+        End Try
+    End Function
     Public Function ValidateRefID(ByVal ID As String, Optional ByRef Errorlog As clsError = Nothing) As Boolean
         Try
 
@@ -1762,8 +1803,9 @@ Module mdlProcess_Office
             Return False
         End Try
     End Function
-    Public Function UpdateSupport(ByVal ID As Integer, ByVal RefID As String, ByVal TeamviwerID As String, ByVal TeamviewerPass As String, ByVal PersorName As String, _
-                               ByVal Problem As String, ByVal Note As String, ByVal Status As Integer, ByVal TypeForm As Integer, ByVal RefPayerNo As String, ByVal YA As Integer, _
+    Public Function UpdateSupport(ByVal ID As Integer, ByVal RefID As String, ByVal SupportID As String, ByVal TeamviwerID As String, ByVal TeamviewerPass As String, ByVal PersorName As String, _
+                               ByVal Problem As String, ByVal Note As String, ByVal Status As Integer, ByVal TypeForm As Integer, _
+                               ByVal RefPayerNo As String, ByVal YA As Integer, ByVal PersonReport As String, _
                                ByVal flpPanel As FlowLayoutPanel, Optional ByRef Errorlog As clsError = Nothing) As Boolean
         Try
             If Errorlog Is Nothing Then
@@ -1774,7 +1816,7 @@ Module mdlProcess_Office
             Dim ReturnValue As Integer = 0
             Dim tmpDatax As Byte() = Nothing
 
-            StrSQL = "UPDATE dbSupport SET CompanyID=@CompanyID,DateTime=@DateTime,TeamviewerID=@TeamviewerID,TeamviewerPass=@TeamviewerPass,PersonName=@PersorName,Problem=@Problem,Note=@Note,Status=@Status,ModifiedBy=@ModifiedBy,TypeForm=@TypeForm,RefPayerNo=@RefPayerNo,YA=@YA WHERE ID=@ID"
+            StrSQL = "UPDATE dbSupport SET CompanyID=@CompanyID,DateTime=@DateTime,TeamviewerID=@TeamviewerID,TeamviewerPass=@TeamviewerPass,PersonName=@PersorName,Problem=@Problem,Note=@Note,Status=@Status,ModifiedBy=@ModifiedBy,TypeForm=@TypeForm,RefPayerNo=@RefPayerNo,YA=@YA,PersonReport=@PersonReport WHERE ID=@ID"
 
 
             ADO = New SQLDataObject()
@@ -1801,6 +1843,7 @@ Module mdlProcess_Office
             cmd.Parameters.Add("@TypeForm", SqlDbType.Int).Value = TypeForm
             cmd.Parameters.Add("@RefPayerNo", SqlDbType.NVarChar, 50).Value = RefPayerNo
             cmd.Parameters.Add("@YA", SqlDbType.Int).Value = YA
+            cmd.Parameters.Add("@PersonReport", SqlDbType.NVarChar, 150).Value = PersonReport
 
             ' Return ADO.ExecuteSQLCmd_NOIDReturn(cmd, SqlCon, System.Reflection.MethodBase.GetCurrentMethod().Name, Errorlog)
             Dim tmpBol As Boolean = True
@@ -1847,7 +1890,7 @@ Module mdlProcess_Office
             End If
             tmpBol = ADO.ExecuteSQLTransactionBySQLCommand_NOReturnID(ListofCmd, SqlCon, System.Reflection.MethodBase.GetCurrentMethod().Name)
             If tmpBol Then
-                SendNotification(RefID & " is updated")
+                SendNotification(SupportID & " is updated " & vbCrLf & " Name :" & PersorName & vbCrLf & " Problem :" & Problem & vbCrLf & " Status :" & GetStatusSupport(Status))
                 SaveLog(ID, "Support data is updated by " & My.Computer.Name)
             End If
             Return tmpBol
@@ -2081,13 +2124,22 @@ Module mdlProcess_Office
         End Try
     End Function
     Public Function SaveSupport(ByVal RefID As String, ByVal TeamviwerID As String, ByVal TeamviewerPass As String, ByVal PersorName As String, _
-                                ByVal Problem As String, ByVal Note As String, ByVal Status As Integer, ByVal TypeForm As Integer, ByVal RefPayerNo As String, ByVal YA As Integer, _
+                                ByVal Problem As String, ByVal Note As String, ByVal Status As Integer, ByVal TypeForm As Integer, _
+                                ByVal RefPayerNo As String, ByVal YA As Integer, ByVal PersonReport As String, _
                                 ByVal flpPanel As FlowLayoutPanel, Optional ByRef Errorlog As clsError = Nothing) As Boolean
         Try
             Dim StrSQL As String = Nothing
             Dim ReturnValue As Integer = 0
             Dim tmpBol As Boolean = True
-            StrSQL = "INSERT INTO dbSupport (CompanyID,DateTime,TeamviewerID,TeamviewerPass,PersonName,Problem,Note,Status,DateCreated,ModifiedBy,TypeForm,RefPayerNo,YA) VALUES (@CompanyID,@DateTime,@TeamviewerID,@TeamviewerPass,@PersorName,@Problem,@Note,@Status,@DateCreated,@ModifiedBy,@TypeForm,@RefPayerNo,@YA)"
+            StrSQL = "INSERT INTO dbSupport (CompanyID,DateTime,TeamviewerID,TeamviewerPass,PersonName,Problem,Note,Status,DateCreated,ModifiedBy,TypeForm,RefPayerNo,YA,PersonReport,SupportRefID) VALUES (@CompanyID,@DateTime,@TeamviewerID,@TeamviewerPass,@PersorName,@Problem,@Note,@Status,@DateCreated,@ModifiedBy,@TypeForm,@RefPayerNo,@YA,@PersonReport,@SupportRefID)"
+
+
+
+            Dim SupportRefID As String = "SP-" & Format(Now, "ddMMyyyy") & RandomID(4)
+
+            While ValidateSupportID(SupportRefID)
+                SupportRefID = "SP-" & Format(Now, "ddMMyyyy") & RandomID(4)
+            End While
 
 
             ADO = New SQLDataObject()
@@ -2099,6 +2151,8 @@ Module mdlProcess_Office
             cmd = New SqlCommand
             cmd.CommandText = StrSQL
             cmd.CommandTimeout = 0
+          
+
 
             cmd.Parameters.Add("@CompanyID", SqlDbType.NVarChar, 30).Value = RefID
             cmd.Parameters.Add("@DateTime", SqlDbType.DateTime).Value = Now
@@ -2113,6 +2167,8 @@ Module mdlProcess_Office
             cmd.Parameters.Add("@TypeForm", SqlDbType.Int).Value = TypeForm
             cmd.Parameters.Add("@RefPayerNo", SqlDbType.NVarChar, 50).Value = RefPayerNo
             cmd.Parameters.Add("@YA", SqlDbType.Int).Value = YA
+            cmd.Parameters.Add("@PersonReport", SqlDbType.NVarChar, 150).Value = PersonReport
+            cmd.Parameters.Add("@SupportRefID", SqlDbType.NVarChar, 50).Value = SupportRefID
 
             Dim ReturnID As Integer = 0
             tmpBol = ADO.ExecuteSQLCmd(cmd, SqlCon, System.Reflection.MethodBase.GetCurrentMethod().Name, Errorlog, ReturnID)
@@ -2164,6 +2220,36 @@ Module mdlProcess_Office
             End If
 
             With Errorlog
+                .ErrorName = System.Reflection.MethodBase.GetCurrentMethod().Name
+                .ErrorCode = ex.GetHashCode.ToString
+                .ErrorDateTime = Now
+                .ErrorMessage = ex.Message
+            End With
+            Return False
+        End Try
+    End Function
+    Public Function SaveFileCompare(ByVal dgView As DataGridView, Optional ByRef ErrorLog As clsError = Nothing) As Boolean
+        Try
+            Dim ListofCmd As New List(Of SqlCommand)
+            Dim StrSQL As String = Nothing
+            Dim ReturnValue As Integer = 0
+            ADO = New SQLDataObject()
+            Dim SqlCon As SqlConnection = Nothing
+            If DBConnection(SqlCon, ErrorLog) = False OrElse SqlCon Is Nothing Then
+                Return Nothing
+            End If
+
+            For i As Integer = 0 To dgView.Rows.Count - 1
+
+            Next
+
+            Return True
+        Catch ex As Exception
+            If ErrorLog Is Nothing Then
+                ErrorLog = New clsError
+            End If
+
+            With ErrorLog
                 .ErrorName = System.Reflection.MethodBase.GetCurrentMethod().Name
                 .ErrorCode = ex.GetHashCode.ToString
                 .ErrorDateTime = Now
@@ -2676,7 +2762,7 @@ Module mdlProcess_Office
                 Case 3
                     Return "Solved"
                 Case 4
-                    Return "Connection Problem"
+                    Return "Cannot Trigger Problem"
                 Case 5
                     Return "Bug Program On Hold"
                 Case 6

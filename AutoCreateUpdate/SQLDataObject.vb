@@ -242,13 +242,14 @@ Public Class SQLDataObject
 
         Catch ex As Exception
             If ErrorLog IsNot Nothing Then
-                With ErrorLog
-                    .ErrorName = System.Reflection.MethodBase.GetCurrentMethod().Name
-                    .ErrorCode = ex.GetHashCode.ToString
-                    .ErrorDateTime = Now
-                    .ErrorMessage = ex.Message
-                End With
+                ErrorLog = New clsError
             End If
+            With ErrorLog
+                .ErrorName = System.Reflection.MethodBase.GetCurrentMethod().Name
+                .ErrorCode = ex.GetHashCode.ToString
+                .ErrorDateTime = Now
+                .ErrorMessage = ex.Message
+            End With
             'mdlProcess.EventLogging(System.Reflection.MethodBase.GetCurrentMethod().Name & " " & MethodName, ex.HResult.ToString, ex.Message, 2)
             Return Nothing
         Finally
@@ -309,14 +310,15 @@ Public Class SQLDataObject
                 da.Update(odt(i))
             Next
         Catch ex As Exception
-            If ErrorLog IsNot Nothing Then
-                With ErrorLog
-                    .ErrorName = System.Reflection.MethodBase.GetCurrentMethod().Name
-                    .ErrorCode = ex.GetHashCode.ToString
-                    .ErrorDateTime = Now
-                    .ErrorMessage = ex.Message
-                End With
+            If ErrorLog Is Nothing Then
+                ErrorLog = New clsError
             End If
+            With ErrorLog
+                .ErrorName = System.Reflection.MethodBase.GetCurrentMethod().Name
+                .ErrorCode = ex.GetHashCode.ToString
+                .ErrorDateTime = Now
+                .ErrorMessage = ex.Message
+            End With
             txn.Rollback()
             Exit Sub
         End Try
@@ -343,14 +345,15 @@ Public Class SQLDataObject
             Dim cb As New SqlCommandBuilder(da)
             da.Update(odt)
         Catch ex As Exception
-            If ErrorLog IsNot Nothing Then
-                With ErrorLog
-                    .ErrorName = System.Reflection.MethodBase.GetCurrentMethod().Name
-                    .ErrorCode = ex.GetHashCode.ToString
-                    .ErrorDateTime = Now
-                    .ErrorMessage = ex.Message
-                End With
+            If ErrorLog Is Nothing Then
+                ErrorLog = New clsError
             End If
+            With ErrorLog
+                .ErrorName = System.Reflection.MethodBase.GetCurrentMethod().Name
+                .ErrorCode = ex.GetHashCode.ToString
+                .ErrorDateTime = Now
+                .ErrorMessage = ex.Message
+            End With
         End Try
 
     End Sub
@@ -389,14 +392,15 @@ Public Class SQLDataObject
         Catch ex As Exception
             txn.Rollback()
             DBErrorMsg = ex.Message.ToString
-            If ErrorLog IsNot Nothing Then
-                With ErrorLog
-                    .ErrorName = System.Reflection.MethodBase.GetCurrentMethod().Name
-                    .ErrorCode = ex.GetHashCode.ToString
-                    .ErrorDateTime = Now
-                    .ErrorMessage = ex.Message
-                End With
+            If ErrorLog Is Nothing Then
+                ErrorLog = New clsError
             End If
+            With ErrorLog
+                .ErrorName = System.Reflection.MethodBase.GetCurrentMethod().Name
+                .ErrorCode = ex.GetHashCode.ToString
+                .ErrorDateTime = Now
+                .ErrorMessage = ex.Message
+            End With
             Exit Sub
         End Try
         txn.Commit()
@@ -433,14 +437,16 @@ Public Class SQLDataObject
             txn.Commit() 'Commit Trans 
             Return True
         Catch ex As Exception
-            If ErrorLog IsNot Nothing Then
-                With ErrorLog
-                    .ErrorName = System.Reflection.MethodBase.GetCurrentMethod().Name
-                    .ErrorCode = ex.GetHashCode.ToString
-                    .ErrorDateTime = Now
-                    .ErrorMessage = ex.Message
-                End With
+            If ErrorLog Is Nothing Then
+                ErrorLog = New clsError
             End If
+            With ErrorLog
+                .ErrorName = System.Reflection.MethodBase.GetCurrentMethod().Name
+                .ErrorCode = ex.GetHashCode.ToString
+                .ErrorDateTime = Now
+                .ErrorMessage = ex.Message
+            End With
+
             txn.Rollback()
             'mdlProcess.EventLogging(System.Reflection.MethodBase.GetCurrentMethod().Name & " " & MethodName, ex.HResult.ToString, ex.Message, 2)
             Return False

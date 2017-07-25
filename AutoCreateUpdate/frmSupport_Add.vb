@@ -30,6 +30,7 @@ Public Class frmSupport_Add
                     cboFormType.SelectedIndex = IIf(IsDBNull(dt.Rows(0)("TypeForm")), 0, dt.Rows(0)("TypeForm"))
                     txtRefNoPayer.Text = IIf(IsDBNull(dt.Rows(0)("RefPayerNo")), "", dt.Rows(0)("RefPayerNo"))
                     txtYA.Text = IIf(IsDBNull(dt.Rows(0)("YA")), "0", dt.Rows(0)("YA"))
+                    txtSupportID.Text = IIf(IsDBNull(dt.Rows(0)("SupportRefID")), "", dt.Rows(0)("SupportRefID"))
 
                     If Type = 0 Then
                         txtID.Text = IIf(IsDBNull(dt.Rows(0)("RefID")), "", dt.Rows(0)("RefID"))
@@ -87,6 +88,7 @@ Public Class frmSupport_Add
 
                     lblTypeCompany.Text = "Version " & tmpstr
                     lblModifiedBy.Text = IIf(IsDBNull(dt.Rows(0)("ModifiedBy")), "", dt.Rows(0)("ModifiedBy"))
+                    txtReportName.Text = IIf(IsDBNull(dt.Rows(0)("PersonReport")), "", dt.Rows(0)("PersonReport"))
                     ' Dim tmpdt As DataTable = 
 
                     If mdlProcess_Office.LoadSupportAttachmentCount_ByID(ID) Then
@@ -598,8 +600,9 @@ Public Class frmSupport_Add
 
                 If isEdit Then
 
-                    If mdlProcess_Office.UpdateSupport(ID, txtRefID.Text, txtTVID.Text, txtTVPass.Text, txtPerson.Text, txtProblem.Text, _
-                                                     txtNote.Text, cboStatus.SelectedIndex, cboFormType.SelectedIndex, txtRefNoPayer.Text, IIf(IsNumeric(txtYA) = False, 0, CInt(txtYA.Text)), flpPanel, ErrorLog) Then
+                    If mdlProcess_Office.UpdateSupport(ID, txtRefID.Text, txtSupportID.Text, txtTVID.Text, txtTVPass.Text, txtPerson.Text, txtProblem.Text, _
+                                                     txtNote.Text, cboStatus.SelectedIndex, cboFormType.SelectedIndex, txtRefNoPayer.Text, IIf(IsNumeric(txtYA) = False, 0, CInt(txtYA.Text)), _
+                                                     txtReportName.Text, flpPanel, ErrorLog) Then
                         MsgBox("Successfully updated your data.", MsgBoxStyle.Information)
                         If isRemote = True Then
                             Me.Close()
@@ -611,10 +614,11 @@ Public Class frmSupport_Add
                     End If
                 Else
                     If mdlProcess_Office.SaveSupport(txtRefID.Text, txtTVID.Text, txtTVPass.Text, txtPerson.Text, txtProblem.Text, _
-                                                     txtNote.Text, cboStatus.SelectedIndex, cboFormType.SelectedIndex, txtRefNoPayer.Text, IIf(IsNumeric(txtYA) = False, 0, CInt(txtYA.Text)), flpPanel, ErrorLog) Then
+                                                     txtNote.Text, cboStatus.SelectedIndex, cboFormType.SelectedIndex, txtRefNoPayer.Text, IIf(IsNumeric(txtYA) = False, 0, CInt(txtYA.Text)), _
+                                                     txtReportName.Text, flpPanel, ErrorLog) Then
                         MsgBox("Successfully saved your data.", MsgBoxStyle.Information)
                         Me.Close()
-                        
+
                     Else
                         MsgBox("Unsuccessfully save data." & vbCrLf & ErrorLog.ErrorMessage, MsgBoxStyle.Critical)
                     End If

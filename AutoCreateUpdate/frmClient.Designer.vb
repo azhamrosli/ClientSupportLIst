@@ -59,6 +59,8 @@ Partial Class frmClient
         Me.btnEmailList = New System.Windows.Forms.Button()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
+        Me.Label13 = New System.Windows.Forms.Label()
+        Me.txtReportName = New System.Windows.Forms.TextBox()
         Me.btnReport = New System.Windows.Forms.Button()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.lblTopSupport2 = New System.Windows.Forms.Label()
@@ -100,6 +102,7 @@ Partial Class frmClient
         Me.ColumnHeader24 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader22 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader23 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader25 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.OpenTeamviewerToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.CopyTeamviewerIDToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -145,8 +148,9 @@ Partial Class frmClient
         Me.ColumnHeader40 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader41 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.TabPage3 = New System.Windows.Forms.TabPage()
-        Me.Button2 = New System.Windows.Forms.Button()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.btnFileBrowser = New System.Windows.Forms.Button()
+        Me.txtFileBrowser = New System.Windows.Forms.TextBox()
         Me.Label12 = New System.Windows.Forms.Label()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
@@ -161,6 +165,7 @@ Partial Class frmClient
         Me.Message.SuspendLayout()
         Me.Panel2.SuspendLayout()
         Me.TabPage3.SuspendLayout()
+        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Panel1
@@ -501,6 +506,8 @@ Partial Class frmClient
         'TabPage1
         '
         Me.TabPage1.BackColor = System.Drawing.Color.LightSteelBlue
+        Me.TabPage1.Controls.Add(Me.Label13)
+        Me.TabPage1.Controls.Add(Me.txtReportName)
         Me.TabPage1.Controls.Add(Me.btnReport)
         Me.TabPage1.Controls.Add(Me.Label5)
         Me.TabPage1.Controls.Add(Me.lblTopSupport2)
@@ -540,12 +547,31 @@ Partial Class frmClient
         Me.TabPage1.TabIndex = 0
         Me.TabPage1.Text = "F1 Support                          "
         '
+        'Label13
+        '
+        Me.Label13.AutoSize = True
+        Me.Label13.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label13.Location = New System.Drawing.Point(6, 67)
+        Me.Label13.Name = "Label13"
+        Me.Label13.Size = New System.Drawing.Size(74, 16)
+        Me.Label13.TabIndex = 226
+        Me.Label13.Text = "Report By :"
+        '
+        'txtReportName
+        '
+        Me.txtReportName.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtReportName.Location = New System.Drawing.Point(116, 64)
+        Me.txtReportName.MaxLength = 150
+        Me.txtReportName.Name = "txtReportName"
+        Me.txtReportName.Size = New System.Drawing.Size(380, 22)
+        Me.txtReportName.TabIndex = 225
+        '
         'btnReport
         '
         Me.btnReport.DialogResult = System.Windows.Forms.DialogResult.Cancel
         Me.btnReport.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnReport.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnReport.Location = New System.Drawing.Point(672, 140)
+        Me.btnReport.Location = New System.Drawing.Point(672, 171)
         Me.btnReport.Name = "btnReport"
         Me.btnReport.Size = New System.Drawing.Size(117, 39)
         Me.btnReport.TabIndex = 224
@@ -608,7 +634,7 @@ Partial Class frmClient
         Me.btnYesterday.DialogResult = System.Windows.Forms.DialogResult.Cancel
         Me.btnYesterday.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnYesterday.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnYesterday.Location = New System.Drawing.Point(134, 98)
+        Me.btnYesterday.Location = New System.Drawing.Point(134, 129)
         Me.btnYesterday.Name = "btnYesterday"
         Me.btnYesterday.Size = New System.Drawing.Size(117, 39)
         Me.btnYesterday.TabIndex = 216
@@ -620,7 +646,7 @@ Partial Class frmClient
         Me.btnPendingTest.DialogResult = System.Windows.Forms.DialogResult.Cancel
         Me.btnPendingTest.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnPendingTest.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnPendingTest.Location = New System.Drawing.Point(134, 143)
+        Me.btnPendingTest.Location = New System.Drawing.Point(134, 174)
         Me.btnPendingTest.Name = "btnPendingTest"
         Me.btnPendingTest.Size = New System.Drawing.Size(117, 39)
         Me.btnPendingTest.TabIndex = 215
@@ -632,7 +658,7 @@ Partial Class frmClient
         Me.btnThisMonth.DialogResult = System.Windows.Forms.DialogResult.Cancel
         Me.btnThisMonth.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnThisMonth.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnThisMonth.Location = New System.Drawing.Point(379, 98)
+        Me.btnThisMonth.Location = New System.Drawing.Point(379, 129)
         Me.btnThisMonth.Name = "btnThisMonth"
         Me.btnThisMonth.Size = New System.Drawing.Size(117, 39)
         Me.btnThisMonth.TabIndex = 214
@@ -644,7 +670,7 @@ Partial Class frmClient
         Me.btnHoldOnly.DialogResult = System.Windows.Forms.DialogResult.Cancel
         Me.btnHoldOnly.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnHoldOnly.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnHoldOnly.Location = New System.Drawing.Point(257, 143)
+        Me.btnHoldOnly.Location = New System.Drawing.Point(257, 174)
         Me.btnHoldOnly.Name = "btnHoldOnly"
         Me.btnHoldOnly.Size = New System.Drawing.Size(117, 39)
         Me.btnHoldOnly.TabIndex = 213
@@ -656,7 +682,7 @@ Partial Class frmClient
         Me.btnThisWeek.DialogResult = System.Windows.Forms.DialogResult.Cancel
         Me.btnThisWeek.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnThisWeek.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnThisWeek.Location = New System.Drawing.Point(257, 98)
+        Me.btnThisWeek.Location = New System.Drawing.Point(257, 129)
         Me.btnThisWeek.Name = "btnThisWeek"
         Me.btnThisWeek.Size = New System.Drawing.Size(117, 39)
         Me.btnThisWeek.TabIndex = 212
@@ -668,7 +694,7 @@ Partial Class frmClient
         Me.btnUrgentOnly.DialogResult = System.Windows.Forms.DialogResult.Cancel
         Me.btnUrgentOnly.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnUrgentOnly.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnUrgentOnly.Location = New System.Drawing.Point(379, 143)
+        Me.btnUrgentOnly.Location = New System.Drawing.Point(379, 174)
         Me.btnUrgentOnly.Name = "btnUrgentOnly"
         Me.btnUrgentOnly.Size = New System.Drawing.Size(117, 39)
         Me.btnUrgentOnly.TabIndex = 211
@@ -680,7 +706,7 @@ Partial Class frmClient
         Me.btnBugOnly.DialogResult = System.Windows.Forms.DialogResult.Cancel
         Me.btnBugOnly.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnBugOnly.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnBugOnly.Location = New System.Drawing.Point(11, 143)
+        Me.btnBugOnly.Location = New System.Drawing.Point(11, 174)
         Me.btnBugOnly.Name = "btnBugOnly"
         Me.btnBugOnly.Size = New System.Drawing.Size(117, 39)
         Me.btnBugOnly.TabIndex = 210
@@ -692,7 +718,7 @@ Partial Class frmClient
         Me.btnToday.DialogResult = System.Windows.Forms.DialogResult.Cancel
         Me.btnToday.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnToday.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnToday.Location = New System.Drawing.Point(11, 98)
+        Me.btnToday.Location = New System.Drawing.Point(11, 129)
         Me.btnToday.Name = "btnToday"
         Me.btnToday.Size = New System.Drawing.Size(117, 39)
         Me.btnToday.TabIndex = 209
@@ -712,7 +738,7 @@ Partial Class frmClient
         Me.GroupBox2.Controls.Add(Me.lblTotalSupportToday)
         Me.GroupBox2.Location = New System.Drawing.Point(807, 6)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(389, 175)
+        Me.GroupBox2.Size = New System.Drawing.Size(389, 207)
         Me.GroupBox2.TabIndex = 208
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Support Count"
@@ -798,15 +824,15 @@ Partial Class frmClient
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.LvLists.BackColor = System.Drawing.Color.White
         Me.LvLists.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.LvLists.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader2, Me.ColumnHeader3, Me.ColumnHeader12, Me.ColumnHeader4, Me.ColumnHeader5, Me.ColumnHeader13, Me.ColumnHeader14, Me.ColumnHeader15, Me.ColumnHeader19, Me.ColumnHeader17, Me.ColumnHeader16, Me.ColumnHeader18, Me.ColumnHeader20, Me.ColumnHeader21, Me.ColumnHeader24, Me.ColumnHeader22, Me.ColumnHeader23})
+        Me.LvLists.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader2, Me.ColumnHeader3, Me.ColumnHeader12, Me.ColumnHeader4, Me.ColumnHeader5, Me.ColumnHeader13, Me.ColumnHeader14, Me.ColumnHeader15, Me.ColumnHeader19, Me.ColumnHeader17, Me.ColumnHeader16, Me.ColumnHeader18, Me.ColumnHeader20, Me.ColumnHeader21, Me.ColumnHeader24, Me.ColumnHeader22, Me.ColumnHeader23, Me.ColumnHeader25})
         Me.LvLists.ContextMenuStrip = Me.ContextMenuStrip1
         Me.LvLists.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LvLists.FullRowSelect = True
         Me.LvLists.GridLines = True
-        Me.LvLists.Location = New System.Drawing.Point(11, 188)
+        Me.LvLists.Location = New System.Drawing.Point(11, 222)
         Me.LvLists.Name = "LvLists"
         Me.LvLists.ShowItemToolTips = True
-        Me.LvLists.Size = New System.Drawing.Size(1187, 191)
+        Me.LvLists.Size = New System.Drawing.Size(1187, 157)
         Me.LvLists.TabIndex = 190
         Me.ToolTip1.SetToolTip(Me.LvLists, "Data")
         Me.LvLists.UseCompatibleStateImageBehavior = False
@@ -850,8 +876,8 @@ Partial Class frmClient
         '
         'ColumnHeader15
         '
-        Me.ColumnHeader15.Text = "TV Pass"
-        Me.ColumnHeader15.Width = 80
+        Me.ColumnHeader15.Text = "Person Report"
+        Me.ColumnHeader15.Width = 150
         '
         'ColumnHeader19
         '
@@ -904,6 +930,11 @@ Partial Class frmClient
         '
         Me.ColumnHeader23.Text = "Modified By"
         Me.ColumnHeader23.Width = 350
+        '
+        'ColumnHeader25
+        '
+        Me.ColumnHeader25.Text = "TeamviewerID"
+        Me.ColumnHeader25.Width = 0
         '
         'ContextMenuStrip1
         '
@@ -1061,7 +1092,7 @@ Partial Class frmClient
         '
         Me.cboStatuss.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cboStatuss.FormattingEnabled = True
-        Me.cboStatuss.Items.AddRange(New Object() {"New", "Hold", "Cancel", "Solved", "Connetion Problem", "Bug on Program", "PC Problem", "Urgent", "Pending To Testing", "All"})
+        Me.cboStatuss.Items.AddRange(New Object() {"New", "Hold", "Cancel", "Solved", "Cannot Trigger Problem", "Bug on Program", "PC Problem", "Urgent", "Pending To Testing", "All"})
         Me.cboStatuss.Location = New System.Drawing.Point(581, 65)
         Me.cboStatuss.Name = "cboStatuss"
         Me.cboStatuss.Size = New System.Drawing.Size(207, 27)
@@ -1071,7 +1102,7 @@ Partial Class frmClient
         '
         Me.Label10.AutoSize = True
         Me.Label10.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label10.Location = New System.Drawing.Point(8, 70)
+        Me.Label10.Location = New System.Drawing.Point(8, 97)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(65, 16)
         Me.Label10.TabIndex = 193
@@ -1129,7 +1160,7 @@ Partial Class frmClient
         '
         Me.btnFinds.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnFinds.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnFinds.Location = New System.Drawing.Point(672, 98)
+        Me.btnFinds.Location = New System.Drawing.Point(672, 129)
         Me.btnFinds.Name = "btnFinds"
         Me.btnFinds.Size = New System.Drawing.Size(117, 39)
         Me.btnFinds.TabIndex = 196
@@ -1148,7 +1179,7 @@ Partial Class frmClient
         'txtIDS
         '
         Me.txtIDS.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtIDS.Location = New System.Drawing.Point(116, 65)
+        Me.txtIDS.Location = New System.Drawing.Point(116, 92)
         Me.txtIDS.MaxLength = 150
         Me.txtIDS.Name = "txtIDS"
         Me.txtIDS.Size = New System.Drawing.Size(380, 22)
@@ -1169,7 +1200,7 @@ Partial Class frmClient
         Me.btnClears.DialogResult = System.Windows.Forms.DialogResult.Cancel
         Me.btnClears.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnClears.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnClears.Location = New System.Drawing.Point(549, 98)
+        Me.btnClears.Location = New System.Drawing.Point(549, 129)
         Me.btnClears.Name = "btnClears"
         Me.btnClears.Size = New System.Drawing.Size(117, 39)
         Me.btnClears.TabIndex = 198
@@ -1278,8 +1309,9 @@ Partial Class frmClient
         '
         'TabPage3
         '
-        Me.TabPage3.Controls.Add(Me.Button2)
-        Me.TabPage3.Controls.Add(Me.TextBox1)
+        Me.TabPage3.Controls.Add(Me.DataGridView1)
+        Me.TabPage3.Controls.Add(Me.btnFileBrowser)
+        Me.TabPage3.Controls.Add(Me.txtFileBrowser)
         Me.TabPage3.Controls.Add(Me.Label12)
         Me.TabPage3.Location = New System.Drawing.Point(4, 28)
         Me.TabPage3.Name = "TabPage3"
@@ -1288,21 +1320,32 @@ Partial Class frmClient
         Me.TabPage3.Text = "File Compare Control                                      "
         Me.TabPage3.UseVisualStyleBackColor = True
         '
-        'Button2
+        'DataGridView1
         '
-        Me.Button2.Location = New System.Drawing.Point(679, 4)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(67, 31)
-        Me.Button2.TabIndex = 2
-        Me.Button2.Text = "..."
-        Me.Button2.UseVisualStyleBackColor = True
+        Me.DataGridView1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridView1.Location = New System.Drawing.Point(8, 40)
+        Me.DataGridView1.Name = "DataGridView1"
+        Me.DataGridView1.Size = New System.Drawing.Size(1187, 486)
+        Me.DataGridView1.TabIndex = 3
         '
-        'TextBox1
+        'btnFileBrowser
         '
-        Me.TextBox1.Location = New System.Drawing.Point(112, 7)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(561, 27)
-        Me.TextBox1.TabIndex = 1
+        Me.btnFileBrowser.Location = New System.Drawing.Point(679, 4)
+        Me.btnFileBrowser.Name = "btnFileBrowser"
+        Me.btnFileBrowser.Size = New System.Drawing.Size(67, 31)
+        Me.btnFileBrowser.TabIndex = 2
+        Me.btnFileBrowser.Text = "..."
+        Me.btnFileBrowser.UseVisualStyleBackColor = True
+        '
+        'txtFileBrowser
+        '
+        Me.txtFileBrowser.Location = New System.Drawing.Point(112, 7)
+        Me.txtFileBrowser.Name = "txtFileBrowser"
+        Me.txtFileBrowser.Size = New System.Drawing.Size(561, 27)
+        Me.txtFileBrowser.TabIndex = 1
         '
         'Label12
         '
@@ -1361,6 +1404,7 @@ Partial Class frmClient
         Me.Panel2.PerformLayout()
         Me.TabPage3.ResumeLayout(False)
         Me.TabPage3.PerformLayout()
+        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -1486,9 +1530,13 @@ Partial Class frmClient
     Friend WithEvents Panel3 As System.Windows.Forms.Panel
     Friend WithEvents TabPage3 As System.Windows.Forms.TabPage
     Friend WithEvents CopyServerNameToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents Button2 As System.Windows.Forms.Button
-    Friend WithEvents TextBox1 As System.Windows.Forms.TextBox
+    Friend WithEvents btnFileBrowser As System.Windows.Forms.Button
+    Friend WithEvents txtFileBrowser As System.Windows.Forms.TextBox
     Friend WithEvents Label12 As System.Windows.Forms.Label
     Friend WithEvents ToolTip1 As System.Windows.Forms.ToolTip
+    Friend WithEvents Label13 As System.Windows.Forms.Label
+    Friend WithEvents txtReportName As System.Windows.Forms.TextBox
+    Friend WithEvents ColumnHeader25 As System.Windows.Forms.ColumnHeader
+    Friend WithEvents DataGridView1 As System.Windows.Forms.DataGridView
 
 End Class

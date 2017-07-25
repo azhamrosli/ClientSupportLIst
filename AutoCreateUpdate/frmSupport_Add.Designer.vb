@@ -74,6 +74,10 @@ Partial Class frmSupport_Add
         Me.txtRefNoPayer = New System.Windows.Forms.TextBox()
         Me.Label16 = New System.Windows.Forms.Label()
         Me.Label15 = New System.Windows.Forms.Label()
+        Me.txtReportName = New System.Windows.Forms.TextBox()
+        Me.Label17 = New System.Windows.Forms.Label()
+        Me.txtSupportID = New System.Windows.Forms.TextBox()
+        Me.Label18 = New System.Windows.Forms.Label()
         Me.TabPage2 = New System.Windows.Forms.TabPage()
         Me.flpMain = New System.Windows.Forms.FlowLayoutPanel()
         Me.Panel2 = New System.Windows.Forms.Panel()
@@ -160,9 +164,13 @@ Partial Class frmSupport_Add
         Me.TabPage1.Controls.Add(Me.txtRefNoPayer)
         Me.TabPage1.Controls.Add(Me.Label16)
         Me.TabPage1.Controls.Add(Me.Label15)
+        Me.TabPage1.Controls.Add(Me.txtReportName)
+        Me.TabPage1.Controls.Add(Me.Label17)
+        Me.TabPage1.Controls.Add(Me.txtSupportID)
+        Me.TabPage1.Controls.Add(Me.Label18)
         Me.TabPage1.Location = New System.Drawing.Point(4, 22)
         Me.TabPage1.Name = "TabPage1"
-        Me.TabPage1.Padding = New System.Windows.Forms.Padding(3, 3, 3, 3)
+        Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
         Me.TabPage1.Size = New System.Drawing.Size(1306, 637)
         Me.TabPage1.TabIndex = 0
         Me.TabPage1.Text = "Support Details                          "
@@ -201,7 +209,7 @@ Partial Class frmSupport_Add
         '
         Me.Label13.AutoSize = True
         Me.Label13.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label13.Location = New System.Drawing.Point(544, 196)
+        Me.Label13.Location = New System.Drawing.Point(545, 224)
         Me.Label13.Name = "Label13"
         Me.Label13.Size = New System.Drawing.Size(80, 16)
         Me.Label13.TabIndex = 231
@@ -220,7 +228,7 @@ Partial Class frmSupport_Add
         'txtComName
         '
         Me.txtComName.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtComName.Location = New System.Drawing.Point(672, 83)
+        Me.txtComName.Location = New System.Drawing.Point(673, 111)
         Me.txtComName.MaxLength = 150
         Me.txtComName.Name = "txtComName"
         Me.txtComName.ReadOnly = True
@@ -243,7 +251,7 @@ Partial Class frmSupport_Add
         Me.cboFormType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cboFormType.FormattingEnabled = True
         Me.cboFormType.Items.AddRange(New Object() {"Office = SQL", "C+ = SQL", "B+ = SQL", "P+ = SQL", "IEToolbar = SQL", "Office = Access", "C+ = Access", "B+ = Access", "P+ = Access", "IEToolbar = Access", "General", "SQL Lite"})
-        Me.cboFormType.Location = New System.Drawing.Point(672, 195)
+        Me.cboFormType.Location = New System.Drawing.Point(673, 223)
         Me.cboFormType.Name = "cboFormType"
         Me.cboFormType.Size = New System.Drawing.Size(139, 21)
         Me.cboFormType.TabIndex = 202
@@ -279,7 +287,7 @@ Partial Class frmSupport_Add
         'ColumnHeader8
         '
         Me.ColumnHeader8.Text = "No"
-        Me.ColumnHeader8.Width = 80
+        Me.ColumnHeader8.Width = 0
         '
         'ColumnHeader11
         '
@@ -437,7 +445,7 @@ Partial Class frmSupport_Add
         '
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(543, 55)
+        Me.Label4.Location = New System.Drawing.Point(544, 83)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(93, 16)
         Me.Label4.TabIndex = 214
@@ -447,7 +455,7 @@ Partial Class frmSupport_Add
         '
         Me.cboStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cboStatus.FormattingEnabled = True
-        Me.cboStatus.Items.AddRange(New Object() {"New", "Hold", "Cancel", "Solved", "Connection Problem", "Bug on Program", "PC Problem", "Urgent", "Pending To Testing"})
+        Me.cboStatus.Items.AddRange(New Object() {"New", "Hold", "Cancel", "Solved", "Cannot Trigger Problem", "Bug on Program", "PC Problem", "Urgent", "Pending To Testing"})
         Me.cboStatus.Location = New System.Drawing.Point(672, 544)
         Me.cboStatus.Name = "cboStatus"
         Me.cboStatus.Size = New System.Drawing.Size(444, 21)
@@ -457,7 +465,7 @@ Partial Class frmSupport_Add
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(543, 83)
+        Me.Label1.Location = New System.Drawing.Point(544, 111)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(112, 16)
         Me.Label1.TabIndex = 216
@@ -476,7 +484,7 @@ Partial Class frmSupport_Add
         'txtRefID
         '
         Me.txtRefID.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtRefID.Location = New System.Drawing.Point(672, 55)
+        Me.txtRefID.Location = New System.Drawing.Point(673, 83)
         Me.txtRefID.MaxLength = 150
         Me.txtRefID.Name = "txtRefID"
         Me.txtRefID.ReadOnly = True
@@ -497,7 +505,7 @@ Partial Class frmSupport_Add
         'txtTVPass
         '
         Me.txtTVPass.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtTVPass.Location = New System.Drawing.Point(672, 139)
+        Me.txtTVPass.Location = New System.Drawing.Point(673, 167)
         Me.txtTVPass.MaxLength = 150
         Me.txtTVPass.Name = "txtTVPass"
         Me.txtTVPass.Size = New System.Drawing.Size(139, 22)
@@ -527,7 +535,7 @@ Partial Class frmSupport_Add
         '
         Me.Label9.AutoSize = True
         Me.Label9.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label9.Location = New System.Drawing.Point(544, 225)
+        Me.Label9.Location = New System.Drawing.Point(543, 254)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(65, 16)
         Me.Label9.TabIndex = 223
@@ -546,11 +554,11 @@ Partial Class frmSupport_Add
         'txtProblem
         '
         Me.txtProblem.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtProblem.Location = New System.Drawing.Point(672, 222)
+        Me.txtProblem.Location = New System.Drawing.Point(672, 251)
         Me.txtProblem.MaxLength = 500
         Me.txtProblem.Multiline = True
         Me.txtProblem.Name = "txtProblem"
-        Me.txtProblem.Size = New System.Drawing.Size(444, 186)
+        Me.txtProblem.Size = New System.Drawing.Size(444, 157)
         Me.txtProblem.TabIndex = 203
         '
         'txtTVID
@@ -558,7 +566,7 @@ Partial Class frmSupport_Add
         Me.txtTVID.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
         Me.txtTVID.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
         Me.txtTVID.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtTVID.Location = New System.Drawing.Point(672, 111)
+        Me.txtTVID.Location = New System.Drawing.Point(673, 139)
         Me.txtTVID.MaxLength = 150
         Me.txtTVID.Name = "txtTVID"
         Me.txtTVID.Size = New System.Drawing.Size(139, 22)
@@ -568,7 +576,7 @@ Partial Class frmSupport_Add
         '
         Me.Label8.AutoSize = True
         Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label8.Location = New System.Drawing.Point(543, 167)
+        Me.Label8.Location = New System.Drawing.Point(544, 195)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(112, 16)
         Me.Label8.TabIndex = 222
@@ -578,7 +586,7 @@ Partial Class frmSupport_Add
         '
         Me.Label6.AutoSize = True
         Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.Location = New System.Drawing.Point(543, 111)
+        Me.Label6.Location = New System.Drawing.Point(544, 139)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(94, 16)
         Me.Label6.TabIndex = 220
@@ -589,7 +597,7 @@ Partial Class frmSupport_Add
         Me.txtPerson.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
         Me.txtPerson.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
         Me.txtPerson.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtPerson.Location = New System.Drawing.Point(672, 167)
+        Me.txtPerson.Location = New System.Drawing.Point(673, 195)
         Me.txtPerson.MaxLength = 150
         Me.txtPerson.Name = "txtPerson"
         Me.txtPerson.Size = New System.Drawing.Size(139, 22)
@@ -599,7 +607,7 @@ Partial Class frmSupport_Add
         '
         Me.Label7.AutoSize = True
         Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label7.Location = New System.Drawing.Point(543, 139)
+        Me.Label7.Location = New System.Drawing.Point(544, 167)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(123, 16)
         Me.Label7.TabIndex = 221
@@ -608,7 +616,7 @@ Partial Class frmSupport_Add
         'txtYA
         '
         Me.txtYA.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtYA.Location = New System.Drawing.Point(916, 139)
+        Me.txtYA.Location = New System.Drawing.Point(917, 167)
         Me.txtYA.MaxLength = 150
         Me.txtYA.Name = "txtYA"
         Me.txtYA.Size = New System.Drawing.Size(139, 22)
@@ -620,7 +628,7 @@ Partial Class frmSupport_Add
         Me.txtRefNoPayer.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
         Me.txtRefNoPayer.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
         Me.txtRefNoPayer.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtRefNoPayer.Location = New System.Drawing.Point(916, 111)
+        Me.txtRefNoPayer.Location = New System.Drawing.Point(917, 139)
         Me.txtRefNoPayer.MaxLength = 150
         Me.txtRefNoPayer.Name = "txtRefNoPayer"
         Me.txtRefNoPayer.Size = New System.Drawing.Size(139, 22)
@@ -630,7 +638,7 @@ Partial Class frmSupport_Add
         '
         Me.Label16.AutoSize = True
         Me.Label16.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label16.Location = New System.Drawing.Point(816, 141)
+        Me.Label16.Location = New System.Drawing.Point(817, 169)
         Me.Label16.Name = "Label16"
         Me.Label16.Size = New System.Drawing.Size(32, 16)
         Me.Label16.TabIndex = 234
@@ -640,11 +648,53 @@ Partial Class frmSupport_Add
         '
         Me.Label15.AutoSize = True
         Me.Label15.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label15.Location = New System.Drawing.Point(816, 114)
+        Me.Label15.Location = New System.Drawing.Point(817, 142)
         Me.Label15.Name = "Label15"
         Me.Label15.Size = New System.Drawing.Size(98, 16)
         Me.Label15.TabIndex = 233
         Me.Label15.Text = "Reference No :"
+        '
+        'txtReportName
+        '
+        Me.txtReportName.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
+        Me.txtReportName.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
+        Me.txtReportName.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtReportName.Location = New System.Drawing.Point(917, 195)
+        Me.txtReportName.MaxLength = 150
+        Me.txtReportName.Name = "txtReportName"
+        Me.txtReportName.Size = New System.Drawing.Size(139, 22)
+        Me.txtReportName.TabIndex = 238
+        '
+        'Label17
+        '
+        Me.Label17.AutoSize = True
+        Me.Label17.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label17.Location = New System.Drawing.Point(817, 198)
+        Me.Label17.Name = "Label17"
+        Me.Label17.Size = New System.Drawing.Size(74, 16)
+        Me.Label17.TabIndex = 237
+        Me.Label17.Text = "Report By :"
+        '
+        'txtSupportID
+        '
+        Me.txtSupportID.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtSupportID.Location = New System.Drawing.Point(672, 55)
+        Me.txtSupportID.MaxLength = 150
+        Me.txtSupportID.Name = "txtSupportID"
+        Me.txtSupportID.ReadOnly = True
+        Me.txtSupportID.Size = New System.Drawing.Size(444, 22)
+        Me.txtSupportID.TabIndex = 240
+        Me.txtSupportID.TabStop = False
+        '
+        'Label18
+        '
+        Me.Label18.AutoSize = True
+        Me.Label18.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label18.Location = New System.Drawing.Point(543, 58)
+        Me.Label18.Name = "Label18"
+        Me.Label18.Size = New System.Drawing.Size(101, 16)
+        Me.Label18.TabIndex = 239
+        Me.Label18.Text = "Support Ref ID :"
         '
         'TabPage2
         '
@@ -652,7 +702,7 @@ Partial Class frmSupport_Add
         Me.TabPage2.Controls.Add(Me.Panel2)
         Me.TabPage2.Location = New System.Drawing.Point(4, 22)
         Me.TabPage2.Name = "TabPage2"
-        Me.TabPage2.Padding = New System.Windows.Forms.Padding(3, 3, 3, 3)
+        Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
         Me.TabPage2.Size = New System.Drawing.Size(1306, 637)
         Me.TabPage2.TabIndex = 1
         Me.TabPage2.Text = "Comment(s)                          "
@@ -703,7 +753,7 @@ Partial Class frmSupport_Add
         '
         Me.TabPage3.Controls.Add(Me.lvLog)
         Me.TabPage3.Location = New System.Drawing.Point(4, 22)
-        Me.TabPage3.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.TabPage3.Margin = New System.Windows.Forms.Padding(2)
         Me.TabPage3.Name = "TabPage3"
         Me.TabPage3.Size = New System.Drawing.Size(1306, 637)
         Me.TabPage3.TabIndex = 2
@@ -796,7 +846,7 @@ Partial Class frmSupport_Add
         Me.ClientSize = New System.Drawing.Size(1314, 663)
         Me.Controls.Add(Me.TabControl1)
         Me.KeyPreview = True
-        Me.MinimumSize = New System.Drawing.Size(1202, 700)
+        Me.MinimumSize = New System.Drawing.Size(1202, 699)
         Me.Name = "frmSupport_Add"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "New Support"
@@ -886,4 +936,8 @@ Partial Class frmSupport_Add
     Friend WithEvents txtRefNoPayer As System.Windows.Forms.TextBox
     Friend WithEvents Label16 As System.Windows.Forms.Label
     Friend WithEvents Label15 As System.Windows.Forms.Label
+    Friend WithEvents txtReportName As System.Windows.Forms.TextBox
+    Friend WithEvents Label17 As System.Windows.Forms.Label
+    Friend WithEvents Label18 As System.Windows.Forms.Label
+    Friend WithEvents txtSupportID As System.Windows.Forms.TextBox
 End Class

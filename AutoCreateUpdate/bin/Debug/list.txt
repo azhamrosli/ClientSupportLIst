@@ -1,6 +1,1 @@
-C:\Users\Azham\Desktop\New folder (6)\DatabaseUpdate.exe
-C:\Users\Azham\Desktop\New folder (6)\SchedulerBackupDatabase.exe
-C:\Users\Azham\Desktop\New folder (6)\TaxOffice.exe
-C:\Users\Azham\Desktop\New folder (6)\Taxver.ini
-C:\Users\Azham\Desktop\New folder (6)\Taxoffice Taxcom B+
-C:\Users\Azham\Desktop\New folder (6)\Taxoffice Taxcom C+
+C:\Users\Azham\Dropbox\TAXCOM Update File\DatabaseUpdate\DatabaseUpdate\bin\Debug\New folder\DatabaseUpdate.exe

@@ -23,7 +23,7 @@
                     dtFroms.Value = Now
                     dtTos.Value = Now
 
-                    dt = mdlProcess_Office.LoadSupport_Search("", "", dtFroms.Value, dtTos.Value, -1, "")
+                    dt = mdlProcess_Office.LoadSupport_Search("", "", dtFroms.Value, dtTos.Value, -1, "", "")
 
                     If dt IsNot Nothing Then
                         ReportByDate(dt)
@@ -36,7 +36,7 @@
                     dtFroms.Value = CDate(Format(Now, "01-MMM-yyyy 00:00:00"))
                     dtTos.Value = CDate(Format(datLastDay, "dd-MMM-yyyy 23:59:59"))
 
-                    dt = mdlProcess_Office.LoadSupport_Search("", "", dtFroms.Value, dtTos.Value, -1, "")
+                    dt = mdlProcess_Office.LoadSupport_Search("", "", dtFroms.Value, dtTos.Value, -1, "", "")
 
                     If dt IsNot Nothing Then
                         ReportByDate(dt)
@@ -51,7 +51,7 @@
                     dtFroms.Value = Firstyear
                     dtTos.Value = Lastyear
 
-                    dt = mdlProcess_Office.LoadSupport_Search("", "", dtFroms.Value, dtTos.Value, -1, "")
+                    dt = mdlProcess_Office.LoadSupport_Search("", "", dtFroms.Value, dtTos.Value, -1, "", "")
 
                     If dt IsNot Nothing Then
                         ReportByDate(dt)
@@ -60,7 +60,7 @@
                 Case 3
                     'custom date
 
-                    dt = mdlProcess_Office.LoadSupport_Search("", "", dtFroms.Value, dtTos.Value, -1, "")
+                    dt = mdlProcess_Office.LoadSupport_Search("", "", dtFroms.Value, dtTos.Value, -1, "", "")
 
                     If dt IsNot Nothing Then
                         ReportByDate(dt)

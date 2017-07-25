@@ -134,6 +134,11 @@
     <Compile Include="DataSet1.vb">
       <DependentUpon>DataSet1.xsd</DependentUpon>
     </Compile>
+    <Compile Include="dsFileCompare.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsFileCompare.xsd</DependentUpon>
+    </Compile>
     <Compile Include="dsReport.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -316,6 +321,17 @@
     </None>
     <None Include="DataSet1.xss">
       <DependentUpon>DataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="dsFileCompare.xsc">
+      <DependentUpon>dsFileCompare.xsd</DependentUpon>
+    </None>
+    <None Include="dsFileCompare.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsFileCompare.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="dsFileCompare.xss">
+      <DependentUpon>dsFileCompare.xsd</DependentUpon>
     </None>
     <None Include="dsReport.xsc">
       <DependentUpon>dsReport.xsd</DependentUpon>
